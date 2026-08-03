@@ -104,6 +104,14 @@
     margin: 0 0 18px;
     max-width: 62ch;
   }
+  .count-line {
+    font-size: 14px;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
+    font-variant-numeric: tabular-nums;
+    margin: 0 0 18px;
+  }
+  .count-line strong { color: var(--primary); font-weight: 700; font-size: 16px; }
   .policy {
     background: var(--parchment);
     border-radius: 14px;
@@ -224,8 +232,9 @@
   <div class="sec-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="16" y2="7"/><line x1="9" y1="11" x2="16" y2="11"/></svg></div>
   <h1>논문 리뷰.</h1>
   <p class="sub">의료 AI·디지털헬스 신간 논문을 골라 읽습니다. 요지·핵심 결과·임상적 의미를 짧게 정리합니다.</p>
+  <p class="count-line"><strong id="review-count">3</strong>편 누적 · 최근 업데이트 2026-08-03</p>
   <div class="policy">
-    <strong>선정 기준</strong> — PubMed와 Consensus에서 새로 나온 논문 중 임상 적용 가능성과 파급력을 기준으로 <strong>매주</strong> 2~3편을 고릅니다. 각 리뷰는 초록·본문 기반 요약이며 원문 DOI를 함께 제공합니다.
+    <strong>선정 기준</strong> — PubMed와 Consensus에서 새로 나온 논문 중 임상 적용 가능성과 파급력을 기준으로 <strong>매주</strong> 2~3편을 고릅니다. 호(號)로 나누지 않고 최신 리뷰가 위에 쌓이는 방식이며, 각 리뷰는 초록·본문 기반 요약과 원문 DOI를 함께 제공합니다.
   </div>
 </div>
 
@@ -298,6 +307,12 @@
     <p>최종 업데이트: 2026-08-03 · © 2026 K-Digital &amp; AI Health Watch</p>
   </div>
 </footer>
+
+<script>
+  // 누적 리뷰 수는 실제 article 개수에서 자동 산출
+  var el = document.getElementById("review-count");
+  if (el) el.textContent = document.querySelectorAll(".review").length;
+</script>
 
 </body>
 </html>
