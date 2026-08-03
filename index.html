@@ -103,6 +103,7 @@
     margin: 0 0 14px;
     font-variant-numeric: tabular-nums;
   }
+  .hero .issue-tag strong { color: var(--primary); font-weight: 600; }
   .hero h1 {
     font-family: var(--font-display);
     font-size: clamp(34px, 7vw, 64px);
@@ -195,6 +196,29 @@
     margin-top: 6px;
     line-height: 1.43;
   }
+
+  /* ═══ Section badge ═══ */
+  .sec-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: rgba(0, 102, 204, 0.09);
+  }
+  .sec-badge svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--primary);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+  .tile-dark .sec-badge, .tile-dark-2 .sec-badge { background: rgba(41, 151, 255, 0.14); }
+  .tile-dark .sec-badge svg, .tile-dark-2 .sec-badge svg { stroke: var(--primary-on-dark); }
 
   /* ═══ Section headline grammar ═══ */
   .sec-head {
@@ -587,7 +611,7 @@
 
 <!-- ═══ Hero (white) ═══ -->
 <section class="hero tile-white" id="top">
-  <p class="issue-tag">제1호 · 2026년 8월 · 커버 기간 2025년 12월 – 2026년 7월</p>
+  <p class="issue-tag">제1호 · 최종 업데이트 <strong>2026-08-03</strong> · 커버 기간 2025년 12월 – 2026년 7월</p>
   <h1>대한민국 의료AI,<br>디지털헬스케어 브리핑.</h1>
   <p class="lead">식약처 허가·규제부터 혁신의료기기, 디지털치료기기, 급여, 기업, 학계 동향까지 꾸준히 업데이트합니다.</p>
   <div class="cta-row">
@@ -623,6 +647,7 @@
 <!-- ═══ 이번 호 핵심 (dark) ═══ -->
 <section class="tile tile-dark" id="highlights">
   <div class="tile-inner">
+    <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
     <h2 class="sec-head reveal">이번 호 핵심.</h2>
     <p class="sec-sub reveal">2026년 상반기, 규제 체계가 완성되고 시장 진입 속도가 빨라졌습니다.</p>
     <div class="highlight-grid">
@@ -696,6 +721,7 @@
 <!-- ═══ 타임라인 (parchment) ═══ -->
 <section class="tile tile-parchment" id="timeline">
   <div class="tile-inner">
+    <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg></div>
     <h2 class="sec-head reveal">2026년 상반기 타임라인.</h2>
     <p class="sec-sub reveal">규제와 제도가 움직인 순간들.</p>
     <div class="timeline-scroll reveal">
@@ -728,8 +754,9 @@
 <!-- ═══ 동향 (white) ═══ -->
 <section class="tile tile-white" id="news">
   <div class="tile-inner">
+    <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5"/></svg></div>
     <h2 class="sec-head reveal">동향.</h2>
-    <p class="sec-sub reveal">제목을 클릭하면 원문 기사로 이동합니다.</p>
+    <p class="sec-sub reveal">규제 체계 완성과 시장 즉시진입 시행으로 제도적 기반은 갖춰졌고, 무게중심은 급여 등재와 수익화 증명으로 옮겨가고 있습니다.</p>
 
     <div class="filter-row reveal" role="group" aria-label="카테고리 필터">
       <button class="filter-chip" data-filter="all" aria-pressed="true">전체</button>
@@ -885,6 +912,7 @@
 <!-- ═══ 학계·학회 (parchment) ═══ -->
 <section class="tile tile-parchment" id="academia">
   <div class="tile-inner">
+    <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 9L12 4 2 9l10 5 10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg></div>
     <h2 class="sec-head reveal">학계·학회.</h2>
     <p class="sec-sub reveal">의료 인공지능·디지털헬스 관련 학회의 지난 학술대회 소식과 다가오는 일정.</p>
     <div class="acad-grid">
@@ -928,6 +956,7 @@
 <!-- ═══ 제품 (dark-2) ═══ -->
 <section class="tile tile-dark-2" id="products">
   <div class="tile-inner-wide">
+    <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.3 7 12 12 20.7 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg></div>
     <h2 class="sec-head reveal">주요 제품.</h2>
     <p class="sec-sub reveal">국내 시장에 나와 있는 대표 의료 AI 솔루션과 허가 디지털치료기기. 제품명을 클릭하면 회사 홈페이지로 이동합니다.</p>
     <div class="products">
@@ -1039,7 +1068,7 @@
   <div class="tile-inner">
     <p>이 페이지는 공개 보도·공고 자료를 기반으로 정리한 동향 브리핑이며, 각 항목의 원문은 출처 링크에서 확인할 수 있습니다.</p>
     <p>업데이트 주기: 수시(요청 시) — 새 소식이 있으면 상단 이슈 번호와 커버 기간을 갱신하고 각 섹션에 항목을 추가합니다.</p>
-    <p>© 2026 K-Digital Health Watch</p>
+    <p>최종 업데이트: 2026-08-03 · © 2026 K-Digital Health Watch</p>
   </div>
 </footer>
 
