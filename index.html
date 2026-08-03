@@ -629,6 +629,18 @@
     font-variant-numeric: tabular-nums;
   }
 
+  /* ═══ 제품 수록 기준 ═══ */
+  .product-note {
+    font-size: 14px;
+    line-height: 1.55;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
+    margin: -30px 0 34px;
+    max-width: 78ch;
+  }
+  .product-note strong { color: var(--body-muted); font-weight: 600; }
+  .product-note a { color: var(--primary-on-dark); }
+
   /* ═══ 논문 리뷰 티저 ═══ */
   .paper-teasers {
     display: grid;
@@ -1199,7 +1211,26 @@
     <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.3 7 12 12 20.7 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg></div>
     <h2 class="sec-head reveal">주요 제품.</h2>
     <p class="sec-sub reveal">국내 시장에 나와 있는 대표 의료 AI 솔루션과 허가 디지털치료기기. 제품명을 클릭하면 회사 홈페이지로 이동합니다.</p>
+    <p class="product-note reveal"><strong>수록 기준</strong> — ① 식약처 품목허가를 받았고 ② 실제 의료기관에 도입·처방되고 있으며 ③ 혁신의료기기 지정·수가 적용·해외 인증 중 하나 이상에 해당하는 제품. 국내 허가 디지털치료기기는 전수 수록합니다. 빠진 제품이 있다면 <a href="#contact">알려주세요</a>.</p>
     <div class="products">
+
+      <div class="pcard reveal">
+        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="2 12 5 12 7 6 10 18 12.5 12 15 12"/><path d="M17.5 20.5s4.5-3 4.5-6.3a2.6 2.6 0 0 0-4.5-1.7 2.6 2.6 0 0 0-4.5 1.7c0 3.3 4.5 6.3 4.5 6.3z"/></svg>
+        <div class="ptype">AI 심전도</div>
+        <h4><a href="https://www.medicalai.com/" target="_blank" rel="noopener">AiTiA 시리즈 (AiTiALVSD · AiTiAMI)</a></h4>
+        <div class="company">메디컬에이아이</div>
+        <p>심전도만으로 좌심실 수축기능 저하와 급성심근경색을 선별하는 AI. 스마트워치 심전도 분석 제품(AiTiALVSD-1L)은 세계 최초 허가 사례이며, 심전도 분석 AI 알고리즘이 국가전략기술로 공표됐다.</p>
+        <div class="pmeta">국내 허가 · 국가전략기술 · 글로벌 200여 기관</div>
+      </div>
+
+      <div class="pcard reveal">
+        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2.5"/><polyline points="8 12 10 12 11.5 8.5 13.5 15.5 15 12 16 12"/></svg>
+        <div class="ptype">AI 심전도</div>
+        <h4><a href="https://www.ecgbuddy.ai/" target="_blank" rel="noopener">ECG Buddy</a></h4>
+        <div class="company">알피 (ARPI)</div>
+        <p>스마트폰·태블릿으로 심전도를 촬영하면 11종 리듬 분류와 좌심실 구혈률·심부전·심근경색·쇼크 등 11종 디지털 바이오마커를 산출. 응급실 등 국내 100개 이상 병원에서 사용 중이며 유럽 CE MDR 인증을 획득했다.</p>
+        <div class="pmeta">국내 허가(2등급) · 평가유예 신의료기술 · CE MDR</div>
+      </div>
 
       <div class="pcard reveal">
         <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="4" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="20"/></svg>
