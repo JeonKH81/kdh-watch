@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="국내 디지털헬스·의료 AI 규제, 허가, 급여, 기업 동향을 정리한 업데이트형 브리핑">
-<title>K-디지털헬스 워치 — 국내 의료기기·의료 AI 동향</title>
+<title>K-Digital Health Watch — 국내 의료기기·의료 AI 동향</title>
 <style>
   /* ═══ Apple design-md tokens ═══ */
   :root {
@@ -74,6 +74,18 @@
     white-space: nowrap;
   }
   .gnav .wordmark:hover { text-decoration: none; }
+  .gnav .brand { display: flex; align-items: baseline; gap: 12px; min-width: 0; }
+  .gnav .updated {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: -0.12px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  @media (max-width: 480px) {
+    .gnav .updated { display: none; }
+  }
   .gnav nav { display: flex; gap: 32px; }
   .gnav nav a {
     color: rgba(255, 255, 255, 0.88);
@@ -690,7 +702,10 @@
 
 <header class="gnav">
   <div class="gnav-inner">
-    <a class="wordmark" href="#top">K-디지털헬스 워치</a>
+    <div class="brand">
+      <a class="wordmark" href="#top">K-Digital Health Watch</a>
+      <span class="updated">Updated 2026-08-03</span>
+    </div>
     <nav>
       <a href="#highlights">핵심</a>
       <a href="#timeline">타임라인</a>
@@ -705,7 +720,7 @@
 
 <!-- ═══ Hero (white) ═══ -->
 <section class="hero tile-white" id="top">
-  <p class="issue-tag">제1호 · 최종 업데이트 <strong>2026-08-03</strong> · 커버 기간 2025년 12월 – 2026년 8월 초</p>
+  <p class="issue-tag">제1호 · 커버 기간 2025년 12월 – 2026년 8월 초</p>
   <h1>대한민국 의료AI,<br>디지털헬스케어 브리핑.</h1>
   <p class="lead">식약처 허가·규제부터 혁신의료기기, 디지털치료기기, 급여, 기업, 학계 동향까지 꾸준히 업데이트합니다.</p>
   <div class="cta-row">
