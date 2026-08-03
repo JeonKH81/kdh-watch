@@ -6,639 +6,861 @@
 <meta name="description" content="국내 디지털헬스·의료 AI 규제, 허가, 급여, 기업 동향을 정리한 업데이트형 브리핑">
 <title>K-디지털헬스 워치 — 국내 의료기기·의료 AI 동향</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; }
-  body { margin: 0; }
+  /* ═══ Apple design-md tokens ═══ */
   :root {
-    --ground: #F7F8F6;
-    --surface: #FFFFFF;
-    --ink: #1A2528;
-    --ink-soft: #4A5A5E;
-    --ink-faint: #7C8B8E;
-    --line: #DDE4E2;
-    --accent: #0F6B62;
-    --accent-soft: #E3EFEC;
-    --chip-reg: #33506B;   /* 규제·정책 */
-    --chip-reg-bg: #E7EDF4;
-    --chip-app: #0F6B62;   /* 허가·지정 */
-    --chip-app-bg: #E3EFEC;
-    --chip-pay: #8A5E10;   /* 급여·시장진입 */
-    --chip-pay-bg: #F5EDDC;
-    --chip-biz: #6B4A8E;   /* 기업·산업 */
-    --chip-biz-bg: #EFE9F5;
+    --primary: #0066cc;
+    --primary-focus: #0071e3;
+    --primary-on-dark: #2997ff;
+    --ink: #1d1d1f;
+    --body-on-dark: #ffffff;
+    --body-muted: #cccccc;
+    --ink-muted-80: #333333;
+    --ink-muted-48: #7a7a7a;
+    --divider-soft: #f0f0f0;
+    --hairline: #e0e0e0;
+    --canvas: #ffffff;
+    --parchment: #f5f5f7;
+    --pearl: #fafafc;
+    --tile-1: #272729;
+    --tile-2: #2a2a2c;
+    --tile-3: #252527;
+    --black: #000000;
+    --font: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif;
+    --font-display: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --ground: #101819;
-      --surface: #162123;
-      --ink: #DEE7E5;
-      --ink-soft: #9FB0AD;
-      --ink-faint: #6E807D;
-      --line: #263335;
-      --accent: #4CB8A9;
-      --accent-soft: #1B2E2C;
-      --chip-reg: #8FB0D6;
-      --chip-reg-bg: #1C2836;
-      --chip-app: #4CB8A9;
-      --chip-app-bg: #1B2E2C;
-      --chip-pay: #D6AE5E;
-      --chip-pay-bg: #2E2716;
-      --chip-biz: #B497D6;
-      --chip-biz-bg: #292033;
-    }
-  }
-  :root[data-theme="light"] {
-    --ground: #F7F8F6;
-    --surface: #FFFFFF;
-    --ink: #1A2528;
-    --ink-soft: #4A5A5E;
-    --ink-faint: #7C8B8E;
-    --line: #DDE4E2;
-    --accent: #0F6B62;
-    --accent-soft: #E3EFEC;
-    --chip-reg: #33506B;
-    --chip-reg-bg: #E7EDF4;
-    --chip-app: #0F6B62;
-    --chip-app-bg: #E3EFEC;
-    --chip-pay: #8A5E10;
-    --chip-pay-bg: #F5EDDC;
-    --chip-biz: #6B4A8E;
-    --chip-biz-bg: #EFE9F5;
-  }
-  :root[data-theme="dark"] {
-    --ground: #101819;
-    --surface: #162123;
-    --ink: #DEE7E5;
-    --ink-soft: #9FB0AD;
-    --ink-faint: #6E807D;
-    --line: #263335;
-    --accent: #4CB8A9;
-    --accent-soft: #1B2E2C;
-    --chip-reg: #8FB0D6;
-    --chip-reg-bg: #1C2836;
-    --chip-app: #4CB8A9;
-    --chip-app-bg: #1B2E2C;
-    --chip-pay: #D6AE5E;
-    --chip-pay-bg: #2E2716;
-    --chip-biz: #B497D6;
-    --chip-biz-bg: #292033;
-  }
-
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
-    background: var(--ground);
+    margin: 0;
+    background: var(--canvas);
     color: var(--ink);
-    font-family: "Pretendard", "Pretendard Variable", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
-    line-height: 1.65;
+    font-family: var(--font);
+    font-size: 17px;
+    line-height: 1.47;
+    letter-spacing: -0.374px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap {
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 48px 24px 80px;
-  }
-  a { color: var(--accent); text-decoration: none; }
+  a { color: var(--primary); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+  a:focus-visible { outline: 2px solid var(--primary-focus); outline-offset: 2px; border-radius: 4px; }
 
-  /* ── 마스트헤드 ─────────────────────────── */
-  header.masthead {
-    border-bottom: 3px solid var(--ink);
-    padding-bottom: 20px;
-    margin-bottom: 8px;
+  /* ═══ Global nav (black, 44px) ═══ */
+  .gnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    height: 44px;
   }
-  .masthead .kicker {
+  .gnav-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    height: 44px;
+    padding: 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .gnav .wordmark {
+    color: #f5f5f7;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.12px;
+    white-space: nowrap;
+  }
+  .gnav .wordmark:hover { text-decoration: none; }
+  .gnav nav { display: flex; gap: 28px; }
+  .gnav nav a {
+    color: rgba(255, 255, 255, 0.8);
     font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
+    letter-spacing: -0.12px;
+    line-height: 44px;
+    transition: color 0.2s;
+  }
+  .gnav nav a:hover { color: #ffffff; text-decoration: none; }
+
+  /* ═══ Full-bleed tiles ═══ */
+  .tile { padding: 96px 22px; }
+  .tile-white { background: var(--canvas); }
+  .tile-parchment { background: var(--parchment); }
+  .tile-dark { background: var(--tile-1); color: var(--body-on-dark); }
+  .tile-dark-2 { background: var(--tile-2); color: var(--body-on-dark); }
+  .tile-inner { max-width: 980px; margin: 0 auto; }
+  .tile-inner-wide { max-width: 1200px; margin: 0 auto; }
+
+  /* ═══ Hero ═══ */
+  .hero { text-align: center; padding: 110px 22px 90px; }
+  .hero .issue-tag {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
+    margin: 0 0 14px;
+    font-variant-numeric: tabular-nums;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 7vw, 64px);
     font-weight: 700;
-    margin-bottom: 8px;
-  }
-  .masthead h1 {
-    font-size: clamp(28px, 5vw, 40px);
-    font-weight: 800;
+    line-height: 1.07;
     letter-spacing: -0.02em;
-    line-height: 1.2;
+    margin: 0 0 18px;
     text-wrap: balance;
-    margin: 0 0 6px;
   }
-  .masthead .subtitle {
-    color: var(--ink-soft);
+  .hero .lead {
+    font-family: var(--font-display);
+    font-size: clamp(19px, 3vw, 26px);
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: 0;
+    color: var(--ink-muted-48);
+    max-width: 640px;
+    margin: 0 auto 34px;
+    text-wrap: balance;
+  }
+  .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-pill {
+    display: inline-block;
+    background: var(--primary);
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: -0.374px;
+    padding: 11px 22px;
+    border-radius: 9999px;
+    border: 1px solid var(--primary);
+    transition: transform 0.15s ease;
+  }
+  .btn-pill:hover { text-decoration: none; background: var(--primary-focus); border-color: var(--primary-focus); }
+  .btn-pill:active { transform: scale(0.95); }
+  .btn-ghost {
+    display: inline-block;
+    background: transparent;
+    color: var(--primary);
+    font-size: 17px;
+    letter-spacing: -0.374px;
+    padding: 11px 22px;
+    border-radius: 9999px;
+    border: 1px solid var(--primary);
+    transition: transform 0.15s ease;
+  }
+  .btn-ghost:hover { text-decoration: none; background: var(--primary); color: #ffffff; }
+  .btn-ghost:active { transform: scale(0.95); }
+
+  /* ═══ Stats strip ═══ */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 22px;
+    max-width: 780px;
+    margin: 72px auto 0;
+  }
+  .stat .num {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 56px);
+    font-weight: 700;
+    line-height: 1.07;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat .num .unit { font-size: 0.5em; font-weight: 600; }
+  .stat .label {
+    font-size: 14px;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
+    margin-top: 6px;
+    line-height: 1.43;
+  }
+
+  /* ═══ Section headline grammar ═══ */
+  .sec-head {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 5vw, 44px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  .sec-sub {
+    font-size: clamp(17px, 2.5vw, 21px);
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--ink-muted-48);
+    margin: 0 0 48px;
+    max-width: 60ch;
+  }
+  .tile-dark .sec-sub, .tile-dark-2 .sec-sub { color: var(--body-muted); }
+
+  /* ═══ 핵심 (dark tile) ═══ */
+  .highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .highlight {
+    background: var(--tile-2);
+    border-radius: 18px;
+    padding: 32px 28px;
+  }
+  .highlight .h-num {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.224px;
+    color: var(--primary-on-dark);
+    margin-bottom: 10px;
+    font-variant-numeric: tabular-nums;
+  }
+  .highlight h3 {
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.24;
+    letter-spacing: -0.374px;
+    margin: 0 0 10px;
+    color: #ffffff;
+  }
+  .highlight p {
     font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: -0.224px;
+    color: var(--body-muted);
     margin: 0;
   }
-  .issue-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 24px;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 36px;
-    font-size: 13px;
-    color: var(--ink-faint);
-    font-variant-numeric: tabular-nums;
-  }
-  .issue-bar strong { color: var(--ink-soft); font-weight: 600; }
 
-  /* ── 핵심 요약 ─────────────────────────── */
-  .lede {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-left: 4px solid var(--accent);
-    border-radius: 6px;
-    padding: 20px 24px;
-    margin-bottom: 40px;
-  }
-  .lede h2 {
-    font-size: 13px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    font-weight: 700;
-    margin: 0 0 10px;
-  }
-  .lede ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
-  .lede li { font-size: 15px; }
-
-  /* ── 타임라인 ─────────────────────────── */
-  .timeline-section { margin-bottom: 44px; }
-  .timeline-scroll { overflow-x: auto; padding-bottom: 8px; }
+  /* ═══ 타임라인 (parchment) ═══ */
+  .timeline-scroll { overflow-x: auto; padding: 8px 0 16px; }
   .timeline {
     display: flex;
-    gap: 0;
-    min-width: 720px;
-    border-top: 2px solid var(--line);
-    padding-top: 16px;
+    min-width: 760px;
+    border-top: 1px solid var(--hairline);
+    padding-top: 22px;
   }
-  .timeline .tl-item {
-    flex: 1 1 0;
-    padding: 0 14px 0 0;
-    position: relative;
-  }
-  .timeline .tl-item::before {
+  .tl-item { flex: 1 1 0; padding-right: 20px; position: relative; }
+  .tl-item::before {
     content: "";
     position: absolute;
-    top: -21px;
+    top: -27px;
     left: 0;
-    width: 9px;
-    height: 9px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background: var(--accent);
+    background: var(--primary);
   }
   .tl-date {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--accent);
-    font-variant-numeric: tabular-nums;
-    margin-bottom: 2px;
-  }
-  .tl-item p { margin: 0; font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
-
-  /* ── 섹션 / 엔트리 ─────────────────────── */
-  h2.section-title {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    margin: 48px 0 4px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--ink);
-  }
-  h2.section-title .count {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
-    color: var(--ink-faint);
+    letter-spacing: -0.224px;
+    color: var(--primary);
     font-variant-numeric: tabular-nums;
+    margin-bottom: 4px;
   }
+  .tl-item p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.43;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-80);
+  }
+
+  /* ═══ 뉴스 (white) ═══ */
+  .filter-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .filter-chip {
+    font-family: var(--font);
+    font-size: 14px;
+    letter-spacing: -0.224px;
+    color: var(--ink);
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+    border-radius: 9999px;
+    padding: 10px 18px;
+    cursor: pointer;
+    transition: transform 0.15s ease, border-color 0.2s, background 0.2s;
+  }
+  .filter-chip:hover { border-color: var(--ink-muted-48); }
+  .filter-chip:active { transform: scale(0.95); }
+  .filter-chip[aria-pressed="true"] {
+    border: 2px solid var(--primary-focus);
+    padding: 9px 17px;
+    font-weight: 600;
+  }
+  .filter-chip:focus-visible { outline: 2px solid var(--primary-focus); outline-offset: 2px; }
+
   .entry {
     display: grid;
-    grid-template-columns: 96px 1fr;
-    gap: 20px;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--line);
+    grid-template-columns: 104px 1fr;
+    gap: 24px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--divider-soft);
   }
-  .entry:last-child { border-bottom: none; }
+  .entry.hidden { display: none; }
   .entry .date {
-    font-size: 13px;
-    color: var(--ink-faint);
+    font-size: 14px;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
     font-variant-numeric: tabular-nums;
     padding-top: 3px;
     white-space: nowrap;
   }
+  .entry .cat {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: -0.12px;
+    color: var(--ink-muted-48);
+    text-transform: none;
+    margin-bottom: 6px;
+  }
   .entry h3 {
-    font-size: 16.5px;
-    font-weight: 700;
-    margin: 0 0 6px;
-    line-height: 1.45;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.32;
+    letter-spacing: -0.374px;
+    margin: 0 0 8px;
     text-wrap: balance;
   }
-  .entry h3 a {
-    color: inherit;
-    text-decoration: none;
-    border-bottom: 1.5px solid transparent;
+  .entry h3 a { color: var(--ink); transition: color 0.2s; }
+  .entry h3 a:hover { color: var(--primary); text-decoration: none; }
+  .entry p {
+    margin: 0 0 8px;
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-80);
+    max-width: 66ch;
   }
-  .entry h3 a:hover {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-    text-decoration: none;
-  }
-  .entry p { margin: 0 0 8px; font-size: 14.5px; color: var(--ink-soft); max-width: 62ch; }
-  .entry .src { font-size: 13px; }
-  .entry .src a { color: var(--ink-faint); }
-  .entry .src a:hover { color: var(--accent); }
-  .chip {
-    display: inline-block;
-    font-size: 11.5px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    padding: 2px 9px;
-    border-radius: 100px;
-    margin-bottom: 8px;
-  }
-  .chip.reg { color: var(--chip-reg); background: var(--chip-reg-bg); }
-  .chip.app { color: var(--chip-app); background: var(--chip-app-bg); }
-  .chip.pay { color: var(--chip-pay); background: var(--chip-pay-bg); }
-  .chip.biz { color: var(--chip-biz); background: var(--chip-biz-bg); }
+  .entry .src { font-size: 13px; letter-spacing: -0.12px; }
+  .entry .src a { color: var(--ink-muted-48); }
+  .entry .src a:hover { color: var(--primary); }
 
-  /* ── 제품 소개 ─────────────────────────── */
+  /* ═══ 제품 (dark-2 tile) ═══ */
   .products {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 14px;
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
   }
   .pcard {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 16px 18px;
+    background: var(--tile-3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 26px 24px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
   }
   .pcard .ptype {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: -0.12px;
+    color: var(--primary-on-dark);
   }
-  .pcard.ai .ptype { color: var(--chip-app); }
-  .pcard.dtx .ptype { color: var(--chip-biz); }
   .pcard h4 {
-    font-size: 15.5px;
-    font-weight: 700;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.374px;
     margin: 0;
-    line-height: 1.4;
   }
-  .pcard h4 a {
-    color: inherit;
-    text-decoration: none;
-    border-bottom: 1.5px solid transparent;
-  }
-  .pcard h4 a:hover {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-    text-decoration: none;
-  }
-  .pcard h4 .company {
-    font-weight: 500;
+  .pcard h4 a { color: #ffffff; transition: color 0.2s; }
+  .pcard h4 a:hover { color: var(--primary-on-dark); text-decoration: none; }
+  .pcard .company {
     font-size: 13px;
-    color: var(--ink-faint);
+    font-weight: 400;
+    letter-spacing: -0.12px;
+    color: var(--ink-muted-48);
   }
   .pcard p {
     margin: 0;
-    font-size: 13.5px;
-    color: var(--ink-soft);
-    line-height: 1.55;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: -0.224px;
+    color: var(--body-muted);
   }
   .pcard .pmeta {
     margin-top: auto;
-    padding-top: 8px;
+    padding-top: 10px;
     font-size: 12px;
-    color: var(--ink-faint);
+    letter-spacing: -0.12px;
+    color: var(--ink-muted-48);
     font-variant-numeric: tabular-nums;
   }
-  .product-note {
-    font-size: 13px;
-    color: var(--ink-faint);
-    margin: 8px 0 0;
-  }
 
-  /* ── 푸터 ─────────────────────────────── */
+  /* ═══ Footer (parchment) ═══ */
   footer {
-    margin-top: 56px;
-    padding-top: 20px;
-    border-top: 2px solid var(--line);
-    font-size: 13px;
-    color: var(--ink-faint);
+    background: var(--parchment);
+    padding: 48px 22px;
   }
-  footer p { margin: 0 0 6px; max-width: 68ch; }
+  footer .tile-inner {
+    font-size: 12px;
+    line-height: 1.6;
+    letter-spacing: -0.12px;
+    color: var(--ink-muted-48);
+  }
+  footer p { margin: 0 0 8px; max-width: 76ch; }
 
-  @media (max-width: 560px) {
-    .entry { grid-template-columns: 1fr; gap: 4px; }
+  /* ═══ Reveal motion — html.js가 있을 때만 숨김(무JS 환경에서는 항상 표시) ═══ */
+  html.js .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  html.js .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 640px) {
+    .tile { padding: 64px 22px; }
+    .hero { padding: 72px 22px 56px; }
+    .entry { grid-template-columns: 1fr; gap: 6px; }
     .entry .date { padding-top: 0; }
+    .gnav nav { gap: 16px; }
+    .gnav nav a:nth-child(n+4) { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    * { animation: none !important; }
   }
 </style>
 </head>
 <body>
 
-<div class="wrap">
-
-  <header class="masthead">
-    <div class="kicker">K-Digital Health Watch</div>
-    <h1>국내 디지털헬스·의료 AI 동향 브리핑</h1>
-    <p class="subtitle">식약처 허가·규제, 혁신의료기기, 디지털치료기기(DTx), 급여·시장진입, 기업 동향을 추적합니다.</p>
-  </header>
-  <div class="issue-bar">
-    <span><strong>제1호</strong></span>
-    <span>최종 업데이트 <strong>2026-08-02</strong></span>
-    <span>커버 기간 <strong>2026년 1월 – 7월</strong></span>
+<header class="gnav">
+  <div class="gnav-inner">
+    <a class="wordmark" href="#top">K-디지털헬스 워치</a>
+    <nav>
+      <a href="#highlights">핵심</a>
+      <a href="#timeline">타임라인</a>
+      <a href="#news">동향</a>
+      <a href="#products">제품</a>
+    </nav>
   </div>
+</header>
 
-  <section class="lede">
-    <h2>이번 호 핵심</h2>
-    <ul>
-      <li><strong>디지털의료제품법 체제 본격화</strong> — 세계 최초 생성형 AI 의료기기 가이드라인(1월)에 이어 LLM 기반 디지털의료기기 가이드라인(6월)까지 공개.</li>
-      <li><strong>시장 즉시진입 의료기술 제도 시행</strong>(1월 26일) — 혁신의료기기의 품목허가와 동시에 시장진입 가능, 절차 최단 80일.</li>
-      <li><strong>2025년 혁신의료기기 45개 지정</strong> — 전년(29개) 대비 55% 증가, 대부분 AI 영상진단·데이터 분석 제품.</li>
-      <li><strong>DTx 급여는 아직 임시등재 단계</strong> — 정식 등재는 2026년 말–2027년 초 거론.</li>
-    </ul>
-  </section>
+<!-- ═══ Hero (white) ═══ -->
+<section class="hero tile-white" id="top">
+  <p class="issue-tag">제1호 · 2026년 8월 · 커버 기간 2026년 1–7월</p>
+  <h1>국내 디지털헬스,<br>한눈에.</h1>
+  <p class="lead">식약처 허가·규제부터 혁신의료기기, 디지털치료기기, 급여, 기업 동향까지. 꾸준히 업데이트되는 브리핑.</p>
+  <div class="cta-row">
+    <a class="btn-pill" href="#news">최신 동향 보기</a>
+    <a class="btn-ghost" href="#products">주요 제품 소개</a>
+  </div>
+  <div class="stats">
+    <div class="stat reveal">
+      <div class="num"><span class="count" data-target="45">0</span><span class="unit">개</span></div>
+      <div class="label">2025년 혁신의료기기 지정</div>
+    </div>
+    <div class="stat reveal">
+      <div class="num"><span class="count" data-target="9">0</span><span class="unit">종</span></div>
+      <div class="label">국내 허가 디지털치료기기</div>
+    </div>
+    <div class="stat reveal">
+      <div class="num"><span class="count" data-target="80">0</span><span class="unit">일</span></div>
+      <div class="label">시장 즉시진입 최단 절차</div>
+    </div>
+    <div class="stat reveal">
+      <div class="num"><span class="count" data-target="14">0</span><span class="unit">건</span></div>
+      <div class="label">이번 호 수록 동향</div>
+    </div>
+  </div>
+</section>
 
-  <section class="timeline-section">
-    <div class="timeline-scroll">
+<!-- ═══ 이번 호 핵심 (dark) ═══ -->
+<section class="tile tile-dark" id="highlights">
+  <div class="tile-inner">
+    <h2 class="sec-head reveal">이번 호 핵심.</h2>
+    <p class="sec-sub reveal">2026년 상반기, 규제 체계가 완성되고 시장 진입 속도가 빨라졌습니다.</p>
+    <div class="highlight-grid">
+      <div class="highlight reveal">
+        <div class="h-num">01</div>
+        <h3>디지털의료제품법 체제 본격화</h3>
+        <p>세계 최초 생성형 AI 의료기기 가이드라인(1월)에 이어 LLM 기반 디지털의료기기 가이드라인(6월)까지 공개. 규제 프레임이 사실상 완성 단계에 들어섰습니다.</p>
+      </div>
+      <div class="highlight reveal">
+        <div class="h-num">02</div>
+        <h3>시장 즉시진입 제도 시행</h3>
+        <p>1월 26일부터 혁신의료기기는 품목허가와 동시에 시장진입이 가능해졌습니다. 절차는 최단 80일로 단축.</p>
+      </div>
+      <div class="highlight reveal">
+        <div class="h-num">03</div>
+        <h3>혁신의료기기 지정 55% 증가</h3>
+        <p>2025년 한 해 45개 지정 — 전년 29개 대비 55% 증가. 대부분 AI 영상진단·데이터 분석 제품입니다.</p>
+      </div>
+      <div class="highlight reveal">
+        <div class="h-num">04</div>
+        <h3>DTx 급여는 아직 임시등재</h3>
+        <p>허가는 9종까지 늘었지만 보험수가는 한시적 임시등재 단계. 정식 등재는 2026년 말–2027년 초 거론됩니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 타임라인 (parchment) ═══ -->
+<section class="tile tile-parchment" id="timeline">
+  <div class="tile-inner">
+    <h2 class="sec-head reveal">2026년 상반기 타임라인.</h2>
+    <p class="sec-sub reveal">규제와 제도가 움직인 순간들.</p>
+    <div class="timeline-scroll reveal">
       <div class="timeline">
         <div class="tl-item">
-          <div class="tl-date">2026.01.24</div>
+          <div class="tl-date">01.24</div>
           <p>생성형 AI 의료기기 허가·심사 가이드라인 공개 (세계 최초)</p>
         </div>
         <div class="tl-item">
-          <div class="tl-date">2026.01.26</div>
+          <div class="tl-date">01.26</div>
           <p>시장 즉시진입 의료기술 제도 시행</p>
         </div>
         <div class="tl-item">
-          <div class="tl-date">2026.01.29</div>
+          <div class="tl-date">01.29</div>
           <p>2025년 혁신의료기기 45개 지정 발표</p>
         </div>
         <div class="tl-item">
-          <div class="tl-date">2026.06.26</div>
+          <div class="tl-date">06.26</div>
           <p>디지털의료기기 변경관리 계획서 가이드라인 제정</p>
         </div>
         <div class="tl-item">
-          <div class="tl-date">2026.06.30</div>
+          <div class="tl-date">06.30</div>
           <p>LLM 기반 디지털의료기기 허가·심사 가이드라인 공개</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══════════ 규제·정책 ═══════════ -->
-  <h2 class="section-title">규제·정책 <span class="count">6건</span></h2>
+<!-- ═══ 동향 (white) ═══ -->
+<section class="tile tile-white" id="news">
+  <div class="tile-inner">
+    <h2 class="sec-head reveal">동향.</h2>
+    <p class="sec-sub reveal">제목을 클릭하면 원문 기사로 이동합니다.</p>
 
-  <article class="entry">
-    <div class="date">2026-07</div>
-    <div>
-      <span class="chip reg">규제·정책</span>
-      <h3><a href="https://www.medifonews.com/news/article.html?no=215360" target="_blank" rel="noopener">AI·DTx 인허가 시 임상시험자료 제출·면제 기준 명확화</a></h3>
-      <p>식약처가 기허가 디지털의료기기 소프트웨어 약 1,000건을 분석해, 임상시험자료 대신 성능검증자료로 허가된 실제 사례 기반의 구체적인 제출·면제 기준을 마련했다.</p>
-      <div class="src">출처: <a href="https://www.medifonews.com/news/article.html?no=215360" target="_blank" rel="noopener">메디포뉴스</a></div>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="date">2026-06-30</div>
-    <div>
-      <span class="chip reg">규제·정책</span>
-      <h3><a href="https://sooyongshin.wordpress.com/2026/07/19/%EC%8B%9D%EC%95%BD%EC%B2%98-llm-%EA%B8%B0%EB%B0%98-%EB%94%94%EC%A7%80%ED%84%B8%EC%9D%98%EB%A3%8C%EA%B8%B0%EA%B8%B0-%ED%97%88%EA%B0%80-%EC%8B%AC%EC%82%AC-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8/" target="_blank" rel="noopener">LLM 기반 디지털의료기기 허가·심사 가이드라인 공개</a></h3>
-      <p>대규모언어모델(LLM)을 활용한 디지털의료기기의 허가·심사 기준을 담은 가이드라인이 공개됐다. 생성형 AI 가이드라인(1월)의 후속으로, LLM 특유의 비결정성·환각 문제에 대한 평가 방향을 제시한다.</p>
-      <div class="src">출처: <a href="https://sooyongshin.wordpress.com/2026/07/19/%EC%8B%9D%EC%95%BD%EC%B2%98-llm-%EA%B8%B0%EB%B0%98-%EB%94%94%EC%A7%80%ED%84%B8%EC%9D%98%EB%A3%8C%EA%B8%B0%EA%B8%B0-%ED%97%88%EA%B0%80-%EC%8B%AC%EC%82%AC-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8/" target="_blank" rel="noopener">신수용 교수 블로그(해설)</a></div>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="date">2026-06-26</div>
-    <div>
-      <span class="chip reg">규제·정책</span>
-      <h3><a href="https://www.k-health.com/news/articleView.html?idxno=93364" target="_blank" rel="noopener">디지털의료기기 변경관리 계획서 허가·심사 가이드라인 제정</a></h3>
-      <p>변경관리 계획서를 사전 승인받으면 계획 범위 내 변경(모델 재학습 등)은 추가 허가 절차 없이 제품에 반영할 수 있다. 미국 FDA의 PCCP(Predetermined Change Control Plan)에 대응하는 국내 제도가 구체화된 것.</p>
-      <div class="src">출처: <a href="https://www.k-health.com/news/articleView.html?idxno=93364" target="_blank" rel="noopener">헬스경향</a></div>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="date">2026-01-26</div>
-    <div>
-      <span class="chip reg">규제·정책</span>
-      <h3><a href="https://www.korea.kr/news/policyNewsView.do?newsId=148958562" target="_blank" rel="noopener">'시장 즉시진입 의료기술' 제도 시행</a></h3>
-      <p>혁신의료기기가 식약처 품목허가와 동시에 시장에 진입할 수 있게 됐다. 기존 신의료기술평가 유예 절차를 크게 단축해 최단 80일 내 절차 완료가 가능하다.</p>
-      <div class="src">출처: <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148958562" target="_blank" rel="noopener">정책브리핑</a> · <a href="https://www.hitnews.co.kr/news/articleView.html?idxno=74428" target="_blank" rel="noopener">히트뉴스</a></div>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="date">2026-01-24</div>
-    <div>
-      <span class="chip reg">규제·정책</span>
-      <h3><a href="https://eiec.kdi.re.kr/policy/materialView.do?num=262788" target="_blank" rel="noopener">세계 최초 생성형 AI 의료기기 허가·심사 가이드라인 공개</a></h3>
-      <p>생성형 AI를 활용한 의료기기의 안전성·유효성 평가와 제품 개발을 지원하기 위한 가이드라인. 규제기관 차원의 생성형 AI 의료기기 허가심사 기준으로는 세계 최초다.</p>
-      <div class="src">출처: <a href="https://eiec.kdi.re.kr/policy/materialView.do?num=262788" target="_blank" rel="noopener">KDI 경제정책자료</a> · <a href="https://www.dentalarirang.com/news/articleView.html?idxno=43616" target="_blank" rel="noopener">덴탈아리랑</a></div>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="date">2026-01-24</div>
-    <div>
-      <span class="chip reg">규제·정책</span>
-      <h3><a href="https://www.law.go.kr/LSW/lsRvsDocListP.do?lsId=014826&chrClsCd=010202&lsRvsGubun=all" target="_blank" rel="noopener">디지털의료제품법 시행령 잔여 조항 시행</a></h3>
-      <p>2025년 1월 시행된 디지털의료제품법의 시행령 일부 조항(우수관리체계 인증 관련 등)이 2026년 1월 24일부터 추가 시행됐다. AI 의료기기의 잦은 업데이트를 고려해 중대한 변경사항만 변경허가 대상으로 하는 전주기 안전관리 체계가 골자.</p>
-      <div class="src">출처: <a href="https://www.law.go.kr/LSW/lsRvsDocListP.do?lsId=014826&chrClsCd=010202&lsRvsGubun=all" target="_blank" rel="noopener">국가법령정보센터</a> · <a href="https://www.medifonews.com/news/article.html?no=199258" target="_blank" rel="noopener">메디포뉴스</a></div>
-    </div>
-  </article>
-
-  <!-- ═══════════ 허가·지정 ═══════════ -->
-  <h2 class="section-title">허가·지정 <span class="count">3건</span></h2>
-
-  <article class="entry">
-    <div class="date">2026-01-29</div>
-    <div>
-      <span class="chip app">허가·지정</span>
-      <h3><a href="https://www.etnews.com/20260129000101" target="_blank" rel="noopener">2025년 혁신의료기기 45개 지정 — AI 제품이 주도</a></h3>
-      <p>식약처가 2025년 한 해 혁신의료기기 45개를 지정했다고 발표했다. 2024년 29개 대비 55% 이상 증가했으며, 상당수가 AI 기반 영상진단·데이터 분석 제품이다.</p>
-      <div class="src">출처: <a href="https://www.etnews.com/20260129000101" target="_blank" rel="noopener">전자신문</a></div>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="date">2026</div>
-    <div>
-      <span class="chip app">허가·지정</span>
-      <h3><a href="https://www.mfds.go.kr/brd/m_76/view.do?seq=16171" target="_blank" rel="noopener">2026년 혁신의료기기 지정 통합심사 신청 접수 중</a></h3>
-      <p>식약처가 2026년도 혁신의료기기 지정 통합심사 신청을 공고했다. 통합심사 트랙은 혁신의료기기 지정과 혁신의료기술평가를 함께 진행해 시장진입 기간을 단축한다.</p>
-      <div class="src">출처: <a href="https://www.mfds.go.kr/brd/m_76/view.do?seq=16171" target="_blank" rel="noopener">식약처 공고</a></div>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="date">누적</div>
-    <div>
-      <span class="chip app">허가·지정</span>
-      <h3><a href="https://www.doctorsnews.co.kr/news/articleView.html?idxno=160783" target="_blank" rel="noopener">국내 허가 디지털치료기기(DTx) 9종으로 확대</a></h3>
-      <p>불면증 1·2호(솜즈, 슬립큐)에 이어 시야장애(비비드브레인), 호흡재활(이지브리드)로 적응증이 넓어졌고, 2026년 들어 이명 치료 소리클리어(2월), 범불안장애 엥자이렉스(4월)가 추가 허가됐다. 경도인지장애·섭식장애·우울증 앱까지 총 9종이 허가를 획득. 다만 실제 처방량은 아직 미미하다는 지적.</p>
-      <div class="src">출처: <a href="https://www.doctorsnews.co.kr/news/articleView.html?idxno=160783" target="_blank" rel="noopener">의협신문</a> · <a href="http://www.docdocdoc.co.kr/news/articleView.html?idxno=3028335" target="_blank" rel="noopener">청년의사</a></div>
-    </div>
-  </article>
-
-  <!-- ═══════════ 급여·시장진입 ═══════════ -->
-  <h2 class="section-title">급여·시장진입 <span class="count">1건</span></h2>
-
-  <article class="entry">
-    <div class="date">2026</div>
-    <div>
-      <span class="chip pay">급여·시장진입</span>
-      <h3><a href="https://www.mindthos.com/blog/digital-therapeutics-insurance-reimbursement" target="_blank" rel="noopener">DTx 보험수가, 임시등재 단계 — 정식 등재는 2026년 말–2027년 초 거론</a></h3>
-      <p>디지털치료기기 보험수가는 현재 혁신의료기술 트랙을 통한 한시적 임시등재 단계다. 정식 등재 논의가 진행 중이나 확정 일정은 아니며, 처방-실사용-청구로 이어지는 지불구조가 확산의 관건으로 지목된다.</p>
-      <div class="src">출처: <a href="https://www.mindthos.com/blog/digital-therapeutics-insurance-reimbursement" target="_blank" rel="noopener">마음토스</a> · <a href="https://www.etoday.co.kr/news/view/2574369" target="_blank" rel="noopener">이투데이</a></div>
-    </div>
-  </article>
-
-  <!-- ═══════════ 기업·산업 ═══════════ -->
-  <h2 class="section-title">기업·산업 <span class="count">4건</span></h2>
-
-  <article class="entry">
-    <div class="date">2026-07</div>
-    <div>
-      <span class="chip biz">기업·산업</span>
-      <h3><a href="https://www.getnews.co.kr/news/articleView.html?idxno=869625" target="_blank" rel="noopener">코어라인소프트, 범부처 첨단의료기기 과제 선정 — FDA 510(k) 추진</a></h3>
-      <p>'2026년도 제1차 범부처 첨단의료기기 연구개발사업'에 선정돼 3년간 총 22억 원을 지원받는다. 폐결절 자동 검출 'AVIEW IPN'과 폐질환 정량분석 'AVIEW Lung Metrics'의 미국 임상 및 FDA 510(k) 인허가를 추진한다.</p>
-      <div class="src">출처: <a href="https://www.getnews.co.kr/news/articleView.html?idxno=869625" target="_blank" rel="noopener">게트뉴스</a></div>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="date">2026</div>
-    <div>
-      <span class="chip biz">기업·산업</span>
-      <h3><a href="https://www.medicaltimes.com/Mobile/News/NewsView.html?ID=1166360" target="_blank" rel="noopener">루닛, 유방암 위험예측 AI로 연내 FDA 허가 목표</a></h3>
-      <p>유방촬영술 영상과 나이만으로 개인별 유방암 절대 위험도를 산출하는 솔루션이 2025년 4월 FDA Breakthrough Device로 지정됐고, FDA 전주기 자문 프로그램(TAP)에도 선정됐다. 2026년 내 FDA 허가 획득이 목표.</p>
-      <div class="src">출처: <a href="https://www.medicaltimes.com/Mobile/News/NewsView.html?ID=1166360" target="_blank" rel="noopener">메디칼타임즈</a></div>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="date">2025-12</div>
-    <div>
-      <span class="chip biz">기업·산업</span>
-      <h3><a href="https://www.hankyung.com/article/202512129161P" target="_blank" rel="noopener">제이엘케이, 한림대성심병원에 의료 AI 솔루션 4종 공급</a></h3>
-      <p>뇌졸중 AI 솔루션 중심의 제이엘케이가 한림대 성심병원과 AI 솔루션 4종 공급 계약을 체결했다. 국내 대형병원 대상 도입 사례가 이어지는 흐름.</p>
-      <div class="src">출처: <a href="https://www.hankyung.com/article/202512129161P" target="_blank" rel="noopener">한국경제</a></div>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="date">2026</div>
-    <div>
-      <span class="chip biz">기업·산업</span>
-      <h3><a href="https://v.daum.net/v/GMo63jEoW6" target="_blank" rel="noopener">의료 AI 상장사, '성과 증명'의 해 — 허가 급증 vs 수익화 과제</a></h3>
-      <p>허가 건수는 급증했지만 선두 기업들의 재무 안정성과 해외 사업화 성과는 아직 검증 단계라는 평가. 루닛·뷰노 등 주요 기업이 검진센터·건강검진 시장 공략과 글로벌 진출로 활로를 모색 중이다.</p>
-      <div class="src">출처: <a href="https://v.daum.net/v/GMo63jEoW6" target="_blank" rel="noopener">다음뉴스</a> · <a href="https://pharm.edaily.co.kr/news/read?newsId=01174246645385944" target="_blank" rel="noopener">팜이데일리</a></div>
-    </div>
-  </article>
-
-  <!-- ═══════════ 주요 제품 소개 ═══════════ -->
-  <h2 class="section-title">주요 제품 소개 <span class="count">11종</span></h2>
-  <p class="product-note">국내 시장에 나와 있는 대표적인 의료 AI 솔루션과 허가 디지털치료기기(DTx)입니다. 새 제품이 허가·출시되면 카드를 추가합니다.</p>
-
-  <div class="products">
-
-    <div class="pcard ai">
-      <div class="ptype">AI 영상진단</div>
-      <h4><a href="https://www.lunit.io" target="_blank" rel="noopener">루닛 INSIGHT CXR / MMG</a> <span class="company">루닛</span></h4>
-      <p>흉부 X-ray(CXR)와 유방촬영술(MMG) 영상에서 이상 소견을 검출하는 판독보조 AI. 국내외 의료기관·검진센터에 폭넓게 도입된 대표 제품군.</p>
-      <div class="pmeta">국내 허가 · 글로벌 판매</div>
+    <div class="filter-row reveal" role="group" aria-label="카테고리 필터">
+      <button class="filter-chip" data-filter="all" aria-pressed="true">전체</button>
+      <button class="filter-chip" data-filter="reg" aria-pressed="false">규제·정책</button>
+      <button class="filter-chip" data-filter="app" aria-pressed="false">허가·지정</button>
+      <button class="filter-chip" data-filter="pay" aria-pressed="false">급여·시장진입</button>
+      <button class="filter-chip" data-filter="biz" aria-pressed="false">기업·산업</button>
     </div>
 
-    <div class="pcard ai">
-      <div class="ptype">AI 예측</div>
-      <h4><a href="https://www.vuno.co" target="_blank" rel="noopener">VUNO Med–DeepCARS</a> <span class="company">뷰노</span></h4>
-      <p>일반병동 입원환자의 활력징후 4종(혈압·맥박·호흡·체온)으로 24시간 내 심정지 발생 위험을 예측. 국내 의료 AI 중 병원 실사용·매출 측면의 대표 사례.</p>
-      <div class="pmeta">국내 허가 · 선진입 의료기술</div>
-    </div>
+    <article class="entry reveal" data-cat="reg">
+      <div class="date">2026-07</div>
+      <div>
+        <div class="cat">규제·정책</div>
+        <h3><a href="https://www.medifonews.com/news/article.html?no=215360" target="_blank" rel="noopener">AI·DTx 인허가 시 임상시험자료 제출·면제 기준 명확화</a></h3>
+        <p>식약처가 기허가 디지털의료기기 소프트웨어 약 1,000건을 분석해, 임상시험자료 대신 성능검증자료로 허가된 실제 사례 기반의 구체적인 제출·면제 기준을 마련했다.</p>
+        <div class="src">출처: <a href="https://www.medifonews.com/news/article.html?no=215360" target="_blank" rel="noopener">메디포뉴스</a></div>
+      </div>
+    </article>
 
-    <div class="pcard ai">
-      <div class="ptype">AI 영상진단</div>
-      <h4><a href="https://www.jlkgroup.com" target="_blank" rel="noopener">JBS-01K</a> <span class="company">제이엘케이</span></h4>
-      <p>뇌 MR 영상 기반 뇌경색 유형 분류 AI. 혁신의료기기 통합심사를 통과하고 임시 수가를 받은 뇌졸중 솔루션의 대표 주자.</p>
-      <div class="pmeta">국내 허가 · 임시수가 적용</div>
-    </div>
+    <article class="entry reveal" data-cat="reg">
+      <div class="date">2026-06-30</div>
+      <div>
+        <div class="cat">규제·정책</div>
+        <h3><a href="https://sooyongshin.wordpress.com/2026/07/19/%EC%8B%9D%EC%95%BD%EC%B2%98-llm-%EA%B8%B0%EB%B0%98-%EB%94%94%EC%A7%80%ED%84%B8%EC%9D%98%EB%A3%8C%EA%B8%B0%EA%B8%B0-%ED%97%88%EA%B0%80-%EC%8B%AC%EC%82%AC-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8/" target="_blank" rel="noopener">LLM 기반 디지털의료기기 허가·심사 가이드라인 공개</a></h3>
+        <p>대규모언어모델(LLM)을 활용한 디지털의료기기의 허가·심사 기준을 담은 가이드라인이 공개됐다. 생성형 AI 가이드라인(1월)의 후속으로, LLM 특유의 비결정성·환각 문제에 대한 평가 방향을 제시한다.</p>
+        <div class="src">출처: <a href="https://sooyongshin.wordpress.com/2026/07/19/%EC%8B%9D%EC%95%BD%EC%B2%98-llm-%EA%B8%B0%EB%B0%98-%EB%94%94%EC%A7%80%ED%84%B8%EC%9D%98%EB%A3%8C%EA%B8%B0%EA%B8%B0-%ED%97%88%EA%B0%80-%EC%8B%AC%EC%82%AC-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8/" target="_blank" rel="noopener">신수용 교수 블로그(해설)</a></div>
+      </div>
+    </article>
 
-    <div class="pcard ai">
-      <div class="ptype">AI 영상진단</div>
-      <h4><a href="https://www.corelinesoft.com" target="_blank" rel="noopener">AVIEW LCS PLUS</a> <span class="company">코어라인소프트</span></h4>
-      <p>저선량 흉부 CT 기반 폐암검진 판독보조 솔루션. 국가폐암검진 사업에 활용되며 유럽 병원 공급 계약 등 해외 진출이 활발.</p>
-      <div class="pmeta">국내 허가 · 유럽 공급</div>
-    </div>
+    <article class="entry reveal" data-cat="reg">
+      <div class="date">2026-06-26</div>
+      <div>
+        <div class="cat">규제·정책</div>
+        <h3><a href="https://www.k-health.com/news/articleView.html?idxno=93364" target="_blank" rel="noopener">디지털의료기기 변경관리 계획서 허가·심사 가이드라인 제정</a></h3>
+        <p>변경관리 계획서를 사전 승인받으면 계획 범위 내 변경(모델 재학습 등)은 추가 허가 절차 없이 제품에 반영할 수 있다. 미국 FDA의 PCCP(Predetermined Change Control Plan)에 대응하는 국내 제도가 구체화된 것.</p>
+        <div class="src">출처: <a href="https://www.k-health.com/news/articleView.html?idxno=93364" target="_blank" rel="noopener">헬스경향</a></div>
+      </div>
+    </article>
 
-    <div class="pcard ai">
-      <div class="ptype">AI 영상진단</div>
-      <h4><a href="https://www.corelinesoft.com" target="_blank" rel="noopener">AVIEW NeuroCAD</a> <span class="company">코어라인소프트</span></h4>
-      <p>뇌출혈 뇌 영상 검출·진단보조 소프트웨어. 흉부 중심이던 AVIEW 제품군을 신경영상 영역으로 확장한 제품.</p>
-      <div class="pmeta">국내 허가</div>
-    </div>
+    <article class="entry reveal" data-cat="reg">
+      <div class="date">2026-01-26</div>
+      <div>
+        <div class="cat">규제·정책</div>
+        <h3><a href="https://www.korea.kr/news/policyNewsView.do?newsId=148958562" target="_blank" rel="noopener">'시장 즉시진입 의료기술' 제도 시행</a></h3>
+        <p>혁신의료기기가 식약처 품목허가와 동시에 시장에 진입할 수 있게 됐다. 기존 신의료기술평가 유예 절차를 크게 단축해 최단 80일 내 절차 완료가 가능하다.</p>
+        <div class="src">출처: <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148958562" target="_blank" rel="noopener">정책브리핑</a> · <a href="https://www.hitnews.co.kr/news/articleView.html?idxno=74428" target="_blank" rel="noopener">히트뉴스</a></div>
+      </div>
+    </article>
 
-    <div class="pcard dtx">
-      <div class="ptype">DTx · 불면증</div>
-      <h4><a href="https://www.aimmed.com" target="_blank" rel="noopener">솜즈 Somzz</a> <span class="company">에임메드</span></h4>
-      <p>불면증 인지행동치료(CBT-I) 기반 국내 1호 디지털치료기기. 6~9주 프로그램으로 수면습관을 교정한다.</p>
-      <div class="pmeta">2023 허가 · 국내 1호</div>
-    </div>
+    <article class="entry reveal" data-cat="reg">
+      <div class="date">2026-01-24</div>
+      <div>
+        <div class="cat">규제·정책</div>
+        <h3><a href="https://eiec.kdi.re.kr/policy/materialView.do?num=262788" target="_blank" rel="noopener">세계 최초 생성형 AI 의료기기 허가·심사 가이드라인 공개</a></h3>
+        <p>생성형 AI를 활용한 의료기기의 안전성·유효성 평가와 제품 개발을 지원하기 위한 가이드라인. 규제기관 차원의 생성형 AI 의료기기 허가심사 기준으로는 세계 최초다.</p>
+        <div class="src">출처: <a href="https://eiec.kdi.re.kr/policy/materialView.do?num=262788" target="_blank" rel="noopener">KDI 경제정책자료</a> · <a href="https://www.dentalarirang.com/news/articleView.html?idxno=43616" target="_blank" rel="noopener">덴탈아리랑</a></div>
+      </div>
+    </article>
 
-    <div class="pcard dtx">
-      <div class="ptype">DTx · 불면증</div>
-      <h4><a href="https://www.weltcorp.com" target="_blank" rel="noopener">슬립큐 WELT-I</a> <span class="company">웰트</span></h4>
-      <p>국내 2호 디지털치료기기. CBT-I 기반 불면증 개선 앱으로, 웰트는 섭식장애 치료 앱으로도 적응증을 확장 중.</p>
-      <div class="pmeta">2023 허가 · 국내 2호</div>
-    </div>
+    <article class="entry reveal" data-cat="reg">
+      <div class="date">2026-01-24</div>
+      <div>
+        <div class="cat">규제·정책</div>
+        <h3><a href="https://www.law.go.kr/LSW/lsRvsDocListP.do?lsId=014826&chrClsCd=010202&lsRvsGubun=all" target="_blank" rel="noopener">디지털의료제품법 시행령 잔여 조항 시행</a></h3>
+        <p>2025년 1월 시행된 디지털의료제품법의 시행령 일부 조항(우수관리체계 인증 관련 등)이 2026년 1월 24일부터 추가 시행됐다. AI 의료기기의 잦은 업데이트를 고려해 중대한 변경사항만 변경허가 대상으로 하는 전주기 안전관리 체계가 골자.</p>
+        <div class="src">출처: <a href="https://www.law.go.kr/LSW/lsRvsDocListP.do?lsId=014826&chrClsCd=010202&lsRvsGubun=all" target="_blank" rel="noopener">국가법령정보센터</a> · <a href="https://www.medifonews.com/news/article.html?no=199258" target="_blank" rel="noopener">메디포뉴스</a></div>
+      </div>
+    </article>
 
-    <div class="pcard dtx">
-      <div class="ptype">DTx · 시야장애</div>
-      <h4><a href="https://www.nunaps.com" target="_blank" rel="noopener">비비드브레인 VIVID Brain</a> <span class="company">뉴냅스</span></h4>
-      <p>뇌졸중 등으로 인한 시야장애 환자의 시지각 학습 훈련용 디지털치료기기. VR 기반 재활 훈련을 제공한다.</p>
-      <div class="pmeta">2024 허가</div>
-    </div>
+    <article class="entry reveal" data-cat="app">
+      <div class="date">2026-01-29</div>
+      <div>
+        <div class="cat">허가·지정</div>
+        <h3><a href="https://www.etnews.com/20260129000101" target="_blank" rel="noopener">2025년 혁신의료기기 45개 지정 — AI 제품이 주도</a></h3>
+        <p>식약처가 2025년 한 해 혁신의료기기 45개를 지정했다고 발표했다. 2024년 29개 대비 55% 이상 증가했으며, 상당수가 AI 기반 영상진단·데이터 분석 제품이다.</p>
+        <div class="src">출처: <a href="https://www.etnews.com/20260129000101" target="_blank" rel="noopener">전자신문</a></div>
+      </div>
+    </article>
 
-    <div class="pcard dtx">
-      <div class="ptype">DTx · 호흡재활</div>
-      <h4><a href="https://snsmd.com" target="_blank" rel="noopener">이지브리드 EasyBreath</a> <span class="company">쉐어앤서비스</span></h4>
-      <p>만성폐쇄성폐질환(COPD) 등 호흡기 질환자를 위한 호흡재활 소프트웨어. 재택 기반 호흡 훈련을 지원한다.</p>
-      <div class="pmeta">2024 허가</div>
-    </div>
+    <article class="entry reveal" data-cat="app">
+      <div class="date">2026</div>
+      <div>
+        <div class="cat">허가·지정</div>
+        <h3><a href="https://www.mfds.go.kr/brd/m_76/view.do?seq=16171" target="_blank" rel="noopener">2026년 혁신의료기기 지정 통합심사 신청 접수 중</a></h3>
+        <p>식약처가 2026년도 혁신의료기기 지정 통합심사 신청을 공고했다. 통합심사 트랙은 혁신의료기기 지정과 혁신의료기술평가를 함께 진행해 시장진입 기간을 단축한다.</p>
+        <div class="src">출처: <a href="https://www.mfds.go.kr/brd/m_76/view.do?seq=16171" target="_blank" rel="noopener">식약처 공고</a></div>
+      </div>
+    </article>
 
-    <div class="pcard dtx">
-      <div class="ptype">DTx · 이명</div>
-      <h4><a href="http://www.neurive.com" target="_blank" rel="noopener">소리클리어 SoriCLEAR</a> <span class="company">뉴라이브</span></h4>
-      <p>이명 환자를 위한 소리치료 기반 디지털치료기기. 2026년 2월 허가로 이명 영역 첫 DTx가 됐다.</p>
-      <div class="pmeta">2026-02 허가</div>
-    </div>
+    <article class="entry reveal" data-cat="app">
+      <div class="date">누적</div>
+      <div>
+        <div class="cat">허가·지정</div>
+        <h3><a href="https://www.doctorsnews.co.kr/news/articleView.html?idxno=160783" target="_blank" rel="noopener">국내 허가 디지털치료기기(DTx) 9종으로 확대</a></h3>
+        <p>불면증 1·2호(솜즈, 슬립큐)에 이어 시야장애(비비드브레인), 호흡재활(이지브리드)로 적응증이 넓어졌고, 2026년 들어 이명 치료 소리클리어(2월), 범불안장애 엥자이렉스(4월)가 추가 허가됐다. 경도인지장애·섭식장애·우울증 앱까지 총 9종이 허가를 획득. 다만 실제 처방량은 아직 미미하다는 지적.</p>
+        <div class="src">출처: <a href="https://www.doctorsnews.co.kr/news/articleView.html?idxno=160783" target="_blank" rel="noopener">의협신문</a> · <a href="http://www.docdocdoc.co.kr/news/articleView.html?idxno=3028335" target="_blank" rel="noopener">청년의사</a></div>
+      </div>
+    </article>
 
-    <div class="pcard dtx">
-      <div class="ptype">DTx · 범불안장애</div>
-      <h4><a href="https://www.haii.io" target="_blank" rel="noopener">엥자이렉스 Anzeilax</a> <span class="company">하이</span></h4>
-      <p>범불안장애 환자 대상 인지행동치료 기반 디지털치료기기. 2026년 4월 허가로 정신건강 적응증을 넓혔다.</p>
-      <div class="pmeta">2026-04 허가</div>
-    </div>
+    <article class="entry reveal" data-cat="pay">
+      <div class="date">2026</div>
+      <div>
+        <div class="cat">급여·시장진입</div>
+        <h3><a href="https://www.mindthos.com/blog/digital-therapeutics-insurance-reimbursement" target="_blank" rel="noopener">DTx 보험수가, 임시등재 단계 — 정식 등재는 2026년 말–2027년 초 거론</a></h3>
+        <p>디지털치료기기 보험수가는 현재 혁신의료기술 트랙을 통한 한시적 임시등재 단계다. 정식 등재 논의가 진행 중이나 확정 일정은 아니며, 처방-실사용-청구로 이어지는 지불구조가 확산의 관건으로 지목된다.</p>
+        <div class="src">출처: <a href="https://www.mindthos.com/blog/digital-therapeutics-insurance-reimbursement" target="_blank" rel="noopener">마음토스</a> · <a href="https://www.etoday.co.kr/news/view/2574369" target="_blank" rel="noopener">이투데이</a></div>
+      </div>
+    </article>
+
+    <article class="entry reveal" data-cat="biz">
+      <div class="date">2026-07</div>
+      <div>
+        <div class="cat">기업·산업</div>
+        <h3><a href="https://www.getnews.co.kr/news/articleView.html?idxno=869625" target="_blank" rel="noopener">코어라인소프트, 범부처 첨단의료기기 과제 선정 — FDA 510(k) 추진</a></h3>
+        <p>'2026년도 제1차 범부처 첨단의료기기 연구개발사업'에 선정돼 3년간 총 22억 원을 지원받는다. 폐결절 자동 검출 'AVIEW IPN'과 폐질환 정량분석 'AVIEW Lung Metrics'의 미국 임상 및 FDA 510(k) 인허가를 추진한다.</p>
+        <div class="src">출처: <a href="https://www.getnews.co.kr/news/articleView.html?idxno=869625" target="_blank" rel="noopener">게트뉴스</a></div>
+      </div>
+    </article>
+
+    <article class="entry reveal" data-cat="biz">
+      <div class="date">2026</div>
+      <div>
+        <div class="cat">기업·산업</div>
+        <h3><a href="https://www.medicaltimes.com/Mobile/News/NewsView.html?ID=1166360" target="_blank" rel="noopener">루닛, 유방암 위험예측 AI로 연내 FDA 허가 목표</a></h3>
+        <p>유방촬영술 영상과 나이만으로 개인별 유방암 절대 위험도를 산출하는 솔루션이 2025년 4월 FDA Breakthrough Device로 지정됐고, FDA 전주기 자문 프로그램(TAP)에도 선정됐다. 2026년 내 FDA 허가 획득이 목표.</p>
+        <div class="src">출처: <a href="https://www.medicaltimes.com/Mobile/News/NewsView.html?ID=1166360" target="_blank" rel="noopener">메디칼타임즈</a></div>
+      </div>
+    </article>
+
+    <article class="entry reveal" data-cat="biz">
+      <div class="date">2025-12</div>
+      <div>
+        <div class="cat">기업·산업</div>
+        <h3><a href="https://www.hankyung.com/article/202512129161P" target="_blank" rel="noopener">제이엘케이, 한림대성심병원에 의료 AI 솔루션 4종 공급</a></h3>
+        <p>뇌졸중 AI 솔루션 중심의 제이엘케이가 한림대 성심병원과 AI 솔루션 4종 공급 계약을 체결했다. 국내 대형병원 대상 도입 사례가 이어지는 흐름.</p>
+        <div class="src">출처: <a href="https://www.hankyung.com/article/202512129161P" target="_blank" rel="noopener">한국경제</a></div>
+      </div>
+    </article>
+
+    <article class="entry reveal" data-cat="biz">
+      <div class="date">2026</div>
+      <div>
+        <div class="cat">기업·산업</div>
+        <h3><a href="https://v.daum.net/v/GMo63jEoW6" target="_blank" rel="noopener">의료 AI 상장사, '성과 증명'의 해 — 허가 급증 vs 수익화 과제</a></h3>
+        <p>허가 건수는 급증했지만 선두 기업들의 재무 안정성과 해외 사업화 성과는 아직 검증 단계라는 평가. 루닛·뷰노 등 주요 기업이 검진센터·건강검진 시장 공략과 글로벌 진출로 활로를 모색 중이다.</p>
+        <div class="src">출처: <a href="https://v.daum.net/v/GMo63jEoW6" target="_blank" rel="noopener">다음뉴스</a> · <a href="https://pharm.edaily.co.kr/news/read?newsId=01174246645385944" target="_blank" rel="noopener">팜이데일리</a></div>
+      </div>
+    </article>
 
   </div>
+</section>
 
-  <footer>
+<!-- ═══ 제품 (dark-2) ═══ -->
+<section class="tile tile-dark-2" id="products">
+  <div class="tile-inner-wide">
+    <h2 class="sec-head reveal">주요 제품.</h2>
+    <p class="sec-sub reveal">국내 시장에 나와 있는 대표 의료 AI 솔루션과 허가 디지털치료기기. 제품명을 클릭하면 회사 홈페이지로 이동합니다.</p>
+    <div class="products">
+
+      <div class="pcard reveal">
+        <div class="ptype">AI 영상진단</div>
+        <h4><a href="https://www.lunit.io" target="_blank" rel="noopener">루닛 INSIGHT CXR / MMG</a></h4>
+        <div class="company">루닛</div>
+        <p>흉부 X-ray(CXR)와 유방촬영술(MMG) 영상에서 이상 소견을 검출하는 판독보조 AI. 국내외 의료기관·검진센터에 폭넓게 도입된 대표 제품군.</p>
+        <div class="pmeta">국내 허가 · 글로벌 판매</div>
+      </div>
+
+      <div class="pcard reveal">
+        <div class="ptype">AI 예측</div>
+        <h4><a href="https://www.vuno.co" target="_blank" rel="noopener">VUNO Med–DeepCARS</a></h4>
+        <div class="company">뷰노</div>
+        <p>일반병동 입원환자의 활력징후 4종(혈압·맥박·호흡·체온)으로 24시간 내 심정지 발생 위험을 예측. 국내 의료 AI 중 병원 실사용·매출 측면의 대표 사례.</p>
+        <div class="pmeta">국내 허가 · 선진입 의료기술</div>
+      </div>
+
+      <div class="pcard reveal">
+        <div class="ptype">AI 영상진단</div>
+        <h4><a href="https://www.jlkgroup.com" target="_blank" rel="noopener">JBS-01K</a></h4>
+        <div class="company">제이엘케이</div>
+        <p>뇌 MR 영상 기반 뇌경색 유형 분류 AI. 혁신의료기기 통합심사를 통과하고 임시 수가를 받은 뇌졸중 솔루션의 대표 주자.</p>
+        <div class="pmeta">국내 허가 · 임시수가 적용</div>
+      </div>
+
+      <div class="pcard reveal">
+        <div class="ptype">AI 영상진단</div>
+        <h4><a href="https://www.corelinesoft.com" target="_blank" rel="noopener">AVIEW LCS PLUS</a></h4>
+        <div class="company">코어라인소프트</div>
+        <p>저선량 흉부 CT 기반 폐암검진 판독보조 솔루션. 국가폐암검진 사업에 활용되며 유럽 병원 공급 계약 등 해외 진출이 활발.</p>
+        <div class="pmeta">국내 허가 · 유럽 공급</div>
+      </div>
+
+      <div class="pcard reveal">
+        <div class="ptype">AI 영상진단</div>
+        <h4><a href="https://www.corelinesoft.com" target="_blank" rel="noopener">AVIEW NeuroCAD</a></h4>
+        <div class="company">코어라인소프트</div>
+        <p>뇌출혈 뇌 영상 검출·진단보조 소프트웨어. 흉부 중심이던 AVIEW 제품군을 신경영상 영역으로 확장한 제품.</p>
+        <div class="pmeta">국내 허가</div>
+      </div>
+
+      <div class="pcard reveal">
+        <div class="ptype">DTx · 불면증</div>
+        <h4><a href="https://www.aimmed.com" target="_blank" rel="noopener">솜즈 Somzz</a></h4>
+        <div class="company">에임메드</div>
+        <p>불면증 인지행동치료(CBT-I) 기반 국내 1호 디지털치료기기. 6~9주 프로그램으로 수면습관을 교정한다.</p>
+        <div class="pmeta">2023 허가 · 국내 1호</div>
+      </div>
+
+      <div class="pcard reveal">
+        <div class="ptype">DTx · 불면증</div>
+        <h4><a href="https://www.weltcorp.com" target="_blank" rel="noopener">슬립큐 WELT-I</a></h4>
+        <div class="company">웰트</div>
+        <p>국내 2호 디지털치료기기. CBT-I 기반 불면증 개선 앱으로, 웰트는 섭식장애 치료 앱으로도 적응증을 확장 중.</p>
+        <div class="pmeta">2023 허가 · 국내 2호</div>
+      </div>
+
+      <div class="pcard reveal">
+        <div class="ptype">DTx · 시야장애</div>
+        <h4><a href="https://www.nunaps.com" target="_blank" rel="noopener">비비드브레인 VIVID Brain</a></h4>
+        <div class="company">뉴냅스</div>
+        <p>뇌졸중 등으로 인한 시야장애 환자의 시지각 학습 훈련용 디지털치료기기. VR 기반 재활 훈련을 제공한다.</p>
+        <div class="pmeta">2024 허가</div>
+      </div>
+
+      <div class="pcard reveal">
+        <div class="ptype">DTx · 호흡재활</div>
+        <h4><a href="https://snsmd.com" target="_blank" rel="noopener">이지브리드 EasyBreath</a></h4>
+        <div class="company">쉐어앤서비스</div>
+        <p>만성폐쇄성폐질환(COPD) 등 호흡기 질환자를 위한 호흡재활 소프트웨어. 재택 기반 호흡 훈련을 지원한다.</p>
+        <div class="pmeta">2024 허가</div>
+      </div>
+
+      <div class="pcard reveal">
+        <div class="ptype">DTx · 이명</div>
+        <h4><a href="http://www.neurive.com" target="_blank" rel="noopener">소리클리어 SoriCLEAR</a></h4>
+        <div class="company">뉴라이브</div>
+        <p>이명 환자를 위한 소리치료 기반 디지털치료기기. 2026년 2월 허가로 이명 영역 첫 DTx가 됐다.</p>
+        <div class="pmeta">2026-02 허가</div>
+      </div>
+
+      <div class="pcard reveal">
+        <div class="ptype">DTx · 범불안장애</div>
+        <h4><a href="https://www.haii.io" target="_blank" rel="noopener">엥자이렉스 Anzeilax</a></h4>
+        <div class="company">하이</div>
+        <p>범불안장애 환자 대상 인지행동치료 기반 디지털치료기기. 2026년 4월 허가로 정신건강 적응증을 넓혔다.</p>
+        <div class="pmeta">2026-04 허가</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="tile-inner">
     <p>이 페이지는 공개 보도·공고 자료를 기반으로 정리한 동향 브리핑이며, 각 항목의 원문은 출처 링크에서 확인할 수 있습니다.</p>
     <p>업데이트 주기: 수시(요청 시) — 새 소식이 있으면 상단 이슈 번호와 커버 기간을 갱신하고 각 섹션에 항목을 추가합니다.</p>
-  </footer>
+    <p>© 2026 K-Digital Health Watch</p>
+  </div>
+</footer>
 
-</div>
+<script>
+  // 스크롤 리빌
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduced && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("js");
+    const io = new IntersectionObserver((es) => {
+      es.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    document.querySelectorAll(".reveal").forEach((el, i) => {
+      el.style.transitionDelay = (i % 4) * 70 + "ms";
+      io.observe(el);
+    });
+  } else {
+    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
+  }
+
+  // 숫자 카운트업
+  function countUp(el) {
+    const target = +el.dataset.target;
+    const dur = 1200;
+    const t0 = performance.now();
+    function tick(t) {
+      const p = Math.min((t - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if (!reduced && "IntersectionObserver" in window) {
+    const cio = new IntersectionObserver((es) => {
+      es.forEach((e) => {
+        if (e.isIntersecting) {
+          countUp(e.target);
+          cio.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll(".count").forEach((el) => cio.observe(el));
+  } else {
+    document.querySelectorAll(".count").forEach((el) => { el.textContent = el.dataset.target; });
+  }
+
+  // 카테고리 필터
+  const chips = document.querySelectorAll(".filter-chip");
+  const entries = document.querySelectorAll(".entry");
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      chips.forEach((c) => c.setAttribute("aria-pressed", "false"));
+      chip.setAttribute("aria-pressed", "true");
+      const f = chip.dataset.filter;
+      entries.forEach((en) => {
+        en.classList.toggle("hidden", f !== "all" && en.dataset.cat !== f);
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
