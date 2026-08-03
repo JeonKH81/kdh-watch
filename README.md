@@ -1,4 +1,4 @@
-# K-Digital Health Watch
+# K-Digital & AI Health Watch
 
 국내 디지털헬스·의료 AI 동향 브리핑 — 식약처 허가·규제, 혁신의료기기, 디지털치료기기(DTx), 급여·시장진입, 기업 동향을 추적합니다.
 
