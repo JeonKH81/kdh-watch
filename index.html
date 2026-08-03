@@ -608,9 +608,28 @@
     margin: 0 0 18px;
     max-width: 52ch;
   }
-  .contact-card .btn-pill { font-size: 14px; padding: 9px 18px; }
+  .contact-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 32px;
+  }
+  .cl-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted-48);
+    margin-bottom: 1px;
+  }
+  .contact-links a {
+    font-size: 14.5px;
+    letter-spacing: -0.224px;
+    color: var(--primary);
+    word-break: break-all;
+  }
   @media (max-width: 560px) {
     .contact-card { flex-direction: column; }
+    .contact-links { grid-template-columns: 1fr; }
   }
 
   /* ═══ Footer (parchment) ═══ */
@@ -1134,7 +1153,32 @@
         <h3>전기현 Ki-Hyun Jeon, MD</h3>
         <p class="role">심장내과 전문의 · 분당서울대학교병원 순환기내과</p>
         <p class="bio">심장내과 의사의 눈으로 국내 의료 인공지능과 디지털헬스케어의 규제·임상 적용을 관찰하고 기록합니다. 이 브리핑은 공개 자료를 바탕으로 격주로 갱신됩니다.</p>
-        <a class="btn-pill" href="mailto:imcardio@gmail.com">이메일 보내기</a>
+        <div class="contact-links">
+          <div class="cl-item">
+            <span class="cl-label">EMAIL</span>
+            <a href="mailto:imcardio@gmail.com">imcardio@gmail.com</a>
+          </div>
+          <div class="cl-item">
+            <span class="cl-label">TEL</span>
+            <a href="tel:+82317877018">+82 31 787 7018</a>
+          </div>
+          <div class="cl-item">
+            <span class="cl-label">YOUTUBE</span>
+            <a href="https://www.youtube.com/@DoctorGPT516" target="_blank" rel="noopener">@DoctorGPT516</a>
+          </div>
+          <div class="cl-item">
+            <span class="cl-label">FACEBOOK</span>
+            <a href="https://www.facebook.com/kihyun.jeon" target="_blank" rel="noopener">kihyun.jeon</a>
+          </div>
+          <div class="cl-item">
+            <span class="cl-label">GITHUB</span>
+            <a href="https://github.com/JeonKH81" target="_blank" rel="noopener">github.com/JeonKH81</a>
+          </div>
+          <div class="cl-item">
+            <span class="cl-label">NOTION</span>
+            <a href="https://imcardio.notion.site/ai-literacy-2026" target="_blank" rel="noopener">imcardio.notion.site/ai-literacy-2026</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
