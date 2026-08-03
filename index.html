@@ -94,7 +94,24 @@
   .tile-inner-wide { max-width: 1200px; margin: 0 auto; }
 
   /* ═══ Hero ═══ */
-  .hero { text-align: center; padding: 110px 22px 90px; }
+  .hero {
+    text-align: center;
+    padding: 110px 22px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: url("bg-hero.jpg") center 35% / cover no-repeat;
+    opacity: 0.14;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.9) 60%, transparent 96%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.9) 60%, transparent 96%);
+    pointer-events: none;
+  }
+  .hero > * { position: relative; z-index: 1; }
   .hero .issue-tag {
     font-size: 14px;
     font-weight: 600;
