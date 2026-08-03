@@ -558,6 +558,61 @@
     font-variant-numeric: tabular-nums;
   }
 
+  /* ═══ 소개·문의 ═══ */
+  .contact-card {
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+    border-radius: 18px;
+    padding: 34px 32px;
+    display: flex;
+    gap: 26px;
+    align-items: flex-start;
+    max-width: 680px;
+  }
+  .contact-card .avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(0, 102, 204, 0.09);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-card .avatar svg {
+    width: 30px;
+    height: 30px;
+    stroke: var(--primary);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+  .contact-card h3 {
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.374px;
+    margin: 0 0 2px;
+  }
+  .contact-card .role {
+    font-size: 14px;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
+    margin: 0 0 12px;
+  }
+  .contact-card p.bio {
+    font-size: 15px;
+    line-height: 1.55;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-80);
+    margin: 0 0 18px;
+    max-width: 52ch;
+  }
+  .contact-card .btn-pill { font-size: 14px; padding: 9px 18px; }
+  @media (max-width: 560px) {
+    .contact-card { flex-direction: column; }
+  }
+
   /* ═══ Footer (parchment) ═══ */
   footer {
     background: var(--parchment);
@@ -605,6 +660,7 @@
       <a href="#news">동향</a>
       <a href="#academia">학회</a>
       <a href="#products">제품</a>
+      <a href="#contact">문의</a>
     </nav>
   </div>
 </header>
@@ -1064,10 +1120,30 @@
   </div>
 </section>
 
+<!-- ═══ 소개·문의 (white) ═══ -->
+<section class="tile tile-white" id="contact">
+  <div class="tile-inner">
+    <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2 7 12 13.5 22 7"/></svg></div>
+    <h2 class="sec-head reveal">만든 사람.</h2>
+    <p class="sec-sub reveal">제안, 제보, 협업 문의를 환영합니다.</p>
+    <div class="contact-card reveal">
+      <div class="avatar" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 20.5S4 15.5 4 9.8A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 8 2.8c0 5.7-8 10.7-8 10.7z"/><polyline points="4.5 12.5 9 12.5 10.5 9.5 12.5 15 14 12.5 19.5 12.5"/></svg>
+      </div>
+      <div>
+        <h3>전기현 Ki-Hyun Jeon, MD</h3>
+        <p class="role">심장내과 전문의 · 분당서울대학교병원 순환기내과</p>
+        <p class="bio">심장내과 의사의 눈으로 국내 의료 인공지능과 디지털헬스케어의 규제·임상 적용을 관찰하고 기록합니다. 이 브리핑은 공개 자료를 바탕으로 격주로 갱신됩니다.</p>
+        <a class="btn-pill" href="mailto:imcardio@gmail.com">이메일 보내기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="tile-inner">
     <p>이 페이지는 공개 보도·공고 자료를 기반으로 정리한 동향 브리핑이며, 각 항목의 원문은 출처 링크에서 확인할 수 있습니다.</p>
-    <p>업데이트 주기: 수시(요청 시) — 새 소식이 있으면 상단 이슈 번호와 커버 기간을 갱신하고 각 섹션에 항목을 추가합니다.</p>
+    <p>업데이트 주기: 격주 — 새 소식을 반영해 상단 이슈 번호·커버 기간·최종 업데이트 날짜를 갱신하고 각 섹션에 항목을 추가합니다.</p>
     <p>최종 업데이트: 2026-08-03 · © 2026 K-Digital Health Watch</p>
   </div>
 </footer>
