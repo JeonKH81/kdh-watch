@@ -86,16 +86,39 @@
   @media (max-width: 480px) {
     .gnav .updated { display: none; }
   }
-  .gnav nav { display: flex; gap: 32px; }
+  .gnav nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 9999px;
+    padding: 4px;
+  }
   .gnav nav a {
-    color: rgba(255, 255, 255, 0.88);
-    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14.5px;
     font-weight: 700;
     letter-spacing: -0.224px;
-    line-height: 44px;
-    transition: color 0.2s;
+    line-height: 1;
+    padding: 8px 14px;
+    border-radius: 9999px;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
   }
-  .gnav nav a:hover { color: #ffffff; text-decoration: none; }
+  .gnav nav a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.16);
+    text-decoration: none;
+  }
+  .gnav nav a:active { transform: scale(0.95); }
+  .gnav nav a.current {
+    background: var(--primary);
+    color: #ffffff;
+  }
+  .gnav nav a.ext {
+    color: var(--primary-on-dark);
+  }
+  .gnav nav a.ext:hover { color: #ffffff; }
 
   /* ═══ Full-bleed tiles ═══ */
   .tile { padding: 96px 22px; }
@@ -812,7 +835,7 @@
       <a href="#papers">논문</a>
       <a href="#products">제품</a>
       <a href="#contact">문의</a>
-      <a href="archive/">지난 호</a>
+      <a class="ext" href="archive/">지난 호</a>
     </nav>
   </div>
 </header>
@@ -1205,6 +1228,38 @@
   </div>
 </section>
 
+<!-- ═══ 논문 리뷰 티저 (dark) ═══ -->
+<section class="tile tile-dark" id="papers">
+  <div class="tile-inner">
+    <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="16" y2="7"/><line x1="9" y1="11" x2="16" y2="11"/></svg></div>
+    <h2 class="sec-head reveal">논문 리뷰.</h2>
+    <p class="sec-sub reveal">신간 논문을 매주 골라 읽고 쌓아갑니다. 가장 최근 3편.</p>
+    <div class="paper-teasers">
+      <div class="pt-card reveal">
+        <div class="pt-tag">LLM · 근거지형</div>
+        <h3><a href="papers/#llm-clinical-evidence-review">LLM-assisted systematic review of large language models in clinical medicine</a></h3>
+        <div class="pt-journal">Nature Medicine 2026</div>
+        <p>의학 LLM 논문 4,609편 중 실제 환자 대상 무작위 임상시험은 단 19편이었다.</p>
+      </div>
+      <div class="pt-card reveal">
+        <div class="pt-tag">LLM · 성능평가</div>
+        <h3><a href="papers/#prime-llm-clinical-reasoning">Large Language Model Performance and Clinical Reasoning Tasks</a></h3>
+        <div class="pt-journal">JAMA Network Open 2026</div>
+        <p>최신 21개 모델이 최종진단은 잘했지만 감별진단 실패율은 0.80을 넘었다.</p>
+      </div>
+      <div class="pt-card reveal">
+        <div class="pt-tag">LLM · 인간-AI 협업</div>
+        <h3><a href="papers/#human-llm-collaboration-meta">Human–LLM collaboration in clinical medicine: a systematic review and meta-analysis</a></h3>
+        <div class="pt-journal">npj Digital Medicine 2026</div>
+        <p>"의사+AI가 낫다"는 전제는 아직 검증되지 않았다 — 사실 오류율 26~36%가 남았다.</p>
+      </div>
+    </div>
+    <div class="cta-row reveal" style="justify-content: flex-start;">
+      <a class="btn-pill" href="papers/">리뷰 전체 보기</a>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ 제품 (dark-2) ═══ -->
 <section class="tile tile-dark-2" id="products">
   <div class="tile-inner-wide">
@@ -1344,44 +1399,12 @@
   </div>
 </section>
 
-<!-- ═══ 논문 리뷰 티저 (dark) ═══ -->
-<section class="tile tile-dark" id="papers">
-  <div class="tile-inner">
-    <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="16" y2="7"/><line x1="9" y1="11" x2="16" y2="11"/></svg></div>
-    <h2 class="sec-head reveal">논문 리뷰.</h2>
-    <p class="sec-sub reveal">신간 논문을 매주 골라 읽고 쌓아갑니다. 가장 최근 3편.</p>
-    <div class="paper-teasers">
-      <div class="pt-card reveal">
-        <div class="pt-tag">LLM · 근거지형</div>
-        <h3><a href="papers/#llm-clinical-evidence-review">LLM-assisted systematic review of large language models in clinical medicine</a></h3>
-        <div class="pt-journal">Nature Medicine 2026</div>
-        <p>의학 LLM 논문 4,609편 중 실제 환자 대상 무작위 임상시험은 단 19편이었다.</p>
-      </div>
-      <div class="pt-card reveal">
-        <div class="pt-tag">LLM · 성능평가</div>
-        <h3><a href="papers/#prime-llm-clinical-reasoning">Large Language Model Performance and Clinical Reasoning Tasks</a></h3>
-        <div class="pt-journal">JAMA Network Open 2026</div>
-        <p>최신 21개 모델이 최종진단은 잘했지만 감별진단 실패율은 0.80을 넘었다.</p>
-      </div>
-      <div class="pt-card reveal">
-        <div class="pt-tag">LLM · 인간-AI 협업</div>
-        <h3><a href="papers/#human-llm-collaboration-meta">Human–LLM collaboration in clinical medicine: a systematic review and meta-analysis</a></h3>
-        <div class="pt-journal">npj Digital Medicine 2026</div>
-        <p>"의사+AI가 낫다"는 전제는 아직 검증되지 않았다 — 사실 오류율 26~36%가 남았다.</p>
-      </div>
-    </div>
-    <div class="cta-row reveal" style="justify-content: flex-start;">
-      <a class="btn-pill" href="papers/">리뷰 전체 보기</a>
-    </div>
-  </div>
-</section>
-
 <!-- ═══ 소개·문의 (white) ═══ -->
 <section class="tile tile-white" id="contact">
   <div class="tile-inner">
     <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2 7 12 13.5 22 7"/></svg></div>
     <h2 class="sec-head reveal">만든 사람.</h2>
-    <p class="sec-sub reveal">제안, 제보, 협업 문의를 환영합니다.</p>
+    <p class="sec-sub reveal">제안, 강의 의뢰, 협업 문의를 환영합니다.</p>
     <div class="contact-card reveal">
       <div class="avatar" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M12 20.5S4 15.5 4 9.8A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 8 2.8c0 5.7-8 10.7-8 10.7z"/><polyline points="4.5 12.5 9 12.5 10.5 9.5 12.5 15 14 12.5 19.5 12.5"/></svg>
@@ -1467,6 +1490,41 @@
     document.querySelectorAll(".count").forEach((el) => cio.observe(el));
   } else {
     document.querySelectorAll(".count").forEach((el) => { el.textContent = el.dataset.target; });
+  }
+
+  // 현재 보고 있는 섹션을 내비에 표시
+  const navLinks = Array.from(document.querySelectorAll('.gnav nav a[href^="#"]'));
+  const sections = navLinks
+    .map((a) => document.querySelector(a.getAttribute("href")))
+    .filter(Boolean)
+    .sort((a, b) => a.offsetTop - b.offsetTop); // 메뉴 순서와 무관하게 문서 순서로 판정
+  if (sections.length) {
+    let ticking = false;
+    const markCurrent = () => {
+      ticking = false;
+      const line = window.scrollY + 120; // 내비 바로 아래 기준선
+      let activeId = null;
+      sections.forEach((s) => {
+        if (s.offsetTop <= line) activeId = s.id;
+      });
+      // 페이지 최하단에서는 마지막 섹션을 활성화
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) {
+        activeId = sections[sections.length - 1].id;
+      }
+      navLinks.forEach((a) => {
+        a.classList.toggle("current", a.getAttribute("href") === "#" + activeId);
+      });
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(markCurrent);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    window.addEventListener("load", markCurrent);
+    markCurrent();
   }
 
   // 카테고리 필터

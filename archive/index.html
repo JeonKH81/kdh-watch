@@ -61,15 +61,31 @@
     white-space: nowrap;
   }
   .gnav .wordmark:hover { text-decoration: none; }
+  .gnav nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 9999px;
+    padding: 4px;
+  }
   .gnav nav a {
-    color: rgba(255, 255, 255, 0.88);
-    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14.5px;
     font-weight: 700;
     letter-spacing: -0.224px;
-    line-height: 44px;
-    transition: color 0.2s;
+    line-height: 1;
+    padding: 8px 14px;
+    border-radius: 9999px;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
   }
-  .gnav nav a:hover { color: #ffffff; text-decoration: none; }
+  .gnav nav a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.16);
+    text-decoration: none;
+  }
+  .gnav nav a:active { transform: scale(0.95); }
 
   .wrap { max-width: 980px; margin: 0 auto; padding: 80px 22px 96px; }
   .sec-badge {
