@@ -135,7 +135,7 @@
   }
   .r-tag.field { background: var(--parchment); color: var(--ink-muted-48); }
   .review h2 {
-    font-size: clamp(20px, 3vw, 25px);
+    font-size: clamp(19px, 2.8vw, 24px);
     font-weight: 700;
     line-height: 1.32;
     letter-spacing: -0.374px;
@@ -146,9 +146,19 @@
     font-size: 14px;
     letter-spacing: -0.224px;
     color: var(--ink-muted-48);
-    margin: 0 0 20px;
+    margin: 0 0 10px;
   }
   .r-meta em { font-style: italic; }
+  .r-kr {
+    font-size: clamp(16px, 2.2vw, 18.5px);
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.374px;
+    color: var(--primary);
+    margin: 0 0 20px;
+    max-width: 62ch;
+    text-wrap: balance;
+  }
   .review p.body {
     font-size: 16px;
     line-height: 1.62;
@@ -213,9 +223,9 @@
 <div class="wrap">
   <div class="sec-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="16" y2="7"/><line x1="9" y1="11" x2="16" y2="11"/></svg></div>
   <h1>논문 리뷰.</h1>
-  <p class="sub">의료 AI·디지털헬스 신간 논문을 심장학에 무게를 두고 골라 읽습니다. 요지·핵심 결과·임상적 의미를 짧게 정리합니다.</p>
+  <p class="sub">의료 AI·디지털헬스 신간 논문을 골라 읽습니다. 요지·핵심 결과·임상적 의미를 짧게 정리합니다.</p>
   <div class="policy">
-    <strong>선정 기준</strong> — PubMed에 새로 색인된 논문 중 임상 적용 가능성이 있는 연구를 격주로 2~3편 고릅니다. 심장학과 AI의 교집합에 우선순위를 두되, 국내 연구와 디지털헬스 전반의 주요 결과도 포함합니다. 각 리뷰는 초록·본문 기반 요약이며 원문 DOI를 함께 제공합니다.
+    <strong>선정 기준</strong> — PubMed와 Consensus에서 새로 나온 논문 중 임상 적용 가능성과 파급력을 기준으로 <strong>매주</strong> 2~3편을 고릅니다. 각 리뷰는 초록·본문 기반 요약이며 원문 DOI를 함께 제공합니다.
   </div>
 </div>
 
@@ -223,58 +233,61 @@
 
   <!-- 새 리뷰는 이 위치(맨 위)에 추가합니다 -->
 
-  <article class="review" id="ai-cac-lung-screening">
+  <article class="review" id="llm-clinical-evidence-review">
     <div class="r-tags">
-      <span class="r-tag">심장 × AI</span>
-      <span class="r-tag field">영상진단</span>
-      <span class="r-tag field">2026-07-18</span>
+      <span class="r-tag">LLM · 근거지형</span>
+      <span class="r-tag field">체계적 문헌고찰</span>
+      <span class="r-tag field">2026-03-03</span>
     </div>
-    <h2>폐암검진 CT에서 관상동맥 석회화를 AI가 자동으로 — 판독 시간 추가 없이</h2>
-    <p class="r-meta">Ochs K, et al. <em>European Journal of Radiology Open</em> 2026;17:100799 · 취리히대학병원 · 후향적 단일기관, 323명</p>
-    <p class="body">폐암검진용 저선량 흉부 CT는 심전도 동기화(ECG-gating)를 하지 않기 때문에 관상동맥 석회화(CAC) 정량화에는 부적합하다고 여겨져 왔습니다. 이 연구는 완전자동 AI가 이 영상에서 Agatston 점수를 산출할 수 있는지를, 기존 반자동(semi-automated) 측정 및 육안 등급과 비교해 검증했습니다.</p>
-    <p class="body"><strong>AI와 반자동 측정의 일치도는 거의 완벽했습니다</strong>(ICC 0.96, Spearman r=0.97). CAC 유무 판별에서 민감도 0.97, 특이도 0.91을 보였고, CAD-RADS 2.0 플라크 부담 범주 일치도는 κ 0.92로 반자동–육안 간 일치도(κ 0.84, 0.68)보다 높았습니다. 결정적으로 반자동 측정에는 평균 102초가 걸린 반면 AI는 판독자의 추가 작업이 필요 없었습니다.</p>
-    <p class="body">한국 맥락에서 이 결과는 특히 의미가 큽니다. 국가폐암검진이 시행 중이고, 코어라인소프트의 AVIEW LCS PLUS처럼 저선량 CT 판독보조 솔루션이 이미 검진 현장에 들어와 있기 때문입니다. 폐를 보려고 찍은 CT에서 <strong>심혈관 위험을 덤으로(opportunistic) 건져 올리는</strong> 것은 추가 촬영·추가 피폭 없이 예방의학적 가치를 만드는 접근입니다. 다만 단일기관 후향 연구이고, CAC 점수가 실제 임상 의사결정과 예후 개선으로 이어지는지는 별도 검증이 필요합니다.</p>
+    <h2>LLM-assisted systematic review of large language models in clinical medicine</h2>
+    <p class="r-meta">Chen SF, Alyakin A, …, Oermann EK. <em>Nature Medicine</em> 2026;32(3):1152-1159 · NYU Langone·Duke 등 · LLM 보조 체계적 문헌고찰, 4,609편</p>
+    <p class="r-kr">의학 LLM 논문 4,609편을 훑어보니, 실제 환자 데이터로 한 무작위 임상시험은 단 19편이었다</p>
+    <p class="body">의학 분야 LLM 연구는 2022년 이후 폭발적으로 늘었지만, 그 근거의 질이 어떤지는 아무도 전체를 조망하지 못했습니다. 연구팀은 LLM 자체를 도구로 써서 2022년 1월–2025년 9월 사이 출판된 <strong>동료심사 논문 4,609편</strong>을 분류했습니다. 하루 3.2편꼴로 쏟아진 셈입니다.</p>
+    <p class="body">결과는 냉정합니다. 실제 환자 데이터를 사용한 연구는 1,048편(23%)에 그쳤고, 그중 <strong>전향적 무작위 임상시험은 단 19편</strong>이었습니다. 대부분은 가상 시나리오(1,857편)나 시험문제 풀이(1,704편)였습니다. 평가 대상 모델의 65.7%가 ChatGPT 계열이었고, 표본 크기가 30명 미만인 연구가 최소 25%였습니다. 1,046건의 인간 대 LLM 직접 비교에서 LLM이 이긴 것은 33%였는데, 과제가 현실에 가까울수록·비교 대상의 숙련도가 높을수록 그 비율은 떨어졌습니다.</p>
+    <p class="body">이 논문의 가치는 개별 성능 수치가 아니라 <strong>"근거의 지형도"</strong> 자체를 그렸다는 데 있습니다. 규제 측면에서도 시사점이 큽니다 — 식약처가 생성형 AI·LLM 가이드라인을 세계 최초로 내놓은 지금, 정작 그 심사의 토대가 될 임상근거는 아직 얇다는 뜻이기 때문입니다. 논문을 읽을 때 "실제 환자 데이터인가, 전향적인가"를 먼저 확인하라는 실용적 기준을 제공합니다.</p>
     <div class="r-takeaway">
       <span class="t-label">TAKEAWAY</span>
-      <p>폐암검진 CT의 부수적 심장 정보를 AI가 무료로 회수한다 — 국가검진 인프라를 가진 한국이 바로 적용해볼 만한 시나리오.</p>
+      <p>LLM 의학 논문은 하루 3편씩 쏟아지지만 전향적 RCT는 19편뿐 — 도입 논의보다 근거 생산이 한참 뒤처져 있다.</p>
     </div>
-    <div class="r-link"><a href="https://doi.org/10.1016/j.ejro.2026.100799" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+    <div class="r-link"><a href="https://doi.org/10.1038/s41591-026-04229-5" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
   </article>
 
-  <article class="review" id="retinal-ai-pwv">
+  <article class="review" id="prime-llm-clinical-reasoning">
     <div class="r-tags">
-      <span class="r-tag">심장 × AI</span>
-      <span class="r-tag field">위험예측</span>
-      <span class="r-tag field">2026-06-26</span>
+      <span class="r-tag">LLM · 성능평가</span>
+      <span class="r-tag field">벤치마크</span>
+      <span class="r-tag field">2026-04-01</span>
     </div>
-    <h2>안저 사진으로 동맥경직도를 추정한다 — 원격 심혈관 위험평가의 가능성</h2>
-    <p class="r-meta">Wang Y, et al. <em>Annals of Medicine</em> 2026;58(1):2682652 · 베이징대 제3병원 · 후향적 코호트, 5년간 3,088건 방문</p>
-    <p class="body">맥파전달속도(PWV)는 동맥경직도의 표준 지표지만 전용 장비가 있어야 측정할 수 있습니다. 이 연구는 눈 뒤쪽 혈관을 찍는 안저 사진에서 AI가 자동 추출한 망막 혈관 지표로 상완-발목 PWV(baPWV)와 발목상완지수(ABI)를 추정할 수 있는지 검증했습니다.</p>
-    <p class="body">망막 혈관 밀도, <strong>세동맥-세정맥 비율</strong>, 프랙탈 차원, 시신경유두 형태, 삼출물·드루젠 개수가 baPWV·ABI와 유의한 상관을 보였고, baPWV 상승은 고령·높은 혈압·낮은 세동맥-세정맥 비율·큰 유두 면적과 독립적으로 연관됐습니다. 검증 세트에서 예측 baPWV와 실측치의 일치도는 양호했으나(ICC 0.762), ABI는 중등도(ICC 0.410)에 그쳤습니다. 종단 분석에서 PWV 변화가 망막 지표 변화와 함께 움직인다는 점도 관찰됐습니다.</p>
-    <p class="body">망막은 인체에서 미세혈관을 비침습적으로 직접 볼 수 있는 유일한 창(window)이고, 안저 카메라는 검진센터·안과에 이미 널리 보급돼 있습니다. 사진 한 장으로 심혈관 위험을 선별할 수 있다면 원격·대규모 스크리닝의 문이 열립니다. 다만 이 연구는 <strong>PWV를 대체한다기보다 상관을 보인 단계</strong>이며, 단일 인종·단일 기관 데이터라는 점, ABI 예측력이 약하다는 점에서 외부 검증이 남아 있습니다.</p>
+    <h2>Large Language Model Performance and Clinical Reasoning Tasks</h2>
+    <p class="r-meta">Rao AS, Esmail KP, …, Succi MD. <em>JAMA Network Open</em> 2026;9(4):e264003 · Harvard Medical School·Mass General Brigham · 단면연구, 21개 모델 16,254건 응답</p>
+    <p class="r-kr">최신 LLM 21종을 진료 흐름대로 평가했더니, 최종진단은 잘하는데 감별진단에서 무너졌다</p>
+    <p class="body">기존 LLM 평가는 대부분 객관식 시험 점수에 의존해 왔습니다. 실제 진료는 환자를 만나 감별진단을 세우고, 검사를 고르고, 최종진단을 내리고, 치료를 결정하는 순차적 과정인데 말이죠. 연구팀은 MSD 매뉴얼 임상 증례 29개를 이 <strong>5단계 진료 흐름</strong>대로 쪼개어 GPT-5, Claude 4.5 Opus, Gemini 3.0, Grok 4 등 21개 모델을 평가하고, 균형 정확도를 면적으로 환산한 PrIME-LLM 지표를 제안했습니다.</p>
+    <p class="body">PrIME-LLM 점수는 0.64(Gemini 1.5 Flash)에서 0.78(Grok 4) 범위였고, 추론 최적화 모델이 일반 모델보다 우수했습니다. 흥미로운 것은 단계별 편차입니다 — <strong>최종진단 실패율은 0.09~0.39에 그친 반면, 감별진단 실패율은 모든 모델에서 0.80을 넘었습니다</strong>(0.90~1.00). 답이 정해진 문제는 잘 맞히지만, 여러 가능성을 늘어놓고 불확실성을 다루는 일에는 약하다는 뜻입니다.</p>
+    <p class="body">임상의에게 이 결과는 직관적으로 와닿습니다. 진료의 어려움은 진단명을 아는 데 있지 않고 <strong>"무엇을 놓치지 않았는가"를 점검하는 데</strong> 있기 때문입니다. 저자들의 결론은 단호합니다 — 버전이 올라가며 성능이 개선되고는 있으나, 기성 LLM은 아직 안전한 임상 배치에 필요한 수준에 이르지 못했다는 것. 벤치마크 점수만 보고 도입을 논하는 흐름에 제동을 거는 데이터입니다.</p>
     <div class="r-takeaway">
       <span class="t-label">TAKEAWAY</span>
-      <p>안저 사진 = 미세혈관 창(window). 장비 없이 동맥경직도를 가늠하는 원격 심혈관 스크리닝의 실마리지만, 아직 상관 단계.</p>
+      <p>LLM은 정답 맞히기에 강하고 감별진단에 약하다 — 임상 배치 논의는 "정확도"가 아니라 "불확실성을 다루는 능력"으로 옮겨가야 한다.</p>
     </div>
-    <div class="r-link"><a href="https://doi.org/10.1080/07853890.2026.2682652" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+    <div class="r-link"><a href="https://doi.org/10.1001/jamanetworkopen.2026.4003" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
   </article>
 
-  <article class="review" id="superbrain-meet-subgroup">
+  <article class="review" id="human-llm-collaboration-meta">
     <div class="r-tags">
-      <span class="r-tag">디지털헬스</span>
-      <span class="r-tag field">국내 연구 · RCT</span>
-      <span class="r-tag field">2026-07-20</span>
+      <span class="r-tag">LLM · 인간-AI 협업</span>
+      <span class="r-tag field">메타분석</span>
+      <span class="r-tag field">2026-01-28</span>
     </div>
-    <h2>디지털 생활습관 중재는 누구에게나 통했다 — 국내 다기관 RCT의 하위군 분석</h2>
-    <p class="r-meta">Kim DA, et al. <em>Neurology</em> 2026;107(3):e218297 · 국내 17개 병원 · SUPERBRAIN-MEET RCT 사전계획 하위군 분석, 277명</p>
-    <p class="body">경도인지장애(MCI)는 치매로 가는 고위험 단계입니다. 국내 17개 병원이 참여한 SUPERBRAIN-MEET 시험은 대면 세션과 디지털 플랫폼을 결합한 24주 다요인 생활습관 중재(MLI)가 인지기능을 개선함을 이미 보였습니다. 이번 분석의 질문은 다른 것이었습니다 — <strong>"그 효과가 특정 집단에만 국한된 것은 아닌가?"</strong></p>
-    <p class="body">60~85세 참가자 277명(평균 72.9세)에서 중재군은 대조군 대비 RBANS 총점이 4.17점 더 개선됐습니다(95% CI 1.92–6.43). 핵심은 하위군 분석 결과입니다. 성별·연령·교육수준·동거 여부, <strong>인터넷 접근성과 디지털 기기 사용 빈도</strong>, 기저 인지수준(MMSE), 그리고 BMI·혈압·콜레스테롤·혈당·심혈관 동반질환 등 혈관위험 프로파일 어느 것으로 나눠도, 다중검정 보정 후 유의한 상호작용이 없었습니다.</p>
-    <p class="body">디지털 중재의 가장 흔한 우려는 "디지털에 익숙한 사람만 혜택을 본다"는 것입니다. 이 연구는 적어도 이 프로그램에서는 <strong>디지털 준비도가 효과를 가르지 않았다</strong>는 신호를 줍니다 — 확산 가능성(scalability) 측면에서 중요한 근거입니다. 저자들도 짚었듯 하위군 분석은 탐색적이고 검정력이 제한적이라 확정적 결론은 아니지만, 국내 다기관 데이터라는 점에서 정책·현장 적용 논의에 바로 쓰일 수 있는 결과입니다.</p>
+    <h2>Human–large language model collaboration in clinical medicine: a systematic review and meta-analysis</h2>
+    <p class="r-meta">Wang G, Zhang K, …, Yang X. <em>npj Digital Medicine</em> 2026;9(1) · 중국의학과학원·푸단대·홍콩중문대 · 체계적 문헌고찰 및 메타분석, 10편</p>
+    <p class="r-kr">"의사 + AI"가 의사 단독보다 나은가? 아직은 자신 있게 그렇다고 말할 수 없다</p>
+    <p class="body">의료 AI 도입 논리의 핵심은 "AI가 의사를 대체한다"가 아니라 "의사와 AI가 함께하면 더 낫다"입니다. 이 메타분석은 그 전제를 실제로 검증했습니다. PRISMA 2020에 따라 네 개 데이터베이스를 검색해, 인간+LLM(H+AI) 워크플로와 인간 단독(H)을 직접 비교한 <strong>동료심사 연구 10편</strong>을 모았습니다.</p>
+    <p class="body">진단·판독 정확도는 H+AI가 나은 경향을 보였지만 통계적으로 유의하지 않았고 신뢰구간이 극단적으로 넓었습니다(RR 1.59, 95% CI 0.08–32.74). 복합 진단·처치 점수는 유의한 개선을 보였으나(+4.88%p, 95% CI 0.65–9.12) 예측구간이 −31.65~41.42로, 실제 현장에서는 정반대 결과도 가능하다는 뜻입니다. 시간 효율은 차이가 없었고(+0.4분), 문서 작성 품질은 개선됐지만 <strong>사실 오류율이 26~36%로 남아</strong> 그 이득을 갉아먹었습니다. 세 팔 비교에서는 H+AI가 AI 단독을 늘 이기지도 못했습니다.</p>
+    <p class="body">"인간-AI 협업이 최선"이라는 통념이 아직 근거로 뒷받침되지 않는다는 점을 보여주는, 불편하지만 중요한 결과입니다. 저자들은 실제 워크플로에 이식된 사전등록·실용적 다기관 시험과 <strong>안전성·오류 지표를 우선하는 표준화된 결과변수</strong>, 그리고 불확실성을 드러내고 검증을 돕는 인터페이스 설계를 요구합니다. 병원 도입을 검토 중이라면 "속도가 빨라지는가"보다 "오류가 줄어드는가"를 물어야 한다는 실무적 함의가 있습니다.</p>
     <div class="r-takeaway">
       <span class="t-label">TAKEAWAY</span>
-      <p>디지털 취약계층도 효과를 봤다 — 국내 17개 병원 RCT가 내놓은, 디지털 중재 확산의 형평성 근거.</p>
+      <p>"의사+AI가 낫다"는 전제는 아직 검증되지 않았다 — 문서 품질은 올라도 사실 오류 26~36%가 남고, 시간은 절약되지 않았다.</p>
     </div>
-    <div class="r-link"><a href="https://doi.org/10.1212/WNL.0000000000218297" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+    <div class="r-link"><a href="https://doi.org/10.1038/s41746-026-02382-2" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
   </article>
 
 </div>
