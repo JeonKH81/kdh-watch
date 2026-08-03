@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="K-디지털헬스 워치 지난 호 아카이브">
+<title>지난 호 — K-디지털헬스 워치</title>
+<style>
+  :root {
+    --primary: #0066cc;
+    --primary-focus: #0071e3;
+    --ink: #1d1d1f;
+    --ink-muted-80: #333333;
+    --ink-muted-48: #7a7a7a;
+    --hairline: #e0e0e0;
+    --canvas: #ffffff;
+    --parchment: #f5f5f7;
+    --font: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 17px;
+    line-height: 1.47;
+    letter-spacing: -0.374px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--primary); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible { outline: 2px solid var(--primary-focus); outline-offset: 2px; border-radius: 4px; }
+
+  .gnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    height: 44px;
+  }
+  .gnav-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    height: 44px;
+    padding: 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .gnav .wordmark {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.374px;
+    white-space: nowrap;
+  }
+  .gnav .wordmark:hover { text-decoration: none; }
+  .gnav nav a {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.224px;
+    line-height: 44px;
+    transition: color 0.2s;
+  }
+  .gnav nav a:hover { color: #ffffff; text-decoration: none; }
+
+  .wrap { max-width: 980px; margin: 0 auto; padding: 80px 22px 96px; }
+  .sec-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: rgba(0, 102, 204, 0.09);
+  }
+  .sec-badge svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--primary);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+  h1 {
+    font-size: clamp(30px, 5vw, 44px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin: 0 0 12px;
+  }
+  .sub {
+    font-size: clamp(17px, 2.5vw, 21px);
+    color: var(--ink-muted-48);
+    letter-spacing: 0;
+    margin: 0 0 48px;
+  }
+  .issues { display: flex; flex-direction: column; gap: 16px; }
+  .issue-card {
+    display: block;
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+    border-radius: 18px;
+    padding: 26px 28px;
+    color: var(--ink);
+    transition: border-color 0.2s;
+  }
+  .issue-card:hover { border-color: var(--primary); text-decoration: none; }
+  .issue-card .i-meta {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+    letter-spacing: -0.12px;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 4px;
+  }
+  .issue-card h2 {
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.374px;
+    margin: 0 0 6px;
+  }
+  .issue-card p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.5;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-80);
+    max-width: 70ch;
+  }
+  footer {
+    background: var(--parchment);
+    padding: 40px 22px;
+    font-size: 12px;
+    letter-spacing: -0.12px;
+    color: var(--ink-muted-48);
+  }
+  footer div { max-width: 980px; margin: 0 auto; }
+</style>
+</head>
+<body>
+
+<header class="gnav">
+  <div class="gnav-inner">
+    <a class="wordmark" href="../">K-디지털헬스 워치</a>
+    <nav>
+      <a href="../">최신 호로 돌아가기</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="sec-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><line x1="10" y1="12" x2="14" y2="12"/></svg></div>
+  <h1>지난 호.</h1>
+  <p class="sub">발행된 모든 호를 보관합니다. 각 호는 발행 시점 그대로 열람할 수 있습니다.</p>
+
+  <div class="issues">
+    <!-- 새 호 발행 시 이 목록 맨 위에 카드를 추가합니다 -->
+    <a class="issue-card" href="issue-01.html">
+      <div class="i-meta">제1호 · 2026-08-03 발행 · 커버 기간 2025년 12월 – 2026년 7월</div>
+      <h2>규제 체계 완성의 해, 시장 진입이 빨라지다</h2>
+      <p>세계 최초 생성형 AI 의료기기 가이드라인과 LLM 가이드라인 공개, 시장 즉시진입 제도 시행, 혁신의료기기 45개 지정, DTx 9종 확대와 임시등재 급여 현황까지 — 2026년 상반기 총 18건의 소식.</p>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div>© 2026 K-Digital Health Watch</div>
+</footer>
+
+</body>
+</html>
