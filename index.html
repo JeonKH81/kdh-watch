@@ -272,6 +272,76 @@
     line-height: 1.43;
   }
 
+  /* ═══ 이번 호의 키워드 ═══ */
+  .kw-heading { margin: 0; }
+  .kw-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--primary);
+    margin: 0 0 14px;
+  }
+  .kw-term {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(64px, 12vw, 116px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.045em;
+    color: var(--ink);
+    margin: 0;
+  }
+  .kw-full {
+    font-size: clamp(16px, 2.4vw, 20px);
+    font-weight: 400;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
+    margin: 12px 0 0;
+  }
+  .kw-def {
+    font-size: clamp(19px, 2.8vw, 25px);
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: -0.374px;
+    color: var(--ink);
+    margin: 30px 0 0;
+    padding-left: 20px;
+    border-left: 3px solid var(--primary);
+    max-width: 46ch;
+    text-wrap: balance;
+  }
+  .kw-body {
+    margin-top: 34px;
+    columns: 2;
+    column-gap: 44px;
+    max-width: 900px;
+  }
+  .kw-body p {
+    margin: 0 0 15px;
+    font-size: 16px;
+    line-height: 1.62;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-80);
+    break-inside: avoid;
+  }
+  .kw-body p strong { color: var(--ink); font-weight: 600; }
+  .kw-link {
+    margin-top: 26px;
+    padding: 16px 20px;
+    background: var(--canvas);
+    border-radius: 14px;
+    font-size: 14.5px;
+    line-height: 1.55;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-80);
+    max-width: 74ch;
+  }
+  .kw-link strong { color: var(--ink); font-weight: 600; }
+  @media (max-width: 720px) {
+    .kw-body { columns: 1; }
+  }
+
   /* ═══ Section badge ═══ */
   .sec-badge {
     width: 44px;
@@ -1085,6 +1155,7 @@
       <span class="updated">Updated 2026-08-03</span>
     </div>
     <nav>
+      <a href="#keyword">키워드</a>
       <a href="#highlights">핵심</a>
       <a href="#timeline">타임라인</a>
       <a href="#news">동향</a>
@@ -1125,6 +1196,24 @@
       <div class="num"><span class="count" data-target="22">0</span><span class="unit">건</span></div>
       <div class="label">이번 호 수록 소식</div>
     </div>
+  </div>
+</section>
+
+<!-- ═══ 이번 호의 키워드 (parchment) ═══ -->
+<section class="tile tile-parchment" id="keyword">
+  <div class="tile-inner">
+    <h2 class="kw-heading reveal"><span class="kw-label">이번 호의 키워드</span><span class="kw-term">AX</span></h2>
+    <p class="kw-full reveal">AI Transformation · 인공지능 전환</p>
+    <p class="kw-def reveal">AI 도구를 도입하는 것이 아니라, AI를 전제로 조직과 업무 구조 자체를 다시 짜는 것.</p>
+
+    <div class="kw-body">
+      <p class="reveal">몇 해 전까지 화두는 DX(디지털 전환)였습니다. 종이 차트를 EMR로 바꾸고 필름을 PACS로 옮기는 일이었죠. 의료 현장의 <strong>초기 DX가 기록을 디지털로 옮기는 데서 출발했다면, AX는 그렇게 쌓인 데이터로 판단과 실행을 바꾸는 단계</strong>입니다. 도입은 도구가 늘어나는 것이고, 전환은 구조가 바뀌는 것이라는 구분이 핵심입니다.</p>
+      <p class="reveal">경계가 모호해 보이지만 판별 기준은 의외로 단순합니다. <strong>일하는 순서가 바뀌었는가</strong>를 보면 됩니다. 판독 보조 AI를 켜두고 기존 판독 과정을 그대로 유지하면 도입이고, AI가 1차 선별을 맡고 사람은 예외와 판단이 필요한 사례에 집중하도록 워크플로를 다시 설계했다면 전환입니다.</p>
+      <p class="reveal">국내 병원들도 이 단어를 실제로 쓰기 시작했습니다. 삼성서울병원은 기존 디지털혁신추진단을 개편해 <strong>'AX추진단'</strong>을 출범시키며 진료·연구·환자경험 전반의 AI 대전환을 예고했습니다. 세브란스병원은 의무기록 초안을 생성하는 한국어 특화 LLM <strong>'Y-KNOT'</strong>을 원내 서버에서 EHR에 직접 연결해, 전공의가 없는 응급실 퇴원기록부터 적용을 시작했습니다. 조직과 업무 흐름이 함께 바뀐 사례들입니다.</p>
+      <p class="reveal">다만 의료에서 AX는 다른 산업보다 어렵습니다. 구조를 바꾸려면 <strong>규제·급여·책임소재</strong>가 함께 움직여야 하기 때문입니다. 이번 호에 담긴 변경관리 계획서, 실사용 특례, 급여 지불 경로 논의가 전부 그 조건을 만드는 작업입니다. 기술 성숙도만큼이나 제도 설계가 AX의 속도를 좌우한다는 점이 이 분야의 특징입니다.</p>
+    </div>
+
+    <p class="kw-link reveal"><strong>이번 호에서 만나는 곳</strong> — 규제가 구조 변경을 허용하는 방식(<a href="#news">동향 · 변경관리 계획서 가이드라인</a>), 사람과 AI의 협업이 실제로 나은지에 대한 근거(<a href="#papers">논문 · 인간–LLM 협업 메타분석</a>), 그리고 도입 논의보다 근거 생산이 뒤처져 있다는 지적(<a href="#papers">논문 · LLM 임상 근거지형</a>).</p>
   </div>
 </section>
 
