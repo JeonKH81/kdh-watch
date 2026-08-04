@@ -546,6 +546,113 @@
   .editors-note p:last-child { margin-bottom: 0; }
   .editors-note strong { color: var(--ink); font-weight: 600; }
 
+  /* ═══ 국내/해외 전환 토글 ═══ */
+  .scope-toggle {
+    display: inline-flex;
+    gap: 4px;
+    background: var(--parchment);
+    border-radius: 9999px;
+    padding: 4px;
+    margin-bottom: 20px;
+  }
+  .scope-btn {
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
+    background: transparent;
+    border: none;
+    border-radius: 9999px;
+    padding: 9px 22px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  .scope-btn:hover { color: var(--ink); }
+  .scope-btn:active { transform: scale(0.96); }
+  .scope-btn[aria-selected="true"] {
+    background: var(--canvas);
+    color: var(--ink);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+  .scope-btn:focus-visible { outline: 2px solid var(--primary-focus); outline-offset: 2px; }
+  .scope-btn .cnt {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--ink-muted-48);
+    margin-left: 5px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ═══ 해외 동향 (압축형) ═══ */
+  .intl-note {
+    font-size: 14px;
+    line-height: 1.55;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
+    margin: 0 0 22px;
+    max-width: 72ch;
+  }
+  .intl-list { border-top: 1px solid var(--divider-soft); }
+  .intl-item {
+    display: grid;
+    grid-template-columns: 104px 1fr;
+    gap: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--divider-soft);
+    align-items: baseline;
+  }
+  .intl-item .date {
+    font-size: 13.5px;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .intl-item .txt {
+    font-size: 15.5px;
+    line-height: 1.5;
+    letter-spacing: -0.224px;
+    color: var(--ink);
+  }
+  .intl-item .txt a { color: var(--ink); border-bottom: 1px solid transparent; }
+  .intl-item .txt a:hover { color: var(--primary); border-bottom-color: var(--primary); text-decoration: none; }
+  .intl-item .org {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--primary);
+    background: rgba(0, 102, 204, 0.09);
+    border-radius: 100px;
+    padding: 2px 9px;
+    margin-right: 8px;
+    vertical-align: 1px;
+  }
+  .intl-item .src { font-size: 13px; letter-spacing: -0.12px; margin-left: 6px; }
+  .intl-item .src a { color: var(--ink-muted-48); }
+  .intl-item .src a:hover { color: var(--primary); }
+
+  /* ═══ 더 보기 ═══ */
+  .more-row { margin-top: 26px; }
+  .btn-more {
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.224px;
+    color: var(--primary);
+    background: transparent;
+    border: 1px solid var(--hairline);
+    border-radius: 9999px;
+    padding: 11px 24px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .btn-more:hover { background: var(--parchment); border-color: var(--ink-muted-48); }
+  .btn-more:active { transform: scale(0.96); }
+  .btn-more:focus-visible { outline: 2px solid var(--primary-focus); outline-offset: 2px; }
+  .entry.folded, .intl-item.folded { display: none; }
+
   .filter-row {
     display: flex;
     gap: 10px;
@@ -917,7 +1024,7 @@
       <div class="label">시장 즉시진입 최단 절차</div>
     </div>
     <div class="stat reveal">
-      <div class="num"><span class="count" data-target="21">0</span><span class="unit">건</span></div>
+      <div class="num"><span class="count" data-target="26">0</span><span class="unit">건</span></div>
       <div class="label">이번 호 수록 소식</div>
     </div>
   </div>
@@ -1049,8 +1156,51 @@
       <p>이번 커버 기간의 이야기는 <strong>"규제는 완성됐고, 이제 시장이 따라올 차례"</strong>로 요약됩니다. 1월, 디지털의료제품법 체계 위에 세계 최초 생성형 AI 의료기기 가이드라인이 공개되고 품목허가와 동시에 시장에 진입하는 '즉시진입 제도'가 시행됐습니다. 지난해 혁신의료기기 지정이 45개(전년 대비 55%↑)로 뛴 것도 이 흐름의 연장선입니다.</p>
       <p>4월에는 이 체계의 첫 결실이 나왔습니다 — 숨빗AI의 흉부 X선 예비소견서 생성 소프트웨어가 <strong>세계 최초 생성형 AI 의료기기 허가</strong>를 받은 것. 이어 6~7월 LLM 가이드라인, 변경관리 계획서(한국판 PCCP), 임상자료 면제 기준 고시까지 나오면서 규제 프레임은 사실상 완성 단계에 들어섰습니다.</p>
       <p>남은 숙제는 <strong>돈</strong>입니다. DTx는 9종까지 허가됐지만 처방량은 미미하고, 1호 솜즈의 임시등재 기간은 5월로 만료 국면 — 정식 급여 등재는 빨라야 연말입니다. 그 사이 루닛·코어라인소프트 등 주요 기업들은 국내 수익화 대신 FDA와 해외 시장으로 눈을 돌리고 있습니다.</p>
+      <p>밖을 보면 우리가 <strong>앞서 있는 영역과 뒤처진 영역이 갈립니다</strong>. 생성형 AI·LLM 의료기기 기준을 명문화하는 속도는 한국이 빨랐습니다 — FDA의 AI 의료기기 전주기 가이던스는 아직 초안이고, EU는 고위험 의료기기 적용을 2028년으로 미뤘습니다. 반면 급여 논의는 미국이 앞서갑니다. CMS가 2027년 외래 수가 <strong>제안 규칙</strong>에서 AI 진단 소프트웨어 전용 지불 경로를 제안했거든요. 자세한 내용은 위 <strong>'해외' 탭</strong>에 정리했습니다.</p>
     </div>
 
+    <div class="scope-toggle reveal" role="tablist" aria-label="국내·해외 전환">
+      <button class="scope-btn" id="scope-dom" role="tab" aria-selected="true" aria-controls="pane-domestic">국내<span class="cnt">17</span></button>
+      <button class="scope-btn" id="scope-intl" role="tab" aria-selected="false" aria-controls="pane-intl">해외<span class="cnt">5</span></button>
+    </div>
+
+    <div id="pane-intl" role="tabpanel" aria-labelledby="scope-intl" hidden>
+      <p class="intl-note">국내 규제·시장에 영향을 주는 해외 소식만 추립니다. 한국 기업의 해외 진출 소식은 국내 동향의 '기업·산업'에 있습니다.</p>
+      <div class="intl-list">
+        <div class="intl-item">
+          <div class="date">2026-07-02</div>
+          <div class="txt">
+            <span class="org">CMS</span><a href="https://distilinfo.com/2026/07/20/software-medical-service-cms-ai-payment/" target="_blank" rel="noopener">미국 메디케어, AI 진단 소프트웨어 전용 지불 경로 '소프트웨어 의료서비스(SaMS)' 신설 제안</a> — 2027 외래 수가 제안 규칙에 포함, AI 급여의 표준 틀을 처음 세우려는 시도.<span class="src"><a href="https://www.beckerspayer.com/financial/cms-floats-new-medicare-payment-category-for-ai-diagnostic-software-6-notes/" target="_blank" rel="noopener">Becker's</a></span>
+          </div>
+        </div>
+        <div class="intl-item">
+          <div class="date">2026-03</div>
+          <div class="txt">
+            <span class="org">FDA</span><a href="https://intuitionlabs.ai/articles/fda-ai-medical-device-tracker" target="_blank" rel="noopener">FDA 인가 AI 의료기기 누적 1,451개 (2026년 3월 기준)</a> — 대부분 영상·진단 분야이며 다수가 510(k) 경로. 다만 FDA 목록에는 생성형 AI·LLM 기반임이 명시된 기기가 아직 없어, FDA는 해당 기기를 목록에 별도 표기하는 방안을 검토 중이다.<span class="src"><a href="https://intuitionlabs.ai/articles/fda-approved-ai-medical-devices-list" target="_blank" rel="noopener">기기 목록</a></span>
+          </div>
+        </div>
+        <div class="intl-item">
+          <div class="date">2026 진행 중</div>
+          <div class="txt">
+            <span class="org">EU</span><a href="https://www.koreaiin.com/news/899115" target="_blank" rel="noopener">EU AI Act, 의료기기 등 고위험 AI 규제 적용을 2028년 8월로 연기</a> — 'Digital Omnibus' 개정으로 1년 추가 유예. 다만 제50조 투명성 의무는 예정대로 2026년 8월 2일 적용되고, 그 이전에 출시된 일부 합성콘텐츠 생성 시스템의 전환기한은 2026년 12월 2일이다.<span class="src"><a href="https://www.lawtimes.co.kr/news/articleViewAmp.html?idxno=223727" target="_blank" rel="noopener">법률신문</a></span>
+          </div>
+        </div>
+        <div class="intl-item">
+          <div class="date">2026 진행 중</div>
+          <div class="txt">
+            <span class="org">FDA</span><a href="https://www.hoganlovells.com/en/publications/fda-device-guidance-agenda-what-to-watch-in-2026" target="_blank" rel="noopener">AI 의료기기 전주기 관리 종합 가이던스, 아직 초안 단계</a> — 확정은 2026년 말–2027년 전망. FDA는 LLM 기반 기기를 목록에 별도 표기할 계획을 밝혔다. 국내 가이드라인이 앞서 나간 셈.<span class="src"><a href="https://casrai.org/guides/fda-ai-guidance" target="_blank" rel="noopener">FDA AI 가이던스 정리</a></span>
+          </div>
+        </div>
+        <div class="intl-item">
+          <div class="date">2026-01</div>
+          <div class="txt">
+            <span class="org">CPT</span><a href="https://www.acep.org/emultrasound/newsroom/february-2026/ai-in-pocus-an-overview-of-the-current-billing-and-reimbursement" target="_blank" rel="noopener">미국 임상 AI용 CPT 코드는 26개, 정식 등재(Category I)는 단 3개</a> — FFR-CT, 당뇨망막병증 검출 등. 나머지는 지역 심사기관의 개별 가격 책정에 의존해 급여가 들쭉날쭉하다는 지적이 나온다.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="pane-domestic" role="tabpanel" aria-labelledby="scope-dom">
     <div class="filter-row reveal" role="group" aria-label="카테고리 필터">
       <button class="filter-chip" data-filter="all" aria-pressed="true">전체</button>
       <button class="filter-chip" data-filter="reg" aria-pressed="false">규제·정책</button>
@@ -1228,6 +1378,11 @@
         <div class="src">출처: <a href="https://www.doctorsnews.co.kr/news/articleView.html?idxno=160783" target="_blank" rel="noopener">의협신문</a> · <a href="http://www.docdocdoc.co.kr/news/articleView.html?idxno=3028335" target="_blank" rel="noopener">청년의사</a></div>
       </div>
     </article>
+
+    <div class="more-row reveal">
+      <button class="btn-more" id="more-domestic" aria-expanded="false">이전 소식 더 보기</button>
+    </div>
+    </div><!-- /pane-domestic -->
 
   </div>
 </section>
@@ -1575,19 +1730,69 @@
     markCurrent();
   }
 
+  // 국내/해외 전환
+  const scopeDom = document.getElementById("scope-dom");
+  const scopeIntl = document.getElementById("scope-intl");
+  const paneDom = document.getElementById("pane-domestic");
+  const paneIntl = document.getElementById("pane-intl");
+  if (scopeDom && scopeIntl) {
+    const setScope = (intl) => {
+      scopeDom.setAttribute("aria-selected", String(!intl));
+      scopeIntl.setAttribute("aria-selected", String(intl));
+      paneDom.hidden = intl;
+      paneIntl.hidden = !intl;
+    };
+    scopeDom.addEventListener("click", () => setScope(false));
+    scopeIntl.addEventListener("click", () => setScope(true));
+    // 실제 항목 수로 배지 자동 갱신
+    scopeDom.querySelector(".cnt").textContent = document.querySelectorAll("#pane-domestic .entry").length;
+    scopeIntl.querySelector(".cnt").textContent = document.querySelectorAll("#pane-intl .intl-item").length;
+  }
+
   // 카테고리 필터
   const chips = document.querySelectorAll(".filter-chip");
   const entries = document.querySelectorAll(".entry");
+  const VISIBLE = 8; // 기본 노출 건수
+  const moreBtn = document.getElementById("more-domestic");
+  let expanded = false;
+
+  const applyView = () => {
+    const f = document.querySelector('.filter-chip[aria-pressed="true"]').dataset.filter;
+    let shown = 0;
+    entries.forEach((en) => {
+      const matches = f === "all" || en.dataset.cat === f;
+      en.classList.toggle("hidden", !matches);
+      if (matches) {
+        shown++;
+        en.classList.toggle("folded", !expanded && shown > VISIBLE);
+      } else {
+        en.classList.remove("folded");
+      }
+    });
+    if (moreBtn) {
+      const hiddenCount = Math.max(0, shown - VISIBLE);
+      moreBtn.style.display = hiddenCount > 0 || expanded ? "" : "none";
+      moreBtn.textContent = expanded ? "접기" : `이전 소식 ${hiddenCount}건 더 보기`;
+      moreBtn.setAttribute("aria-expanded", String(expanded));
+    }
+  };
+
   chips.forEach((chip) => {
     chip.addEventListener("click", () => {
       chips.forEach((c) => c.setAttribute("aria-pressed", "false"));
       chip.setAttribute("aria-pressed", "true");
-      const f = chip.dataset.filter;
-      entries.forEach((en) => {
-        en.classList.toggle("hidden", f !== "all" && en.dataset.cat !== f);
-      });
+      expanded = false;
+      applyView();
     });
   });
+  if (moreBtn) {
+    moreBtn.addEventListener("click", () => {
+      expanded = !expanded;
+      applyView();
+      if (!expanded) document.getElementById("news").scrollIntoView({ block: "start" });
+    });
+  }
+  applyView();
 </script>
 
 
