@@ -828,8 +828,37 @@
     .hero { padding: 72px 22px 56px; }
     .entry { grid-template-columns: 1fr; gap: 6px; }
     .entry .date { padding-top: 0; }
-    .gnav nav { gap: 16px; }
-    .gnav nav a:nth-child(n+4) { display: none; }
+    /* 모바일: 브랜드 아래에 메뉴를 가로 스크롤 띠로 */
+    .gnav { height: auto; }
+    .gnav-inner {
+      height: auto;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 9px 0 8px;
+    }
+    .brand { padding: 0 18px 8px; }
+    .gnav .wordmark { font-size: 16px; letter-spacing: -0.3px; }
+    .gnav nav {
+      background: transparent;
+      border-radius: 0;
+      padding: 2px 18px 3px;
+      gap: 7px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .gnav nav::-webkit-scrollbar { display: none; width: 0; height: 0; }
+    .gnav nav a {
+      background: rgba(255, 255, 255, 0.13);
+      padding: 8px 13px;
+      font-size: 14px;
+      flex: 0 0 auto;
+    }
+    .gnav nav a.current { background: var(--primary); }
+    .tile[id], .hero[id] { scroll-margin-top: 96px; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }

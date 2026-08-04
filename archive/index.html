@@ -179,6 +179,23 @@
     color: var(--ink-muted-48);
   }
   footer div { max-width: 980px; margin: 0 auto; }
+
+  @media (max-width: 640px) {
+    .gnav-inner { padding: 0 16px; gap: 10px; }
+    .gnav .wordmark { font-size: 15px; letter-spacing: -0.3px; }
+    .gnav nav {
+      gap: 3px;
+      padding: 3px;
+      min-width: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .gnav nav::-webkit-scrollbar { display: none; width: 0; height: 0; }
+    .gnav nav a { padding: 7px 11px; font-size: 13.5px; flex: 0 0 auto; }
+    .wrap { padding-left: 18px; padding-right: 18px; }
+  }
 </style>
 </head>
 <body>
