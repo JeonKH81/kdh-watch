@@ -168,12 +168,15 @@
   }
   .hero > * { position: relative; z-index: 1; }
   .hero .issue-tag {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 600;
-    letter-spacing: -0.224px;
-    color: var(--ink-muted-48);
-    margin: 0 0 14px;
+    letter-spacing: -0.374px;
+    color: var(--ink-muted-80);
+    margin: 0 0 18px;
     font-variant-numeric: tabular-nums;
+  }
+  @media (max-width: 640px) {
+    .hero .issue-tag { font-size: 16px; }
   }
   .hero .issue-tag strong { color: var(--primary); font-weight: 600; }
   .hero h1 {
