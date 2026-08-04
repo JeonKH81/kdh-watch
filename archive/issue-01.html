@@ -469,6 +469,105 @@
   .acad-card .a-src a:hover { color: var(--primary); }
   .acad-card .card-icon { stroke: var(--primary); margin-bottom: 6px; }
 
+  /* ═══ 학회 일정 캘린더 ═══ */
+  .conf-note {
+    font-size: 14px;
+    line-height: 1.55;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
+    margin: 0 0 26px;
+    max-width: 74ch;
+  }
+  .conf-group {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted-48);
+    margin: 30px 0 2px;
+  }
+  .conf-group:first-of-type { margin-top: 0; }
+  .conf-list { border-top: 1px solid var(--hairline); }
+  .conf-item {
+    display: grid;
+    grid-template-columns: 118px 1fr;
+    gap: 22px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .conf-date {
+    font-variant-numeric: tabular-nums;
+    padding-top: 2px;
+  }
+  .conf-date .d-main {
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.374px;
+    color: var(--primary);
+    white-space: nowrap;
+  }
+  .conf-date .d-year {
+    display: block;
+    font-size: 12.5px;
+    letter-spacing: -0.12px;
+    color: var(--ink-muted-48);
+    margin-top: 1px;
+  }
+  .conf-item h4 {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.374px;
+    margin: 0 0 5px;
+    text-wrap: balance;
+  }
+  .conf-item h4 a { color: var(--ink); border-bottom: 1px solid transparent; }
+  .conf-item h4 a:hover { color: var(--primary); border-bottom-color: var(--primary); text-decoration: none; }
+  .conf-item h4 .abbr {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--primary);
+    background: rgba(0, 102, 204, 0.09);
+    border-radius: 100px;
+    padding: 2px 9px;
+    margin-left: 7px;
+    vertical-align: 2px;
+    white-space: nowrap;
+  }
+  .conf-item h4 .abbr.gen { color: var(--ink-muted-48); background: rgba(0, 0, 0, 0.05); }
+  .conf-desc {
+    margin: 0 0 9px;
+    font-size: 14.5px;
+    line-height: 1.5;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-80);
+    max-width: 70ch;
+  }
+  .conf-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px 10px;
+    font-size: 13px;
+    letter-spacing: -0.12px;
+    color: var(--ink-muted-48);
+    align-items: center;
+  }
+  .conf-meta .loc::before { content: "📍 "; }
+  .conf-meta .dl {
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+    border-radius: 100px;
+    padding: 3px 11px;
+    color: var(--ink-muted-80);
+  }
+  .conf-meta .dl.urgent {
+    border-color: var(--primary);
+    color: var(--primary);
+    font-weight: 600;
+  }
+  .conf-item.past .conf-date .d-main { color: var(--ink-muted-48); }
+
   /* ═══ 타임라인 (parchment) ═══ */
   .timeline-scroll { overflow-x: auto; padding: 8px 0 16px; }
   .timeline {
@@ -1024,7 +1123,7 @@
       <div class="label">시장 즉시진입 최단 절차</div>
     </div>
     <div class="stat reveal">
-      <div class="num"><span class="count" data-target="26">0</span><span class="unit">건</span></div>
+      <div class="num"><span class="count" data-target="22">0</span><span class="unit">건</span></div>
       <div class="label">이번 호 수록 소식</div>
     </div>
   </div>
@@ -1392,41 +1491,209 @@
   <div class="tile-inner">
     <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 9L12 4 2 9l10 5 10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg></div>
     <h2 class="sec-head reveal">학계·학회.</h2>
-    <p class="sec-sub reveal">의료 인공지능·디지털헬스 관련 학회의 지난 학술대회 소식과 다가오는 일정.</p>
-    <div class="acad-grid">
+    <p class="sec-sub reveal">의료 인공지능·의료정보학 분야 주요 학회의 연간 일정입니다. 학회명을 클릭하면 공식 홈페이지로 이동합니다.</p>
 
-      <div class="acad-card reveal">
-        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 9L12 4 2 9l10 5 10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg>
-        <div class="a-date">2026.07.31 – 08.01 · 정기학술대회 10.23 – 24 예정</div>
-        <h3><a href="https://www.kosaim.org/html/" target="_blank" rel="noopener">대한의료인공지능학회 (KoSAIM)</a></h3>
-        <p>2026 Summer School이 서울대학교 의과대학에서 열렸다. 정기학술대회는 10월 그랜드 인터컨티넨탈 서울 파르나스에서 개최 예정이며, 루닛 학술발전기금 기반의 KoSAIM 루닛학술상 후보 추천이 진행 중이다.</p>
-        <div class="a-src">출처: <a href="https://www.kosaim.org/html/" target="_blank" rel="noopener">대한의료인공지능학회</a></div>
+    <div class="scope-toggle reveal" role="tablist" aria-label="국내·국제 학회 전환">
+      <button class="scope-btn" id="soc-dom" role="tab" aria-selected="true" aria-controls="pane-soc-dom">국내<span class="cnt">5</span></button>
+      <button class="scope-btn" id="soc-intl" role="tab" aria-selected="false" aria-controls="pane-soc-intl">국제<span class="cnt">16</span></button>
+    </div>
+
+    <!-- ─── 국내 ─── -->
+    <div id="pane-soc-dom" role="tabpanel" aria-labelledby="soc-dom">
+      <p class="conf-note reveal">의료 AI·디지털헬스 5개 학회를 상시 추적합니다. <a href="https://www.kdcm.or.kr/" target="_blank" rel="noopener">대한디지털임상의학회</a>, <a href="https://aiassociation.kr/" target="_blank" rel="noopener">한국인공지능학회</a> 등은 의료 관련 소식이 있을 때 선별 소개합니다. 초록 마감·사전등록 일정은 공지 시점이 학회마다 달라, 확인된 것만 표기하고 나머지는 홈페이지를 참고하시기 바랍니다.</p>
+
+      <h3 class="conf-group reveal">다가오는 일정</h3>
+      <div class="conf-list">
+        <div class="conf-item reveal">
+          <div class="conf-date"><span class="d-main">10.23–24</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://www.kosaim.org/html/" target="_blank" rel="noopener">대한의료인공지능학회 정기학술대회</a><span class="abbr">KoSAIM</span></h4>
+            <p class="conf-desc">국내 의료 AI를 대표하는 학회. 임상·공학·산업이 함께 모이며, 여름에는 Summer School도 운영한다. 루닛 학술발전기금 기반의 KoSAIM 루닛학술상을 시상.</p>
+            <div class="conf-meta"><span class="loc">그랜드 인터컨티넨탈 서울 파르나스</span><span class="dl">등록·초록 일정 홈페이지 공지</span></div>
+          </div>
+        </div>
       </div>
 
-      <div class="acad-card reveal">
-        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 9L12 4 2 9l10 5 10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg>
-        <div class="a-date">2026.06.24 – 26 · 청주 오스코</div>
-        <h3><a href="https://www.medifonews.com/news/article.html?no=214698" target="_blank" rel="noopener">대한의료정보학회 (KOSMI) 춘계학술대회</a></h3>
-        <p>약 1,500명 참석으로 역대 최대 규모. 주제는 'From Operating System to Operating Society' — 의료정보학이 의료 시스템을 넘어 사회 운영체계로 확장되는 방향을 논의했다.</p>
-        <div class="a-src">출처: <a href="https://www.medifonews.com/news/article.html?no=214698" target="_blank" rel="noopener">메디포뉴스</a> · <a href="https://www.rapportian.com/news/articleView.html?idxno=236817" target="_blank" rel="noopener">라포르시안</a></div>
+      <h3 class="conf-group reveal">지난 일정 (2026)</h3>
+      <div class="conf-list">
+        <div class="conf-item past reveal">
+          <div class="conf-date"><span class="d-main">6.24–26</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://www.kosmi.org/" target="_blank" rel="noopener">대한의료정보학회 춘계학술대회</a><span class="abbr">KOSMI</span></h4>
+            <p class="conf-desc">1987년 창립된 국내 의료정보학 최대 규모 학회. 이번 춘계학술대회는 약 1,500명이 참석해 역대 최대를 기록했다. 주제는 'From Operating System to Operating Society'.</p>
+            <div class="conf-meta"><span class="loc">청주 오스코</span></div>
+          </div>
+        </div>
+        <div class="conf-item past reveal">
+          <div class="conf-date"><span class="d-main">6.05–06</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://www.kodt.org/html/" target="_blank" rel="noopener">대한디지털치료학회 춘계학술대회</a><span class="abbr">KoDT</span></h4>
+            <p class="conf-desc">2021년 창립. 디지털치료기기(DTx)의 연구·개발과 제도 정착을 다룬다. 이번 대회에서는 국가임상시험지원재단과 '스마트 임상시험 신기술' 심포지엄을 공동 개최했다.</p>
+            <div class="conf-meta"><span class="loc">제주대학교 아라컨벤션홀</span></div>
+          </div>
+        </div>
+        <div class="conf-item past reveal">
+          <div class="conf-date"><span class="d-main">6월</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://digitalhealthkorea.or.kr" target="_blank" rel="noopener">대한디지털헬스학회 학술행사</a></h4>
+            <p class="conf-desc">디지털헬스 정책·산업 접점을 다루는 학회. 이번 행사에서는 AI 기반 생애주기(life-cycle) 건강관리 전략을 주제로 예방–진단–치료–관리 전 주기를 논의했다.</p>
+            <div class="conf-meta"><span class="dl">차기 일정 홈페이지 공지</span></div>
+          </div>
+        </div>
+        <div class="conf-item past reveal">
+          <div class="conf-date"><span class="d-main">4.03</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://www.medmetaverse.org/html/" target="_blank" rel="noopener">의료메타버스학회 춘계학술대회</a></h4>
+            <p class="conf-desc">VR·AR과 메타버스의 의료 응용을 다루는 학회. 수술 시뮬레이션·재활·의학교육 등에서 몰입형 기술의 임상 적용을 논의한다.</p>
+            <div class="conf-meta"><span class="loc">삼성서울병원 암병원 지하 1층 대강당</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── 국제 ─── -->
+    <div id="pane-soc-intl" role="tabpanel" aria-labelledby="soc-intl" hidden>
+      <p class="conf-note reveal">의료영상 AI·의료정보학 중심으로 정리했으며, 일반 AI 학회(<span style="white-space:nowrap">ICML·NeurIPS</span>)는 국내 개최나 의료 세션 등 관련성이 있을 때 함께 표기합니다.</p>
+
+      <h3 class="conf-group reveal">다가오는 일정</h3>
+      <div class="conf-list">
+        <div class="conf-item reveal">
+          <div class="conf-date"><span class="d-main">9.27–10.1</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://conferences.miccai.org/2026/en/default.asp" target="_blank" rel="noopener">MICCAI 2026</a><span class="abbr">의료영상 AI</span></h4>
+            <p class="conf-desc">의료영상 컴퓨팅·컴퓨터 보조중재 분야 최고 권위 학술대회. 29회째로, 영상 AI 연구자에게는 사실상 필수 무대다.</p>
+            <div class="conf-meta"><span class="loc">프랑스 스트라스부르</span><span class="dl urgent">얼리버드 등록 8월 17일</span></div>
+          </div>
+        </div>
+        <div class="conf-item reveal">
+          <div class="conf-date"><span class="d-main">10.26–27</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://siim.org/learning-events/events/caimi/" target="_blank" rel="noopener">SIIM-CAIMI</a><span class="abbr">영상 AI</span></h4>
+            <p class="conf-desc">미국영상정보학회(SIIM)가 여는 의료영상 AI 특화 회의. 연례 SIIM 학술대회와 별도로 AI 임상 적용에 집중한다.</p>
+            <div class="conf-meta"><span class="loc">펜실베이니아대학교, 필라델피아</span></div>
+          </div>
+        </div>
+        <div class="conf-item reveal">
+          <div class="conf-date"><span class="d-main">11.06–09</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://professional.heart.org/en/meetings/scientific-sessions" target="_blank" rel="noopener">AHA Scientific Sessions 2026</a><span class="abbr">심장 · 임상</span></h4>
+            <p class="conf-desc">미국심장협회 연례 학술대회. 디지털헬스·AI 세션과 이노베이션 포럼이 함께 열려, 심혈관 AI 연구 결과가 자주 발표된다.</p>
+            <div class="conf-meta"><span class="loc">맥코믹 플레이스, 시카고</span></div>
+          </div>
+        </div>
+        <div class="conf-item reveal">
+          <div class="conf-date"><span class="d-main">11.07–11</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://amia.org/education-events/amia-2026-annual-symposium" target="_blank" rel="noopener">AMIA Annual Symposium</a><span class="abbr">의료정보학</span></h4>
+            <p class="conf-desc">미국의료정보학회 연례 심포지엄. 임상정보학·EHR·데이터 표준·헬스 AI 정책까지 의료정보학 전 영역을 다룬다.</p>
+            <div class="conf-meta"><span class="loc">미국 댈러스</span></div>
+          </div>
+        </div>
+        <div class="conf-item reveal">
+          <div class="conf-date"><span class="d-main">11.12–13</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://www.escardio.org/events/congresses/digital-ai-summit/" target="_blank" rel="noopener">ESC Digital &amp; AI Summit 2026</a><span class="abbr">심장 · 디지털</span></h4>
+            <p class="conf-desc">유럽심장학회(ESC)가 디지털헬스·AI만을 위해 여는 전문 회의. 심혈관 영역의 AI 솔루션 개발자와 임상의가 모인다.</p>
+            <div class="conf-meta"><span class="loc">스위스 바젤</span><span class="dl">초록 발표자 등록 마감 10월 14일</span></div>
+          </div>
+        </div>
+        <div class="conf-item reveal">
+          <div class="conf-date"><span class="d-main">11.29–12.3</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://www.rsna.org/annual-meeting" target="_blank" rel="noopener">RSNA 2026</a><span class="abbr">영상의학</span></h4>
+            <p class="conf-desc">북미영상의학회 연례대회. 세계 최대 규모의 영상 AI 제품 쇼케이스가 열려, 국내 기업들도 매년 대거 참가한다.</p>
+            <div class="conf-meta"><span class="loc">맥코믹 플레이스, 시카고</span></div>
+          </div>
+        </div>
+        <div class="conf-item reveal">
+          <div class="conf-date"><span class="d-main">12.06–07</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://ml4h.ahli.cc/" target="_blank" rel="noopener">ML4H Symposium</a><span class="abbr">헬스 ML</span></h4>
+            <p class="conf-desc">머신러닝과 헬스케어의 교차점을 다루는 대표 심포지엄. 임상의와 ML 연구자가 함께 참여해 방법론 수준의 논의가 활발하다.</p>
+            <div class="conf-meta"><span class="loc">호주 시드니</span></div>
+          </div>
+        </div>
+        <div class="conf-item reveal">
+          <div class="conf-date"><span class="d-main">12.06–12</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://neurips.cc/Conferences/2026" target="_blank" rel="noopener">NeurIPS 2026</a><span class="abbr gen">일반 AI</span></h4>
+            <p class="conf-desc">머신러닝 최대 학술대회. 의료 응용 워크숍과 헬스 데이터셋 트랙이 함께 열린다. 애틀랜타·파리 위성 행사 병행(12.9–13).</p>
+            <div class="conf-meta"><span class="loc">호주 시드니</span></div>
+          </div>
+        </div>
       </div>
 
-      <div class="acad-card reveal">
-        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 9L12 4 2 9l10 5 10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg>
-        <div class="a-date">2026.06.05 – 06 · 제주대학교 아라컨벤션홀</div>
-        <h3><a href="https://www.kpanews.co.kr/news/articleView.html?idxno=536199" target="_blank" rel="noopener">대한디지털치료학회 춘계학술대회</a></h3>
-        <p>국가임상시험지원재단(KoNECT)이 '스마트 임상시험 신기술 개발연구사업' 성과 공유 심포지엄을 공동 진행. 'AI 시대 디지털 치료와 원격의료 재구조화' 세션에서 케어·플랫폼·신뢰/보안 거버넌스를 다뤘다.</p>
-        <div class="a-src">출처: <a href="https://www.kpanews.co.kr/news/articleView.html?idxno=536199" target="_blank" rel="noopener">약사공론</a></div>
+      <h3 class="conf-group reveal">지난 일정 (2026)</h3>
+      <div class="conf-list">
+        <div class="conf-item past reveal">
+          <div class="conf-date"><span class="d-main">7.06–11</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://icml.cc/" target="_blank" rel="noopener">ICML 2026</a><span class="abbr gen">일반 AI · 국내 개최</span></h4>
+            <p class="conf-desc">머신러닝 3대 학회 중 하나가 서울에서 열렸다. 국내 연구자에게는 이동 부담 없이 최전선 연구를 접할 드문 기회였다.</p>
+            <div class="conf-meta"><span class="loc">서울 COEX</span></div>
+          </div>
+        </div>
+        <div class="conf-item past reveal">
+          <div class="conf-date"><span class="d-main">6.10–12</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://annualmeeting.siim.org/" target="_blank" rel="noopener">SIIM Annual Meeting</a><span class="abbr">영상정보학</span></h4>
+            <p class="conf-desc">미국영상정보학회 연례대회. PACS·영상 워크플로·표준과 AI 통합 운영을 다루는 실무 중심 학회.</p>
+            <div class="conf-meta"><span class="loc">미국 피츠버그</span></div>
+          </div>
+        </div>
+        <div class="conf-item past reveal">
+          <div class="conf-date"><span class="d-main">6.03–07</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://cvpr.thecvf.com/Conferences/2026" target="_blank" rel="noopener">CVPR 2026</a><span class="abbr gen">일반 AI</span></h4>
+            <p class="conf-desc">컴퓨터비전 최대 학회. 의료영상 AI의 기반 기술이 먼저 발표되는 자리로, 의료 응용 워크숍도 다수 열린다.</p>
+            <div class="conf-meta"><span class="loc">미국 덴버</span></div>
+          </div>
+        </div>
+        <div class="conf-item past reveal">
+          <div class="conf-date"><span class="d-main">5.25–28</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://mie2026.efmi.org/" target="_blank" rel="noopener">MIE 2026 (Medical Informatics Europe)</a><span class="abbr">의료정보학</span></h4>
+            <p class="conf-desc">유럽의료정보학연맹(EFMI)의 연례 학술대회. 올해 주제는 '기술과 의료 사이의 개인적 관문을 연다'.</p>
+            <div class="conf-meta"><span class="loc">이탈리아 제노바</span></div>
+          </div>
+        </div>
+        <div class="conf-item past reveal">
+          <div class="conf-date"><span class="d-main">3.09–12</span><span class="d-year">2026</span></div>
+          <div>
+            <h4><a href="https://www.himssconference.com/" target="_blank" rel="noopener">HIMSS Global Health Conference</a><span class="abbr">디지털헬스 산업</span></h4>
+            <p class="conf-desc">세계 최대 규모의 의료IT·디지털헬스 산업 컨퍼런스이자 전시회. 학술보다 산업·정책·구매 의사결정의 장에 가깝다.</p>
+            <div class="conf-meta"><span class="loc">베네시안 엑스포, 라스베이거스</span></div>
+          </div>
+        </div>
       </div>
 
-      <div class="acad-card reveal">
-        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 9L12 4 2 9l10 5 10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg>
-        <div class="a-date">2026.06 · 학술행사</div>
-        <h3><a href="https://www.rapportian.com/news/articleView.html?idxno=236794" target="_blank" rel="noopener">대한디지털헬스학회 — AI 기반 생애주기 건강관리</a></h3>
-        <p>AI 기반 생애주기(life-cycle) 건강관리 전략을 주제로 예방–진단–치료–관리 전 주기에 걸친 디지털헬스 기술의 역할을 논의했다.</p>
-        <div class="a-src">출처: <a href="https://www.rapportian.com/news/articleView.html?idxno=236794" target="_blank" rel="noopener">라포르시안</a> · <a href="https://digitalhealthkorea.or.kr" target="_blank" rel="noopener">대한디지털헬스학회</a></div>
+      <h3 class="conf-group reveal">2027년 예정</h3>
+      <div class="conf-list">
+        <div class="conf-item reveal">
+          <div class="conf-date"><span class="d-main">4.10–12</span><span class="d-year">2027</span></div>
+          <div>
+            <h4><a href="https://accscientificsession.acc.org/" target="_blank" rel="noopener">ACC.27 Together With WCC</a><span class="abbr">심장 · 임상</span></h4>
+            <p class="conf-desc">미국심장학회 연례 학술대회로, 2027년은 세계심장연맹(WCC)과 공동 개최. ACC 디지털헬스 워킹그룹이 관련 세션과 시상을 운영한다.</p>
+            <div class="conf-meta"><span class="loc">미국 휴스턴</span></div>
+          </div>
+        </div>
+        <div class="conf-item reveal">
+          <div class="conf-date"><span class="d-main">4.26–30</span><span class="d-year">2027</span></div>
+          <div>
+            <h4><a href="https://mie2027.efmi.org/" target="_blank" rel="noopener">MIE 2027</a><span class="abbr">의료정보학</span></h4>
+            <p class="conf-desc">유럽의료정보학연맹 학술대회. 에스토니아 탈린의 쿨투리카첼에서 개최 예정.</p>
+            <div class="conf-meta"><span class="loc">에스토니아 탈린</span></div>
+          </div>
+        </div>
+        <div class="conf-item reveal">
+          <div class="conf-date"><span class="d-main">8.30–9.4</span><span class="d-year">2027</span></div>
+          <div>
+            <h4><a href="https://imia-medinfo.org/wp/medinfo/" target="_blank" rel="noopener">MEDINFO 2027</a><span class="abbr">의료정보학 세계대회</span></h4>
+            <p class="conf-desc">국제의료정보학회(IMIA)가 격년으로 여는 제21차 세계대회. 의료정보학 분야에서 가장 큰 국제 무대다.</p>
+            <div class="conf-meta"><span class="loc">아랍에미리트 두바이</span></div>
+          </div>
+        </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1747,6 +2014,24 @@
     // 실제 항목 수로 배지 자동 갱신
     scopeDom.querySelector(".cnt").textContent = document.querySelectorAll("#pane-domestic .entry").length;
     scopeIntl.querySelector(".cnt").textContent = document.querySelectorAll("#pane-intl .intl-item").length;
+  }
+
+  // 학회 국내/국제 전환
+  const socDom = document.getElementById("soc-dom");
+  const socIntl = document.getElementById("soc-intl");
+  if (socDom && socIntl) {
+    const paneSocDom = document.getElementById("pane-soc-dom");
+    const paneSocIntl = document.getElementById("pane-soc-intl");
+    const setSoc = (intl) => {
+      socDom.setAttribute("aria-selected", String(!intl));
+      socIntl.setAttribute("aria-selected", String(intl));
+      paneSocDom.hidden = intl;
+      paneSocIntl.hidden = !intl;
+    };
+    socDom.addEventListener("click", () => setSoc(false));
+    socIntl.addEventListener("click", () => setSoc(true));
+    socDom.querySelector(".cnt").textContent = paneSocDom.querySelectorAll(".conf-item").length;
+    socIntl.querySelector(".cnt").textContent = paneSocIntl.querySelectorAll(".conf-item").length;
   }
 
   // 카테고리 필터
