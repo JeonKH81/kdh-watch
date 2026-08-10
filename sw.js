@@ -4,21 +4,28 @@
  *   - HTML(페이지 이동): 네트워크 우선. 새 리뷰·새 호가 즉시 보인다. 오프라인일 때만 캐시.
  *   - 이미지·아이콘 등 정적 자산: 캐시 우선 + 뒤에서 조용히 갱신(stale-while-revalidate).
  * 내용을 바꿔 배포할 때는 CACHE 버전을 올릴 것.
+ *
+ * 아이콘을 교체할 때는 CACHE 버전만으로 부족하다. 브라우저의 파비콘 캐시는
+ * URL 단위로 매우 오래 남기 때문에, 파일 내용만 바꾸고 경로를 그대로 두면
+ * 옛 아이콘이 계속 보인다. HTML·manifest의 ?v= 값과 아래 ICON_V를 함께 올릴 것.
  */
 
-var CACHE = "kdh-v3";
+var CACHE = "kdh-v4";
+var ICON_V = "?v=2";
 
 // 오프라인 최소 동작에 필요한 것만. HTML은 방문하면서 자연히 쌓인다.
 var PRECACHE = [
   "/",
   "/papers/",
   "/archive/",
-  "/icon-192.png",
-  "/icon-512.png",
-  "/icon-maskable-192.png",
-  "/icon-maskable-512.png",
-  "/apple-touch-icon.png",
-  "/manifest.json"
+  "/favicon.ico" + ICON_V,
+  "/icon-32.png" + ICON_V,
+  "/icon-192.png" + ICON_V,
+  "/icon-512.png" + ICON_V,
+  "/icon-maskable-192.png" + ICON_V,
+  "/icon-maskable-512.png" + ICON_V,
+  "/apple-touch-icon.png" + ICON_V,
+  "/manifest.json" + ICON_V
 ];
 
 self.addEventListener("install", function (event) {
