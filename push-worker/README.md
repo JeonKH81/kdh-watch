@@ -12,10 +12,15 @@ Cloudflare 계정이 필요합니다. 사이트에 이미 Cloudflare Web Analyti
 
 ## 1. 로그인
 
-브라우저가 열리고 승인 화면이 뜹니다.
+브라우저가 열리고 승인 화면이 뜹니다. 아래 두 단계 이후의 모든 명령은
+**이 폴더 안에서** 실행해야 합니다(`wrangler.toml`을 찾기 때문).
 
 ```bash
-cd "push-worker 폴더" && npx wrangler login
+cd "/Users/kh_jeon/TeamRumi Dropbox/Jeon KiHyun/030_AI_WORKSPACE/Digital_Health/kdh-watch/push-worker"
+```
+
+```bash
+npx wrangler login
 ```
 
 ## 2. 구독자 저장소(KV) 만들기
