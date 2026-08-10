@@ -282,7 +282,7 @@
   <div class="sec-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="16" y2="7"/><line x1="9" y1="11" x2="16" y2="11"/></svg></div>
   <h1>논문 리뷰</h1>
   <p class="sub">의료 AI·디지털헬스 신간 논문을 골라 읽습니다. 요지·핵심 결과·임상적 의미를 짧게 정리합니다.</p>
-  <p class="count-line"><strong id="review-count">3</strong>편 누적 · 최근 업데이트 2026-08-10</p>
+  <p class="count-line"><strong id="review-count">7</strong>편 누적 · 최근 업데이트 2026-08-10</p>
   <div class="policy">
     <strong>선정 기준</strong> — PubMed와 Consensus에서 새로 나온 논문 중 임상 적용 가능성과 파급력을 기준으로 <strong>매주</strong> 2~3편을 고릅니다. 호(號)로 나누지 않고 최신 리뷰가 위에 쌓이는 방식이며, 각 리뷰는 초록·본문 기반 요약과 원문 DOI를 함께 제공합니다.
   </div>
@@ -318,10 +318,10 @@
       <span class="r-tag field">2026-03-10</span>
     </div>
     <h2>Diagnostic accuracy, fairness and clinical implementation of AI for breast cancer screening: results of multicenter retrospective and prospective technical feasibility studies</h2>
-    <p class="r-meta">Kelly CJ, Wilson M, …, Cunningham D. <em>Nature Cancer</em> 2026;7(3):494-506 · Google Research·영국 NHS 다기관 · 후향 115,973건 + 전향 12개 기관 9,266건</p>
+    <p class="r-meta">Kelly CJ, Wilson M, …, Cunningham D. <em>Nature Cancer</em> 2026;7(3):494-506 · Google Research·영국 NHS 다기관 · 후향 115,973건 + 전향 2개 검진 서비스·12개 site 9,266건</p>
     <p class="r-kr">성능은 좋았지만, 실제 병원에 넣자 데이터 분포가 달라져 임계값을 다시 맞춰야 했다</p>
-    <p class="body">앞의 MASAI가 "AI를 쓰면 좋은가"에 답했다면, 이 연구는 <strong>"그 AI를 우리 병원에 실제로 넣으면 어떻게 되는가"</strong>를 다룹니다. Google의 유방촬영 AI를 영국 NHS 검진 5개 기관의 후향 데이터 115,973건으로 검증한 뒤, 12개 기관에서 <strong>전향적 비중재 배치</strong>까지 진행했습니다.</p>
-    <p class="body">후향 분석에서 AI는 1차 판독의보다 민감도가 높았고(0.541 vs 0.437, p&lt;0.001) 특이도는 비열등했으며, 암 검출률은 1,000명당 7.54건에서 9.33건으로 올랐습니다. <strong>중간암의 25.0%를 AI가 잡아냈고</strong>, 인구집단별 성능 격차도 관찰되지 않았습니다. 2차 판독자를 대체하는 시뮬레이션에서는 판독 시간 32% 감소와 검출 17.7% 증가가 동시에 나타났습니다. 그런데 실제 배치 단계에서 문제가 드러났습니다 — <strong>데이터 분포가 달라져(distribution shift) 임계값을 다시 조정해야 했습니다.</strong></p>
+    <p class="body">앞의 MASAI가 "AI를 쓰면 좋은가"에 답했다면, 이 연구는 <strong>"그 AI를 우리 병원에 실제로 넣으면 어떻게 되는가"</strong>를 다룹니다. Google의 유방촬영 AI를 영국 NHS 검진 5개 기관의 후향 데이터 115,973건으로 검증한 뒤, 2개 검진 서비스 산하 12개 site에서 <strong>전향적 비중재 배치</strong>까지 진행했습니다.</p>
+    <p class="body">후향 분석에서 AI는 1차 판독의보다 민감도가 높았고(0.541 vs 0.437, p&lt;0.001) 특이도는 비열등했으며, 암 검출률은 1,000명당 7.54건에서 9.33건으로 올랐습니다. <strong>후향 분석에서 이후 중간암으로 판명될 사례의 25.0%를 AI가 양성으로 표시했습니다.</strong> 체계적인 인구집단별 격차는 관찰되지 않았지만, 일부 소표본 하위군에서는 민감도 비열등성이 불확실했습니다. 2차 판독자를 대체하는 시뮬레이션에서는 판독 시간 32% 감소와 검출 17.7% 증가가 동시에 나타났습니다. 그런데 실제 배치 단계에서 문제가 드러났습니다 — <strong>데이터 분포가 달라져(distribution shift) 임계값을 다시 조정해야 했습니다.</strong></p>
     <p class="body">이 마지막 문장이 이 논문의 진짜 기여입니다. 논문에 실린 성능 수치는 그 데이터셋에서의 값이고, 장비·촬영 프로토콜·환자 구성이 다른 병원에 그대로 옮기면 <strong>같은 임계값이 같은 성능을 내지 않습니다.</strong> 저자들이 "적응형 보정과 지속적 모니터링이 필요하다"고 맺은 이유죠. 마침 국내에서도 식약처가 2026년 6월 26일 '디지털 의료기기 변경관리 계획서 허가·심사 가이드라인'을 제정해, 허가 후 예상되는 변경을 사전 승인 범위 안에서 처리할 길이 열렸습니다. 규제와 현장의 문제의식이 같은 곳을 향하고 있는 셈입니다.</p>
     <div class="r-takeaway">
       <span class="t-label">TAKEAWAY</span>
