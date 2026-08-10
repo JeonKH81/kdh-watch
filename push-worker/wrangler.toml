@@ -1,6 +1,8 @@
 name = "kdh-push"
 main = "src/index.js"
-compatibility_date = "2026-08-11"
+# Cloudflare는 UTC 기준으로 미래 날짜를 거부한다. 한국시간으로 넘어간 날짜를
+# 쓰면 배포가 막히므로 하루 여유를 둔다.
+compatibility_date = "2026-08-09"
 
 # 공개키는 사이트 JS에도 그대로 들어가는 값이라 여기 평문으로 둬도 된다.
 [vars]
