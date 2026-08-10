@@ -10,7 +10,7 @@
  * 옛 아이콘이 계속 보인다. HTML·manifest의 ?v= 값과 아래 ICON_V를 함께 올릴 것.
  */
 
-var CACHE = "kdh-v4";
+var CACHE = "kdh-v5";
 var ICON_V = "?v=2";
 
 // 오프라인 최소 동작에 필요한 것만. HTML은 방문하면서 자연히 쌓인다.
@@ -120,6 +120,62 @@ self.addEventListener("fetch", function (event) {
           return hit;
         });
       return hit || network;
+    })
+  );
+});
+
+/* ═══ 푸시 알림 ═══════════════════════════════════════════════
+ * Worker는 본문 없이 "깨우기"만 보낸다. 문구는 여기서 /push-latest.json을
+ * 읽어 만든다. 그래서 알림 문구를 바꿀 때 Worker를 다시 배포할 필요가 없다.
+ * iOS는 푸시를 받으면 반드시 알림을 하나 띄워야 하므로(userVisibleOnly),
+ * 파일을 못 읽어도 기본 문구로 반드시 표시한다.
+ */
+self.addEventListener("push", function (event) {
+  event.waitUntil(
+    (async function () {
+      var title = "K-Digital & AI Health Watch";
+      var body = "새 소식이 올라왔습니다.";
+      var url = "/";
+
+      try {
+        var res = await fetch("/push-latest.json?t=" + Date.now(), { cache: "no-store" });
+        if (res.ok) {
+          var d = await res.json();
+          if (d.title) title = d.title;
+          if (d.body) body = d.body;
+          if (d.url) url = d.url;
+        }
+      } catch (e) {
+        // 오프라인이거나 파일이 없어도 기본 문구로 알림은 띄운다.
+      }
+
+      await self.registration.showNotification(title, {
+        body: body,
+        icon: "/icon-192.png" + ICON_V,
+        badge: "/icon-192.png" + ICON_V,
+        tag: "kdh-update",          // 같은 태그는 덮어써서 알림이 쌓이지 않는다
+        renotify: true,
+        data: { url: url }
+      });
+    })()
+  );
+});
+
+self.addEventListener("notificationclick", function (event) {
+  event.notification.close();
+  var target = (event.notification.data && event.notification.data.url) || "/";
+
+  event.waitUntil(
+    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(function (list) {
+      // 이미 열려 있는 창이 있으면 그 창을 쓴다.
+      for (var i = 0; i < list.length; i++) {
+        var c = list[i];
+        if (new URL(c.url).origin === self.location.origin && "focus" in c) {
+          c.navigate(target);
+          return c.focus();
+        }
+      }
+      return self.clients.openWindow(target);
     })
   );
 });

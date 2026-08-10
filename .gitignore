@@ -4,3 +4,5 @@ _ogcard.html
 _spytest.html
 _shot.html
 Icon.png
+push-worker/node_modules/
+push-worker/.wrangler/
