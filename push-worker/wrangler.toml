@@ -15,4 +15,4 @@ VAPID_SUBJECT = "mailto:doctorgpt23@gmail.com"
 #   npx wrangler kv namespace create SUBS
 [[kv_namespaces]]
 binding = "SUBS"
-id = "여기에_KV_네임스페이스_ID를_붙여넣으세요"
+id = "18651d49dc1a457fb276a6bf4ed33eb9"
