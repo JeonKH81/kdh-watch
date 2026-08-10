@@ -6,7 +6,7 @@
  * 내용을 바꿔 배포할 때는 CACHE 버전을 올릴 것.
  */
 
-var CACHE = "kdh-v2";
+var CACHE = "kdh-v3";
 
 // 오프라인 최소 동작에 필요한 것만. HTML은 방문하면서 자연히 쌓인다.
 var PRECACHE = [
@@ -15,6 +15,8 @@ var PRECACHE = [
   "/archive/",
   "/icon-192.png",
   "/icon-512.png",
+  "/icon-maskable-192.png",
+  "/icon-maskable-512.png",
   "/apple-touch-icon.png",
   "/manifest.json"
 ];
