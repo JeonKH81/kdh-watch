@@ -1,0 +1,42 @@
+{
+  "name": "K-Digital & AI Health Watch",
+  "short_name": "KDH Watch",
+  "description": "국내 디지털헬스·의료 AI 규제, 허가, 급여, 기업·학회 동향과 논문 리뷰 브리핑",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "categories": ["medical", "news", "education"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "논문 리뷰",
+      "short_name": "논문",
+      "url": "/papers/",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "지난 호",
+      "short_name": "지난 호",
+      "url": "/archive/",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

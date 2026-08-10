@@ -7,6 +7,15 @@
 <title>논문 리뷰 — K-Digital & AI Health Watch</title>
 <link rel="canonical" href="https://docgpt.ai.kr/papers/">
 
+<!-- PWA (홈화면 설치·오프라인) -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="KDH Watch">
+
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="K-Digital &amp; AI Health Watch">
@@ -438,6 +447,15 @@
   if (el) el.textContent = document.querySelectorAll(".review").length;
 </script>
 
+
+<!-- PWA: 서비스워커 등록 (HTML은 네트워크 우선이라 최신 내용이 항상 이긴다) -->
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("/sw.js").catch(function () {});
+    });
+  }
+</script>
 
 <!-- Cloudflare Web Analytics -->
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "751d2cc1d2b743a38a53713a2aeda3c4"}'></script>
