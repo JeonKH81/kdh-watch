@@ -12,7 +12,7 @@ preview_urls = false
 
 # 공개키는 사이트 JS에도 그대로 들어가는 값이라 여기 평문으로 둬도 된다.
 [vars]
-VAPID_PUBLIC_KEY = "BNf8R97wEewcLunCmhQ7EubQOvL4C9LKQUEos5xZ1Xs5dwt6Yn3orOHzpINnAiZwdc9ODtQSumwYchBmFAbTmSk"
+VAPID_PUBLIC_KEY = "BJVcFizsuDbgt8lue5cMuBAiszG7wOEYKN0Ak_NSKSGBfY086bMssOCmZGbybQgvGrmOk2bxYTKZn9D6L-Ue_18"
 VAPID_SUBJECT = "mailto:doctorgpt23@gmail.com"
 
 # 시크릿(개인키·발송 비밀번호)은 이 파일에 절대 넣지 말 것.

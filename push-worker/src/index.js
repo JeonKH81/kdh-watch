@@ -55,6 +55,12 @@ function bytesToB64url(bytes) {
  * JWK를 다시 조립한다. 시크릿에 담을 값을 최소로 유지하기 위함.
  */
 async function importVapidKey(publicKeyB64, privateKeyD) {
+  // 시크릿을 붙여넣다 보면 줄바꿈·공백이 섞이기 쉽고, 그러면 키 import가
+  // 조용히 실패해 발송이 전부 죽는다. 들어오는 값을 항상 정리한다.
+  publicKeyB64 = String(publicKeyB64 || "").trim();
+  privateKeyD = String(privateKeyD || "").trim();
+  if (!privateKeyD) throw new Error("VAPID_PRIVATE_KEY 시크릿이 비어 있음");
+
   const pub = b64urlToBytes(publicKeyB64);
   if (pub.length !== 65 || pub[0] !== 4) throw new Error("VAPID 공개키 형식 오류");
   const jwk = {
@@ -162,6 +168,24 @@ export default {
       return json({ count }, 200, origin);
     }
 
+    /* 구독 전체 삭제.
+     * 구독은 VAPID 공개키에 묶여 있어 키를 교체하면 기존 구독이 전부 무효가 된다.
+     * 그런 구독은 404·410이 아니라 403을 돌려주므로 발송 중 자동 정리에 걸리지
+     * 않는다. 키 교체 시 이 엔드포인트로 목록을 비운다. */
+    if (path === "/purge" && request.method === "POST") {
+      if (!authed) return json({ error: "권한 없음" }, 401, origin);
+      let deleted = 0, cursor;
+      do {
+        const list = await env.SUBS.list({ prefix: SUB_PREFIX, cursor });
+        for (const k of list.keys) {
+          await env.SUBS.delete(k.name);
+          deleted++;
+        }
+        cursor = list.list_complete ? null : list.cursor;
+      } while (cursor);
+      return json({ deleted }, 200, origin);
+    }
+
     if (path === "/send" && request.method === "POST") {
       if (!authed) return json({ error: "권한 없음" }, 401, origin);
 
@@ -178,7 +202,12 @@ export default {
           try {
             status = await sendOne(rec.endpoint, env);
           } catch (e) {
+            // 왜 실패했는지 남기지 않으면 statuses가 빈 채로 실패만 세어져
+            // 원인을 알 수 없다. 관리자만 보는 응답이므로 사유를 실어 보낸다.
             result.failed++;
+            result.errors = result.errors || {};
+            const msg = (e && e.message) ? e.message : String(e);
+            result.errors[msg] = (result.errors[msg] || 0) + 1;
             continue;
           }
           result.statuses[status] = (result.statuses[status] || 0) + 1;
