@@ -218,8 +218,13 @@ export default {
             continue;
           }
           result.statuses[status] = (result.statuses[status] || 0) + 1;
-          if (status === 404 || status === 410) {
-            // 구독이 만료·해지됨 — 목록에서 정리한다.
+          // Apple은 옛 VAPID 키로 만들어진 구독에 400 VapidPkHashMismatch를 준다.
+          // 404·410이 아니라서 자동 정리에 걸리지 않고 영원히 실패로 남으므로
+          // 함께 지운다. 키를 교체해도 목록이 스스로 회복된다.
+          var keyMismatch = status === 400 && /VapidPkHashMismatch/i.test(info.detail || "");
+
+          if (status === 404 || status === 410 || keyMismatch) {
+            // 구독이 만료·해지됐거나 옛 키에 묶여 되살릴 수 없음 — 목록에서 정리한다.
             await env.SUBS.delete(k.name);
             result.removed++;
           } else if (status >= 200 && status < 300) {
