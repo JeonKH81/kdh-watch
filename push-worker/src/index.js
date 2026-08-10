@@ -115,7 +115,13 @@ async function sendOne(endpoint, env) {
       Urgency: "normal"
     }
   });
-  return res.status;
+  // 실패하면 푸시 서비스가 본문에 이유를 적어 보낸다. 이걸 버리면 400을 받고도
+  // 왜 거절당했는지 알 수 없다. 성공(2xx)일 때는 읽지 않는다.
+  let detail = "";
+  if (res.status < 200 || res.status >= 300) {
+    try { detail = (await res.text() || "").slice(0, 300); } catch (e) { detail = "(본문 읽기 실패)"; }
+  }
+  return { status: res.status, detail: detail, host: new URL(endpoint).host };
 }
 
 export default {
@@ -198,9 +204,10 @@ export default {
           if (!raw) continue;
           let rec;
           try { rec = JSON.parse(raw); } catch (e) { continue; }
-          let status;
+          let status, info;
           try {
-            status = await sendOne(rec.endpoint, env);
+            info = await sendOne(rec.endpoint, env);
+            status = info.status;
           } catch (e) {
             // 왜 실패했는지 남기지 않으면 statuses가 빈 채로 실패만 세어져
             // 원인을 알 수 없다. 관리자만 보는 응답이므로 사유를 실어 보낸다.
@@ -219,6 +226,8 @@ export default {
             result.sent++;
           } else {
             result.failed++;
+            result.rejected = result.rejected || [];
+            result.rejected.push({ host: info.host, status: status, detail: info.detail });
           }
         }
         cursor = list.list_complete ? null : list.cursor;
