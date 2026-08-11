@@ -10,7 +10,7 @@
  * 옛 아이콘이 계속 보인다. HTML·manifest의 ?v= 값과 아래 ICON_V를 함께 올릴 것.
  */
 
-var CACHE = "kdh-v6";
+var CACHE = "kdh-v7";
 var ICON_V = "?v=2";
 
 // 오프라인 최소 동작에 필요한 것만. HTML은 방문하면서 자연히 쌓인다.
@@ -75,6 +75,11 @@ self.addEventListener("fetch", function (event) {
   }
   if (url.origin !== self.location.origin) return;
 
+  // CSS도 HTML과 같이 네트워크 우선으로 다룬다.
+  // 파일명이 고정된 공통 스타일시트라 캐시 우선으로 두면 디자인을 고쳐도
+  // 기존 방문자에게는 옛 CSS가 계속 나간다(실제로 겪음). 크기가 작아 비용도 적다.
+  var isCSS = url.pathname.slice(-4) === ".css";
+
   // HTML 판별은 세 가지를 모두 본다.
   // mode/accept만 보면 스크립트가 fetch("/papers/")로 페이지를 가져올 때
   // Accept가 */* 라서 정적 자산으로 오인돼 캐시 우선이 걸리고, 내용이 낡는다.
@@ -85,7 +90,7 @@ self.addEventListener("fetch", function (event) {
     url.pathname.charAt(url.pathname.length - 1) === "/" ||
     /\.html?$/i.test(url.pathname);
 
-  if (isHTML) {
+  if (isHTML || isCSS) {
     // 네트워크 우선 — 최신 내용이 항상 이긴다.
     event.respondWith(
       fetch(req)
