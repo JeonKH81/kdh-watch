@@ -49,11 +49,11 @@
       <span class="menu-wrap">
         <a class="current" href="/" aria-haspopup="true" aria-expanded="false">브리핑</a>
         <span class="dropdown" role="menu">
-          <a href="/#keyword">이달의 키워드</a>
-          <a href="/#highlights">이달의 핵심</a>
-          <a href="/#timeline">타임라인</a>
           <a href="/#news">동향</a>
           <a href="/#llm">LLM 브리핑</a>
+          <a href="/#highlights">이달의 핵심</a>
+          <a href="/#keyword">이달의 키워드</a>
+          <a href="/#timeline">타임라인</a>
           <a href="/#academia">학회 일정</a>
         </span>
       </span>
@@ -68,11 +68,11 @@
 <!-- 브리핑 내부 섹션 바로가기 (site.css의 .subnav 컴포넌트 사용) -->
 <nav class="subnav" aria-label="브리핑 섹션 바로가기">
   <div class="subnav-inner">
-    <a href="#keyword">이달의 키워드</a>
-    <a href="#highlights">이달의 핵심</a>
-    <a href="#timeline">타임라인</a>
     <a href="#news">동향</a>
     <a href="#llm">LLM 브리핑</a>
+    <a href="#highlights">이달의 핵심</a>
+    <a href="#keyword">이달의 키워드</a>
+    <a href="#timeline">타임라인</a>
     <a href="#academia">학회 일정</a>
   </div>
 </nav>
@@ -106,135 +106,6 @@
     <div class="stat reveal">
       <div class="num"><span class="count" data-target="24">0</span><span class="unit">건</span></div>
       <div class="label">최근 수록 소식</div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 이달의 키워드 (parchment) ═══ -->
-<section class="tile tile-parchment" id="keyword">
-  <div class="tile-inner">
-    <h2 class="kw-heading reveal"><span class="kw-label">이달의 키워드</span><span class="kw-term">AX</span></h2>
-    <p class="kw-full reveal">AI Transformation · 인공지능 전환</p>
-    <p class="kw-def reveal">AI 도구를 도입하는 것이 아니라, AI를 전제로 조직과 업무 구조 자체를 다시 짜는 것.</p>
-
-    <div class="kw-body">
-      <p class="reveal">몇 해 전까지 화두는 DX(디지털 전환)였습니다. 종이 차트를 EMR로 바꾸고 필름을 PACS로 옮기는 일이었죠. 의료 현장의 <strong>초기 DX가 기록을 디지털로 옮기는 데서 출발했다면, AX는 그렇게 쌓인 데이터로 판단과 실행을 바꾸는 단계</strong>입니다. 도입은 도구가 늘어나는 것이고, 전환은 구조가 바뀌는 것이라는 구분이 핵심입니다.</p>
-      <p class="reveal">경계가 모호해 보이지만 판별 기준은 의외로 단순합니다. <strong>일하는 순서가 바뀌었는가</strong>를 보면 됩니다. 판독 보조 AI를 켜두고 기존 판독 과정을 그대로 유지하면 도입이고, AI가 1차 선별을 맡고 사람은 예외와 판단이 필요한 사례에 집중하도록 워크플로를 다시 설계했다면 전환입니다.</p>
-      <p class="reveal">국내 병원들도 이 단어를 실제로 쓰기 시작했습니다. 삼성서울병원은 기존 디지털혁신추진단을 개편해 <strong>'AX추진단'</strong>을 출범시키며 진료·연구·환자경험 전반의 AI 대전환을 예고했습니다. 세브란스병원은 의무기록 초안을 생성하는 한국어 특화 LLM <strong>'Y-KNOT'</strong>을 원내 서버에서 EHR에 직접 연결해, 전공의가 없는 응급실 퇴원기록부터 적용을 시작했습니다. 조직과 업무 흐름이 함께 바뀐 사례들입니다.</p>
-      <p class="reveal">다만 의료에서 AX는 다른 산업보다 어렵습니다. 구조를 바꾸려면 <strong>규제·급여·책임소재</strong>가 함께 움직여야 하기 때문입니다. 최근 이어진 변경관리 계획서, 실사용 특례, 급여 지불 경로 논의가 전부 그 조건을 만드는 작업입니다. 기술 성숙도만큼이나 제도 설계가 AX의 속도를 좌우한다는 점이 이 분야의 특징입니다.</p>
-    </div>
-
-    <p class="kw-link reveal"><strong>이 사이트에서 만나는 곳</strong> — 규제가 구조 변경을 허용하는 방식(<a href="#news">동향 · 변경관리 계획서 가이드라인</a>), 사람과 AI의 협업이 실제로 나은지에 대한 근거(<a href="/papers/#human-llm-collaboration-meta">논문 · 인간–LLM 협업 메타분석</a>), 그리고 도입 논의보다 근거 생산이 뒤처져 있다는 지적(<a href="/papers/#llm-clinical-evidence-review">논문 · LLM 임상 근거지형</a>).</p>
-  </div>
-</section>
-
-<!-- ═══ 이달의 핵심 (dark) ═══ -->
-<section class="tile tile-dark" id="highlights">
-  <div class="tile-inner">
-    <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-    <h2 class="sec-head reveal">이달의 핵심<span class="cadence">매월</span></h2>
-    <p class="sec-sub reveal">2026년 상반기, 규제 체계가 완성되고 시장 진입 속도가 빨라졌습니다.</p>
-    <div class="highlight-grid">
-      <div class="highlight reveal">
-        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
-        <div class="h-num">01</div>
-        <h3><a href="https://eiec.kdi.re.kr/policy/materialView.do?num=262788" target="_blank" rel="noopener">디지털의료제품법 체제 본격화</a></h3>
-        <p>세계 최초 생성형 AI 의료기기 가이드라인(1월)에 이어 LLM 가이드라인(6월)까지 공개. 이 체계에서 4월 숨빗AI 'AIRead-CXR'가 세계 최초 생성형 AI 의료기기 허가를 받았습니다.</p>
-        <div class="h-src">출처: <a href="https://eiec.kdi.re.kr/policy/materialView.do?num=262788" target="_blank" rel="noopener">KDI 경제정책자료</a> · <a href="https://sooyongshin.wordpress.com/2026/07/19/%EC%8B%9D%EC%95%BD%EC%B2%98-llm-%EA%B8%B0%EB%B0%98-%EB%94%94%EC%A7%80%ED%84%B8%EC%9D%98%EB%A3%8C%EA%B8%B0%EA%B8%B0-%ED%97%88%EA%B0%80-%EC%8B%AC%EC%82%AC-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8/" target="_blank" rel="noopener">LLM 가이드라인 해설</a></div>
-      </div>
-      <div class="highlight reveal">
-        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        <div class="h-num">02</div>
-        <h3><a href="https://www.korea.kr/news/policyNewsView.do?newsId=148958562" target="_blank" rel="noopener">시장 즉시진입 제도 시행</a></h3>
-        <p>1월 26일부터 요건을 충족한 혁신의료기기는 품목허가와 동시에 시장에 진입할 수 있습니다. 절차는 최단 80일로 단축.</p>
-        <div class="h-src">출처: <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148958562" target="_blank" rel="noopener">정책브리핑</a> · <a href="https://www.hitnews.co.kr/news/articleView.html?idxno=74428" target="_blank" rel="noopener">히트뉴스</a></div>
-      </div>
-      <div class="highlight reveal">
-        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-        <div class="h-num">03</div>
-        <h3><a href="https://www.etnews.com/20260129000101" target="_blank" rel="noopener">혁신의료기기 지정 55% 증가</a></h3>
-        <p>2025년 한 해 45개 지정 — 전년 29개 대비 55% 증가. 대부분 AI 영상진단·데이터 분석 제품입니다.</p>
-        <div class="h-src">출처: <a href="https://www.etnews.com/20260129000101" target="_blank" rel="noopener">전자신문</a></div>
-      </div>
-      <div class="highlight reveal">
-        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        <div class="h-num">04</div>
-        <h3><a href="https://www.mindthos.com/blog/digital-therapeutics-insurance-reimbursement" target="_blank" rel="noopener">DTx 급여는 아직 임시등재</a></h3>
-        <p>허가는 9종까지 늘었지만 보험수가는 한시적 임시등재 단계. 정식 등재는 2026년 말–2027년 초 거론됩니다.</p>
-        <div class="h-src">출처: <a href="https://www.mindthos.com/blog/digital-therapeutics-insurance-reimbursement" target="_blank" rel="noopener">마음토스</a> · <a href="https://www.doctorsnews.co.kr/news/articleView.html?idxno=160783" target="_blank" rel="noopener">의협신문</a></div>
-      </div>
-    </div>
-    <div class="chart-row">
-      <div class="chart-card reveal">
-        <h3>혁신의료기기 연간 지정 건수</h3>
-        <p class="chart-cap">2025년 45개 — 전년 대비 55% 증가 (단위: 개)</p>
-        <svg viewBox="0 0 300 152" role="img" aria-label="혁신의료기기 연간 지정 건수 막대 차트: 2024년 29개, 2025년 45개">
-          <line class="bar-base" x1="20" y1="130.5" x2="280" y2="130.5" />
-          <g>
-            <rect class="bar" x="60" y="66" width="64" height="64" rx="4"><title>2024년: 29개</title></rect>
-            <rect class="bar" x="176" y="30" width="64" height="100" rx="4"><title>2025년: 45개</title></rect>
-          </g>
-          <text class="bar-label" x="92" y="56" text-anchor="middle">29</text>
-          <text class="bar-label" x="208" y="20" text-anchor="middle">45</text>
-          <text class="bar-axis" x="92" y="146" text-anchor="middle">2024</text>
-          <text class="bar-axis" x="208" y="146" text-anchor="middle">2025</text>
-        </svg>
-      </div>
-      <div class="chart-card reveal">
-        <h3>국내 허가 DTx 누적</h3>
-        <p class="chart-cap">2026년 7월 기준 9종 — 적응증 다변화 진행 (단위: 종)</p>
-        <svg viewBox="0 0 300 152" role="img" aria-label="국내 허가 디지털치료기기 누적 막대 차트: 2023년 2종, 2024년 4종, 2026년 7월 9종">
-          <line class="bar-base" x1="20" y1="130.5" x2="280" y2="130.5" />
-          <g>
-            <rect class="bar" x="36" y="108" width="56" height="22" rx="4"><title>2023년 말: 누적 2종</title></rect>
-            <rect class="bar" x="122" y="86" width="56" height="44" rx="4"><title>2024년 말: 누적 4종</title></rect>
-            <rect class="bar" x="208" y="30" width="56" height="100" rx="4"><title>2026년 7월: 누적 9종</title></rect>
-          </g>
-          <text class="bar-label" x="64" y="98" text-anchor="middle">2</text>
-          <text class="bar-label" x="150" y="76" text-anchor="middle">4</text>
-          <text class="bar-label" x="236" y="20" text-anchor="middle">9</text>
-          <text class="bar-axis" x="64" y="146" text-anchor="middle">2023</text>
-          <text class="bar-axis" x="150" y="146" text-anchor="middle">2024</text>
-          <text class="bar-axis" x="236" y="146" text-anchor="middle">2026.7</text>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 타임라인 (parchment) ═══ -->
-<section class="tile tile-parchment" id="timeline">
-  <div class="tile-inner">
-    <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg></div>
-    <h2 class="sec-head reveal">타임라인<span class="cadence">매월</span></h2>
-    <p class="sec-sub reveal">규제와 제도가 움직인 순간들.</p>
-    <div class="timeline-scroll reveal">
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-date">01.24</div>
-          <p>생성형 AI 의료기기 허가·심사 가이드라인 공개 (세계 최초)</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">01.26</div>
-          <p>시장 즉시진입 의료기술 제도 시행</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">01.29</div>
-          <p>2025년 혁신의료기기 45개 지정 발표</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">04.02</div>
-          <p>숨빗AI, 세계 최초 생성형 AI 의료기기 허가</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">06.26</div>
-          <p>디지털의료기기 변경관리 계획서 가이드라인 제정</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">06.30</div>
-          <p>LLM 기반 디지털의료기기 허가·심사 가이드라인 공개</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -503,9 +374,8 @@
 
   </div>
 </section>
-
 <!-- ═══ LLM 브리핑 (white) ═══ -->
-<section class="tile tile-white" id="llm">
+<section class="tile tile-parchment" id="llm">
   <div class="tile-inner">
     <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a4 4 0 0 1 4 4v1a3 3 0 0 1 0 6v1a4 4 0 0 1-8 0v-1a3 3 0 0 1 0-6V7a4 4 0 0 1 4-4z"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div>
     <h2 class="sec-head reveal">LLM 브리핑<span class="cadence">매주</span></h2>
@@ -594,7 +464,132 @@
     </div>
   </div>
 </section>
+<!-- ═══ 이달의 핵심 (dark) ═══ -->
+<section class="tile tile-dark" id="highlights">
+  <div class="tile-inner">
+    <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+    <h2 class="sec-head reveal">이달의 핵심<span class="cadence">매월</span></h2>
+    <p class="sec-sub reveal">2026년 상반기, 규제 체계가 완성되고 시장 진입 속도가 빨라졌습니다.</p>
+    <div class="highlight-grid">
+      <div class="highlight reveal">
+        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+        <div class="h-num">01</div>
+        <h3><a href="https://eiec.kdi.re.kr/policy/materialView.do?num=262788" target="_blank" rel="noopener">디지털의료제품법 체제 본격화</a></h3>
+        <p>세계 최초 생성형 AI 의료기기 가이드라인(1월)에 이어 LLM 가이드라인(6월)까지 공개. 이 체계에서 4월 숨빗AI 'AIRead-CXR'가 세계 최초 생성형 AI 의료기기 허가를 받았습니다.</p>
+        <div class="h-src">출처: <a href="https://eiec.kdi.re.kr/policy/materialView.do?num=262788" target="_blank" rel="noopener">KDI 경제정책자료</a> · <a href="https://sooyongshin.wordpress.com/2026/07/19/%EC%8B%9D%EC%95%BD%EC%B2%98-llm-%EA%B8%B0%EB%B0%98-%EB%94%94%EC%A7%80%ED%84%B8%EC%9D%98%EB%A3%8C%EA%B8%B0%EA%B8%B0-%ED%97%88%EA%B0%80-%EC%8B%AC%EC%82%AC-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8/" target="_blank" rel="noopener">LLM 가이드라인 해설</a></div>
+      </div>
+      <div class="highlight reveal">
+        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <div class="h-num">02</div>
+        <h3><a href="https://www.korea.kr/news/policyNewsView.do?newsId=148958562" target="_blank" rel="noopener">시장 즉시진입 제도 시행</a></h3>
+        <p>1월 26일부터 요건을 충족한 혁신의료기기는 품목허가와 동시에 시장에 진입할 수 있습니다. 절차는 최단 80일로 단축.</p>
+        <div class="h-src">출처: <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148958562" target="_blank" rel="noopener">정책브리핑</a> · <a href="https://www.hitnews.co.kr/news/articleView.html?idxno=74428" target="_blank" rel="noopener">히트뉴스</a></div>
+      </div>
+      <div class="highlight reveal">
+        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <div class="h-num">03</div>
+        <h3><a href="https://www.etnews.com/20260129000101" target="_blank" rel="noopener">혁신의료기기 지정 55% 증가</a></h3>
+        <p>2025년 한 해 45개 지정 — 전년 29개 대비 55% 증가. 대부분 AI 영상진단·데이터 분석 제품입니다.</p>
+        <div class="h-src">출처: <a href="https://www.etnews.com/20260129000101" target="_blank" rel="noopener">전자신문</a></div>
+      </div>
+      <div class="highlight reveal">
+        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        <div class="h-num">04</div>
+        <h3><a href="https://www.mindthos.com/blog/digital-therapeutics-insurance-reimbursement" target="_blank" rel="noopener">DTx 급여는 아직 임시등재</a></h3>
+        <p>허가는 9종까지 늘었지만 보험수가는 한시적 임시등재 단계. 정식 등재는 2026년 말–2027년 초 거론됩니다.</p>
+        <div class="h-src">출처: <a href="https://www.mindthos.com/blog/digital-therapeutics-insurance-reimbursement" target="_blank" rel="noopener">마음토스</a> · <a href="https://www.doctorsnews.co.kr/news/articleView.html?idxno=160783" target="_blank" rel="noopener">의협신문</a></div>
+      </div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-card reveal">
+        <h3>혁신의료기기 연간 지정 건수</h3>
+        <p class="chart-cap">2025년 45개 — 전년 대비 55% 증가 (단위: 개)</p>
+        <svg viewBox="0 0 300 152" role="img" aria-label="혁신의료기기 연간 지정 건수 막대 차트: 2024년 29개, 2025년 45개">
+          <line class="bar-base" x1="20" y1="130.5" x2="280" y2="130.5" />
+          <g>
+            <rect class="bar" x="60" y="66" width="64" height="64" rx="4"><title>2024년: 29개</title></rect>
+            <rect class="bar" x="176" y="30" width="64" height="100" rx="4"><title>2025년: 45개</title></rect>
+          </g>
+          <text class="bar-label" x="92" y="56" text-anchor="middle">29</text>
+          <text class="bar-label" x="208" y="20" text-anchor="middle">45</text>
+          <text class="bar-axis" x="92" y="146" text-anchor="middle">2024</text>
+          <text class="bar-axis" x="208" y="146" text-anchor="middle">2025</text>
+        </svg>
+      </div>
+      <div class="chart-card reveal">
+        <h3>국내 허가 DTx 누적</h3>
+        <p class="chart-cap">2026년 7월 기준 9종 — 적응증 다변화 진행 (단위: 종)</p>
+        <svg viewBox="0 0 300 152" role="img" aria-label="국내 허가 디지털치료기기 누적 막대 차트: 2023년 2종, 2024년 4종, 2026년 7월 9종">
+          <line class="bar-base" x1="20" y1="130.5" x2="280" y2="130.5" />
+          <g>
+            <rect class="bar" x="36" y="108" width="56" height="22" rx="4"><title>2023년 말: 누적 2종</title></rect>
+            <rect class="bar" x="122" y="86" width="56" height="44" rx="4"><title>2024년 말: 누적 4종</title></rect>
+            <rect class="bar" x="208" y="30" width="56" height="100" rx="4"><title>2026년 7월: 누적 9종</title></rect>
+          </g>
+          <text class="bar-label" x="64" y="98" text-anchor="middle">2</text>
+          <text class="bar-label" x="150" y="76" text-anchor="middle">4</text>
+          <text class="bar-label" x="236" y="20" text-anchor="middle">9</text>
+          <text class="bar-axis" x="64" y="146" text-anchor="middle">2023</text>
+          <text class="bar-axis" x="150" y="146" text-anchor="middle">2024</text>
+          <text class="bar-axis" x="236" y="146" text-anchor="middle">2026.7</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══ 이달의 키워드 (parchment) ═══ -->
+<section class="tile tile-parchment" id="keyword">
+  <div class="tile-inner">
+    <h2 class="kw-heading reveal"><span class="kw-label">이달의 키워드</span><span class="kw-term">AX</span></h2>
+    <p class="kw-full reveal">AI Transformation · 인공지능 전환</p>
+    <p class="kw-def reveal">AI 도구를 도입하는 것이 아니라, AI를 전제로 조직과 업무 구조 자체를 다시 짜는 것.</p>
 
+    <div class="kw-body">
+      <p class="reveal">몇 해 전까지 화두는 DX(디지털 전환)였습니다. 종이 차트를 EMR로 바꾸고 필름을 PACS로 옮기는 일이었죠. 의료 현장의 <strong>초기 DX가 기록을 디지털로 옮기는 데서 출발했다면, AX는 그렇게 쌓인 데이터로 판단과 실행을 바꾸는 단계</strong>입니다. 도입은 도구가 늘어나는 것이고, 전환은 구조가 바뀌는 것이라는 구분이 핵심입니다.</p>
+      <p class="reveal">경계가 모호해 보이지만 판별 기준은 의외로 단순합니다. <strong>일하는 순서가 바뀌었는가</strong>를 보면 됩니다. 판독 보조 AI를 켜두고 기존 판독 과정을 그대로 유지하면 도입이고, AI가 1차 선별을 맡고 사람은 예외와 판단이 필요한 사례에 집중하도록 워크플로를 다시 설계했다면 전환입니다.</p>
+      <p class="reveal">국내 병원들도 이 단어를 실제로 쓰기 시작했습니다. 삼성서울병원은 기존 디지털혁신추진단을 개편해 <strong>'AX추진단'</strong>을 출범시키며 진료·연구·환자경험 전반의 AI 대전환을 예고했습니다. 세브란스병원은 의무기록 초안을 생성하는 한국어 특화 LLM <strong>'Y-KNOT'</strong>을 원내 서버에서 EHR에 직접 연결해, 전공의가 없는 응급실 퇴원기록부터 적용을 시작했습니다. 조직과 업무 흐름이 함께 바뀐 사례들입니다.</p>
+      <p class="reveal">다만 의료에서 AX는 다른 산업보다 어렵습니다. 구조를 바꾸려면 <strong>규제·급여·책임소재</strong>가 함께 움직여야 하기 때문입니다. 최근 이어진 변경관리 계획서, 실사용 특례, 급여 지불 경로 논의가 전부 그 조건을 만드는 작업입니다. 기술 성숙도만큼이나 제도 설계가 AX의 속도를 좌우한다는 점이 이 분야의 특징입니다.</p>
+    </div>
+
+    <p class="kw-link reveal"><strong>이 사이트에서 만나는 곳</strong> — 규제가 구조 변경을 허용하는 방식(<a href="#news">동향 · 변경관리 계획서 가이드라인</a>), 사람과 AI의 협업이 실제로 나은지에 대한 근거(<a href="/papers/#human-llm-collaboration-meta">논문 · 인간–LLM 협업 메타분석</a>), 그리고 도입 논의보다 근거 생산이 뒤처져 있다는 지적(<a href="/papers/#llm-clinical-evidence-review">논문 · LLM 임상 근거지형</a>).</p>
+  </div>
+</section>
+<!-- ═══ 타임라인 (parchment) ═══ -->
+<section class="tile tile-white" id="timeline">
+  <div class="tile-inner">
+    <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg></div>
+    <h2 class="sec-head reveal">타임라인<span class="cadence">매월</span></h2>
+    <p class="sec-sub reveal">규제와 제도가 움직인 순간들.</p>
+    <div class="timeline-scroll reveal">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">01.24</div>
+          <p>생성형 AI 의료기기 허가·심사 가이드라인 공개 (세계 최초)</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">01.26</div>
+          <p>시장 즉시진입 의료기술 제도 시행</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">01.29</div>
+          <p>2025년 혁신의료기기 45개 지정 발표</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">04.02</div>
+          <p>숨빗AI, 세계 최초 생성형 AI 의료기기 허가</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">06.26</div>
+          <p>디지털의료기기 변경관리 계획서 가이드라인 제정</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">06.30</div>
+          <p>LLM 기반 디지털의료기기 허가·심사 가이드라인 공개</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- ═══ 학계·학회 (parchment) ═══ -->
 <section class="tile tile-parchment" id="academia">
   <div class="tile-inner">
@@ -822,13 +817,8 @@
     </div>
   </div>
 </section>
-
-
-
-
-
 <!-- ═══ 알림 받기 (parchment) ═══ -->
-<section class="tile tile-parchment" id="notify" hidden>
+<section class="tile tile-white" id="notify" hidden>
   <div class="tile-inner">
     <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
     <h2 class="sec-head reveal">알림 받기</h2>
