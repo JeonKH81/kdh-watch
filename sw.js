@@ -10,10 +10,14 @@
  * 옛 아이콘이 계속 보인다. HTML·manifest의 ?v= 값과 아래 ICON_V를 함께 올릴 것.
  */
 
-var CACHE = "kdh-v10";
+var CACHE = "kdh-v11";
 var ICON_V = "?v=2";
 // 앱 이름(short_name)만 바뀌어도 manifest는 새로 받아야 하므로 아이콘과 따로 관리한다.
 var MANIFEST_V = "?v=3";
+// CSS는 파일명이 고정이라 GitHub Pages의 max-age=600에 걸려 최대 10분간 옛 파일이
+// 나온다(서비스워커가 네트워크 우선이어도 그 아래 HTTP 캐시가 먼저 답한다).
+// 디자인을 고칠 때마다 이 번호와 각 HTML의 ?v= 를 함께 올릴 것.
+var CSS_V = "?v=2";
 
 // 오프라인 최소 동작에 필요한 것만. HTML은 방문하면서 자연히 쌓인다.
 var PRECACHE = [
@@ -23,7 +27,7 @@ var PRECACHE = [
   "/archive/",
   "/about/",
   "/install/",
-  "/assets/site.css",
+  "/assets/site.css" + CSS_V,
   "/favicon.ico" + ICON_V,
   "/icon-32.png" + ICON_V,
   "/icon-192.png" + ICON_V,
