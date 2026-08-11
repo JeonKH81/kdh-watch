@@ -1215,9 +1215,18 @@
     color: var(--ink);
     text-decoration: none;
   }
+  .subnav a:active { transform: scale(0.95); }
+  /* 지금 보고 있는 섹션 표시 (스크롤 감지 스크립트가 .current를 붙인다) */
+  .subnav a.current {
+    background: var(--primary);
+    color: #ffffff;
+  }
+  /* 검정 내비(44) + 섹션띠(42)에 제목이 가리지 않도록 */
+  .tile[id], .hero[id] { scroll-margin-top: 100px; }
   @media (max-width: 640px) {
     .subnav-inner { padding: 0 16px; height: 40px; }
     .subnav a { font-size: 13px; padding: 6px 10px; }
+    .tile[id], .hero[id] { scroll-margin-top: 96px; }
   }
 
 /* ═══ 서브페이지 머리말 ═══
