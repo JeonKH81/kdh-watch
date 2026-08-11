@@ -65,6 +65,16 @@
   </div>
 </header>
 
+<!-- 모바일 전용: 브리핑 내부 섹션 바로가기 (데스크톱은 상단 '브리핑' 드롭다운이 담당) -->
+<nav class="subnav" aria-label="브리핑 섹션 바로가기">
+  <a href="#keyword">이달의 키워드</a>
+  <a href="#highlights">이달의 핵심</a>
+  <a href="#timeline">타임라인</a>
+  <a href="#news">동향</a>
+  <a href="#llm">LLM 브리핑</a>
+  <a href="#academia">학회 일정</a>
+</nav>
+
 
 
 <!-- ═══ Hero (white) ═══ -->
@@ -891,11 +901,12 @@
   }
 
   // 현재 보고 있는 섹션을 내비에 표시
-  const navLinks = Array.from(document.querySelectorAll('.gnav nav a[href^="#"]'));
-  const sections = navLinks
-    .map((a) => document.querySelector(a.getAttribute("href")))
-    .filter(Boolean)
+  const navLinks = Array.from(document.querySelectorAll('.gnav nav a[href^="#"], .subnav a[href^="#"]'));
+  const sections = Array.from(new Set(
+      navLinks.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean)
+    )) // 상단 드롭다운과 모바일 섹션띠가 같은 앵커를 쓰므로 중복 제거
     .sort((a, b) => a.offsetTop - b.offsetTop); // 메뉴 순서와 무관하게 문서 순서로 판정
+  const subnav = document.querySelector(".subnav");
   if (sections.length) {
     let ticking = false;
     const markCurrent = () => {
@@ -912,6 +923,16 @@
       navLinks.forEach((a) => {
         a.classList.toggle("current", a.getAttribute("href") === "#" + activeId);
       });
+      // 활성 칩이 섹션띠 밖으로 나가 있으면 가로로만 끌어온다(세로 스크롤에 영향 없음)
+      if (subnav && subnav.offsetParent) {
+        const chip = subnav.querySelector("a.current");
+        if (chip) {
+          const cL = chip.offsetLeft, cR = cL + chip.offsetWidth;
+          const vL = subnav.scrollLeft, vR = vL + subnav.clientWidth;
+          if (cL < vL + 16) subnav.scrollLeft = Math.max(0, cL - 16);
+          else if (cR > vR - 16) subnav.scrollLeft = cR - subnav.clientWidth + 16;
+        }
+      }
     };
     const onScroll = () => {
       if (!ticking) {
