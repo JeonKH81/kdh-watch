@@ -10,7 +10,7 @@
  * 옛 아이콘이 계속 보인다. HTML·manifest의 ?v= 값과 아래 ICON_V를 함께 올릴 것.
  */
 
-var CACHE = "kdh-v7";
+var CACHE = "kdh-v8";
 var ICON_V = "?v=2";
 
 // 오프라인 최소 동작에 필요한 것만. HTML은 방문하면서 자연히 쌓인다.
