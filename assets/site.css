@@ -1336,3 +1336,81 @@
 @media (max-width: 640px) {
   .cadence { font-size: 11.5px; padding: 4px 9px; margin-left: 8px; }
 }
+
+/* ═══ 하단 탭바 (모바일·앱) ═══
+ * 390px에서는 긴 워드마크와 5개 메뉴가 44px 한 줄에 들어가지 않아 두 줄로
+ * 밀리고 잘렸다. 모바일에서는 상단 메뉴를 감추고 탭바가 이동을 맡는다.
+ * iPhone 홈 인디케이터를 피하려고 safe-area 만큼 아래 여백을 준다. */
+.tabbar { display: none; }
+
+@media (max-width: 640px) {
+  /* 상단은 워드마크만 남긴다.
+   * 원래 모바일 스타일은 상단바를 세로 2단(브랜드 + 메뉴)으로 쌓는데,
+   * .gnav 높이는 44px로 고정돼 있어 내용이 넘쳐 잘렸다. 메뉴를 탭바로
+   * 옮겼으니 한 줄짜리 바로 되돌린다. */
+  .gnav nav { display: none; }
+  .gnav-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 44px;
+    padding: 0 16px;
+    gap: 10px;
+  }
+  .brand { padding: 0; display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+  .gnav .wordmark { overflow: hidden; text-overflow: ellipsis; }
+  /* 날짜는 푸터에도 있으므로 좁은 화면에서는 감춘다 */
+  .gnav .updated { display: none; }
+
+  .tabbar {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-top: 1px solid var(--hairline);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .tabbar a {
+    flex: 1 1 0;
+    min-width: 0;          /* 이게 없으면 항목이 콘텐츠 폭 밑으로 못 줄어 5개가 안 들어간다 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 8px 2px 7px;
+    min-height: 50px;
+    color: var(--ink-muted-48);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    line-height: 1;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .tabbar a span {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .tabbar a:hover { text-decoration: none; }
+  .tabbar a:active { background: rgba(0, 0, 0, 0.04); }
+  .tabbar svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .tabbar a[aria-current="page"] { color: var(--primary); }
+
+  /* 탭바에 본문이 가리지 않도록 */
+  body { padding-bottom: calc(58px + env(safe-area-inset-bottom)); }
+}
