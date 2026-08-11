@@ -1146,7 +1146,17 @@
     cursor: pointer;
     transition: background 0.15s ease, transform 0.15s ease;
   }
-  .btn-notify:hover:not(:disabled) { background: var(--primary-focus); border-color: var(--primary-focus); }
+  /* 터치 기기는 탭 뒤에도 :hover가 남는다. 켜짐 상태(.is-on)는 파란 글씨라
+   * hover 배경이 파랗게 칠해지면 글씨가 배경에 묻혀 보이지 않았다.
+   * 그래서 hover 효과는 진짜 포인터가 있는 기기에서만 적용한다. */
+  @media (hover: hover) and (pointer: fine) {
+    .btn-notify:hover:not(:disabled) { background: var(--primary-focus); border-color: var(--primary-focus); }
+    .btn-notify.is-on:hover:not(:disabled) {
+      background: rgba(0, 102, 204, 0.08);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+  }
   .btn-notify:active:not(:disabled) { transform: scale(0.97); }
   .btn-notify:disabled { opacity: 0.5; cursor: default; }
   .btn-notify.is-on {
