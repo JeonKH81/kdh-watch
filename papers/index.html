@@ -332,7 +332,7 @@
   <div class="sec-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="16" y2="7"/><line x1="9" y1="11" x2="16" y2="11"/></svg></div>
   <h1>논문 리뷰<span class="cadence">매주</span></h1>
   <p class="sub">의료 AI·디지털헬스 신간 논문을 골라 읽습니다. 요지·핵심 결과·임상적 의미를 짧게 정리합니다.</p>
-  <p class="count-line"><strong id="review-count">7</strong>편 누적 · 최근 업데이트 2026-08-10</p>
+  <p class="count-line"><strong id="review-count">10</strong>편 누적 · 최근 업데이트 2026-08-11</p>
   <div class="policy">
     <strong>선정 기준</strong> — PubMed와 Consensus에서 새로 나온 논문 중 임상 적용 가능성과 파급력을 기준으로 <strong>매주 화요일</strong> 2~3편을 고릅니다. 호(號)로 나누지 않고 최신 리뷰가 위에 쌓이는 방식이며, 각 리뷰는 초록·본문 기반 요약과 원문 DOI를 함께 제공합니다.
   </div>
@@ -353,6 +353,62 @@
 
   <!-- 새 리뷰는 이 위치(맨 위)에 추가합니다 -->
 
+  <article class="review" id="ambient-ai-scribe-ed-documentation" data-type="retrospective">
+    <div class="r-tags">
+      <span class="r-tag">생성형 AI · 진료기록</span>
+      <span class="r-tag field">후향적 단면 관찰연구</span>
+      <span class="r-tag field">2026-06-11</span>
+    </div>
+    <h2>Medical Scribe and Ambient Artificial Intelligence Impact on Emergency Physician Documentation Burden and Clinical Productivity</h2>
+    <p class="r-meta">Dutta S, You JG, Dunham L, Cash R, Meeker M, White BA, Joseph JW. <em>Annals of Emergency Medicine</em> 2026 (온라인 선공개) · 매사추세츠종합병원·Mass General Brigham Digital·하버드의대 · 4개 병원 응급실 후향적 단면 관찰연구, 198,178건</p>
+    <p class="r-kr">앰비언트 AI 서기는 응급의학과 의사의 기록 시간을 노트당 1.6분 줄였다 — 사람 서기의 절반, 생산성 변화는 없었다</p>
+    <p class="body">진료기록 작성 부담은 의사 번아웃의 대표적 원인으로 꼽힙니다. 사람 서기(medical scribe)를 붙이면 부담이 줄어든다는 근거는 오래전부터 있었지만 비용과 인력 수급이 걸림돌이었고, 그 자리를 대신하겠다고 등장한 것이 진료 대화를 자동으로 노트로 바꾸는 <strong>앰비언트 AI 서기</strong>입니다. 다만 지금까지의 근거는 대부분 파일럿 규모의 만족도 설문이었고, "실제 기록 시간이 얼마나 줄고 진료량은 어떻게 되는가"를 대규모 실사용 데이터로 비교한 연구는 드물었습니다. 이 연구는 2025년 1월부터 9월까지 한 통합의료체계 산하 4개 병원 응급실 진료 건을 앰비언트 AI 서기·사람 서기·서기 없음 세 군으로 나눠 비교했습니다.</p>
+    <p class="body">전체 198,178건 중 앰비언트 AI 서기 사용은 <strong>8,489건(4.3%)</strong>, 사람 서기 15,947건(8.0%), 서기 없음 173,742건(87.7%)이었습니다(환자 중앙연령 49세, IQR 30–68세, 여성 53.1%). 의사 단위로 군집화한 중앙값 분위회귀 결과, 서기 없음 대비 <strong>앰비언트 AI 서기는 노트당 보정 기록시간 중앙값을 1.6분 단축(95% CI 0.3–2.9)</strong>했고 <strong>사람 서기는 3.3분 단축(95% CI 2.3–4.3)</strong>했습니다. 반면 근무 시간당 총 wRVU로 측정한 임상 생산성은 <strong>세 군 간 차이가 없었습니다</strong>.</p>
+    <p class="body">시간은 줄었지만 그 시간이 더 많은 환자를 보는 데 쓰이지는 않았다는 것이 이 연구의 핵심입니다. 앰비언트 AI의 가치를 "생산성 향상"으로 홍보하는 논법은 이 데이터로는 뒷받침되지 않으며, 오히려 번아웃 완화·기록 품질 같은 다른 축에서 편익을 찾아야 한다는 뜻입니다. 효과 크기가 사람 서기의 절반에 그친 점, 사용률이 4.3%에 불과해 얼리어답터 편향이 남아 있는 점, 후향적 관찰연구라 도입 여부가 무작위가 아닌 점은 명확한 한계입니다. 국내에서도 주요 상급종합병원과 의료 AI 기업들이 음성인식 기반 진료기록 보조를 잇달아 내놓고 있는데, 한국어 의무기록·짧은 진료시간·상이한 수가 구조에서는 절대 이득의 크기가 달라질 수밖에 없습니다. <strong>도입 효과는 "몇 분 줄었나"만이 아니라 "그 시간이 어디로 갔나"까지 같이 측정</strong>해야 합니다.</p>
+    <div class="r-takeaway">
+      <span class="t-label">TAKEAWAY</span>
+      <p>응급실 19만여 건 실사용 데이터에서 앰비언트 AI 서기는 노트당 1.6분(사람 서기 3.3분)을 줄였지만 시간당 진료 생산성은 바뀌지 않았다 — 기록 부담 완화 도구이지 진료량 증대 도구가 아니다.</p>
+    </div>
+    <div class="r-link"><a href="https://doi.org/10.1016/j.annemergmed.2026.04.022" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+  </article>
+
+  <article class="review" id="prima-ai-ehr-risk-prediction-rct" data-type="rct">
+    <div class="r-tags">
+      <span class="r-tag">예측모델 · EHR 통합</span>
+      <span class="r-tag field">무작위대조시험</span>
+      <span class="r-tag field">2026-05-14</span>
+    </div>
+    <h2>Randomized trial of electronic health record implemented AI risk prediction in kidney transplant care</h2>
+    <p class="r-meta">Osmanodja B, Spencker JJ, Ömeroğlu ÖE, Sassi Z, Roller R, …, Budde K, Herrmann A. <em>npj Digital Medicine</em> 2026;9(1) · 샤리테 베를린 의대·독일인공지능연구센터(DFKI)·레겐스부르크대학교 · 단일기관 무작위대조시험, 신장이식 수혜자 76명(NCT0605651)</p>
+    <p class="r-kr">위험예측 AI를 전자의무기록에 띄워두기만 해서는 진료 대화도 공유의사결정도 달라지지 않았다</p>
+    <p class="body">AI 위험예측 모델은 이미 여러 병원의 전자의무기록(EHR)에 들어가 있지만, 그것이 실제 <strong>의사–환자 소통과 공유의사결정(shared decision-making, SDM)</strong>을 바꾸는지에 대한 무작위 근거는 사실상 없었습니다. PRIMA-AI 시험은 추정사구체여과율 30 mL/min/1.73 m² 미만인 신장이식 수혜자 76명을 1:1로 무작위 배정해, 한쪽에는 통상진료만, 다른 쪽에는 통상진료에 더해 <strong>1년 내 이식신 소실 위험을 예측하는 머신러닝 모델을 EHR에 통합</strong>해 제공했습니다. 일차 종료점은 12개월간 "이식신 소실 이후의 치료 선택지에 대해 대화를 나눴다"고 환자가 보고한 비율이었습니다.</p>
+    <p class="body">결과는 <strong>중재군 14/36명(39%) 대 대조군 16/40명(40%), p=1.00</strong>으로 차이가 없었습니다. 이차 종료점인 임상 결과, 공유의사결정 관련 지표, 의사–환자 관계, 심리적 고통 어느 것에서도 유의한 군간 차이가 관찰되지 않았습니다. 연구 종료 후 수집한 사용자 피드백에서는 <strong>도구 사용률 자체가 낮고 편차가 컸으며 진료 흐름에 끼어들지 못했다는 점</strong>이 반복적으로 지적됐습니다. 저자들의 결론은 명료합니다 — EHR에 위험값을 수동적으로 띄워두는 방식(passive availability)만으로는 소통 결과가 개선되지 않는다는 것입니다.</p>
+    <p class="body">이 연구는 76명 단일기관 시험이라 임상 종료점을 볼 검정력이 없고, 일차 종료점이 환자 자가보고 대화 빈도라는 점에서 해석 범위가 좁습니다. 그럼에도 의미가 큰 이유는, 무작위 설계에서 효과가 나타나지 않았고 그 주된 설명으로 <strong>모델 성능이 아니라 워크플로 통합의 실패</strong>가 제시됐다는 점입니다. AUC를 올리는 경쟁과 임상에서 실제로 무언가를 바꾸는 일은 별개의 문제이며, 후자는 "언제·누구에게·어떤 행동을 촉발하도록" 설계했는지에 달려 있습니다. 국내에서도 패혈증 조기경보, 심정지 예측, 재입원 위험 같은 예측모델이 여러 병원 EHR에 탑재돼 있지만 <strong>도입 이후의 행동 변화와 결과를 검증한 국내 무작위 연구는 여전히 드뭅니다</strong>. 혁신의료기기 지정이나 수가 논의에서도 "예측 정확도"만이 아니라 "그 예측이 촉발한 행동"에 대한 근거를 요구할 시점입니다.</p>
+    <div class="r-takeaway">
+      <span class="t-label">TAKEAWAY</span>
+      <p>EHR에 통합된 AI 위험예측은 대화 빈도(39% 대 40%, p=1.00)를 포함해 어떤 소통 지표도 바꾸지 못했다 — 예측모델의 임상 가치는 성능이 아니라 워크플로 설계에서 갈린다.</p>
+    </div>
+    <div class="r-link"><a href="https://doi.org/10.1038/s41746-026-02757-5" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+  </article>
+
+  <article class="review" id="know-ckd-ml-mortality-prediction" data-type="validation">
+    <div class="r-tags">
+      <span class="r-tag">국내 연구 · 예측모델</span>
+      <span class="r-tag field">코호트 기반 개발·외부검증</span>
+      <span class="r-tag field">2026-08-07</span>
+    </div>
+    <h2>Machine learning-assisted prediction of 5-year mortality in chronic kidney disease: the KoreaN cohort study for Outcome in patients With Chronic Kidney Disease (KNOW-CKD)</h2>
+    <p class="r-meta">Suh SH, Choi HS, Kim CS, Lee S, Bae EH, Ma SK, Park SK, Oh KH, Kim SW. <em>Kidney Research and Clinical Practice</em> 2026 (온라인 선공개) · 전남대학교 의과대학·서울대학교 의과대학 등 국내 다기관 · 전향 코호트 1,858명(사망 94건) 기반 개발, 독립 코호트 348명 외부검증</p>
+    <p class="r-kr">혈액검사 다섯 가지로 만성콩팥병 5년 사망 위험을 가려내고, 그 근거를 SHAP으로 열어 보인 국내 코호트 연구</p>
+    <p class="body">투석을 시작하지 않은 만성콩팥병(CKD) 환자의 사망 위험을 예측하는 모델은 임상적 필요에 비해 부족했습니다. 머신러닝은 정확도를 높일 여지를 주지만 "왜 그렇게 예측했는지 알 수 없다"는 블랙박스 문제가 임상 도입을 막아 왔습니다. 이 연구는 국내 대표 CKD 전향 코호트인 <strong>KNOW-CKD</strong>의 비투석 환자 1,858명(사망 94건)을 대상으로 5년 전체원인 사망을 예측하는 해석 가능한 머신러닝 모델을 개발하고, 웹 기반 위험층화 도구로 배포하는 것까지 목표로 삼았습니다.</p>
+    <p class="body">CatBoost를 포함한 여러 알고리즘을 기존 로지스틱 회귀와 비교한 결과, <strong>CatBoost 모델의 AUC는 0.813(95% CI 0.737–0.888)으로 로지스틱 회귀의 0.747(95% CI 0.655–0.840)보다 유의하게 높았습니다(p=0.04)</strong>. SHAP 분석으로 상위 5개 변수 — <strong>연령·추정사구체여과율·혈청 알부민·요 단백/크레아티닌 비·혈청 총칼슘</strong> — 만 남긴 간소화 모델도 독립 코호트 348명 외부검증에서 <strong>AUC 0.795</strong>를 유지했습니다. 특히 SHAP 시각화에서 혈청 칼슘이 <strong>U자형 관계</strong>를 보여, 그동안 충분히 주목받지 못한 <strong>저칼슘혈증이 사망 위험 예측에 기여하는 신호</strong>로 드러난 점이 눈에 띕니다.</p>
+    <p class="body">사건 수가 94건이라 변수당 사건 수 기준으로는 여유가 크지 않고, 외부검증 코호트도 348명 규모여서 신뢰구간이 넓습니다. 보정(calibration)과 임상적 유용성(decision curve) 지표가 판별력만큼 강조되지 않은 점, 전향적 실사용 검증이 아직 남아 있는 점도 감안해야 합니다. 그럼에도 <strong>국내 다기관 전향 코호트에서 개발해 독립 코호트로 외부검증하고, 어디서나 뽑는 다섯 가지 값만으로 성능을 유지했다</strong>는 점은 실용성 면에서 분명한 강점입니다. 해외 데이터로 학습된 모델을 국내에 그대로 가져다 쓰는 관행의 대안으로서, 국내 코호트 자산을 예측모델로 전환한 사례라는 의미도 있습니다. SHAP이 만들어낸 저칼슘혈증 가설처럼, <strong>예측모델이 새로운 임상 질문을 되돌려주는 방식</strong>도 함께 볼 만합니다.</p>
+    <div class="r-takeaway">
+      <span class="t-label">TAKEAWAY</span>
+      <p>KNOW-CKD 코호트 기반 CatBoost 모델이 비투석 CKD 환자의 5년 사망을 AUC 0.813으로 예측했고, 변수 5개로 줄인 간소화 모델도 외부검증에서 AUC 0.795를 유지했다 — 국내 코호트로 만든, 설명 가능한 예측모델의 실용 사례.</p>
+    </div>
+    <div class="r-link"><a href="https://doi.org/10.23876/j.krcp.25.471" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+  </article>
 
   <article class="review" id="masai-ai-mammography-interval-cancer" data-type="rct">
     <div class="r-tags">
@@ -489,7 +545,7 @@
 <footer>
   <div>
     <p>논문 정보는 PubMed에서 검색·확인했으며, 각 리뷰는 원문 초록을 기반으로 작성한 요약입니다. 정확한 내용은 DOI 링크의 원문을 확인하시기 바랍니다.</p>
-    <p>최종 업데이트: 2026-08-10 · © 2026 AI &amp; Digital Healthcare Watch</p>
+    <p>최종 업데이트: 2026-08-11 · © 2026 AI &amp; Digital Healthcare Watch</p>
   </div>
 </footer>
 
