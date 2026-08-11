@@ -1,7 +1,7 @@
 {
-  "name": "AI & Digital Healthcare Watch",
-  "short_name": "KDH Watch",
-  "description": "국내 디지털헬스·의료 AI 규제, 허가, 급여, 기업·학회 동향과 논문 리뷰 브리핑",
+  "name": "DocGPT — AI & Digital Healthcare Watch",
+  "short_name": "DocGPT",
+  "description": "의료 인공지능·디지털헬스케어 규제, 허가, 급여, 제품, 학회, 논문 리뷰 브리핑",
   "lang": "ko",
   "dir": "ltr",
   "start_url": "/?source=pwa",

@@ -10,8 +10,10 @@
  * 옛 아이콘이 계속 보인다. HTML·manifest의 ?v= 값과 아래 ICON_V를 함께 올릴 것.
  */
 
-var CACHE = "kdh-v8";
+var CACHE = "kdh-v9";
 var ICON_V = "?v=2";
+// 앱 이름(short_name)만 바뀌어도 manifest는 새로 받아야 하므로 아이콘과 따로 관리한다.
+var MANIFEST_V = "?v=3";
 
 // 오프라인 최소 동작에 필요한 것만. HTML은 방문하면서 자연히 쌓인다.
 var PRECACHE = [
@@ -28,7 +30,7 @@ var PRECACHE = [
   "/icon-maskable-192.png" + ICON_V,
   "/icon-maskable-512.png" + ICON_V,
   "/apple-touch-icon.png" + ICON_V,
-  "/manifest.json" + ICON_V
+  "/manifest.json" + MANIFEST_V
 ];
 
 self.addEventListener("install", function (event) {
