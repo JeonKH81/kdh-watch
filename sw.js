@@ -10,7 +10,7 @@
  * 옛 아이콘이 계속 보인다. HTML·manifest의 ?v= 값과 아래 ICON_V를 함께 올릴 것.
  */
 
-var CACHE = "kdh-v9";
+var CACHE = "kdh-v10";
 var ICON_V = "?v=2";
 // 앱 이름(short_name)만 바뀌어도 manifest는 새로 받아야 하므로 아이콘과 따로 관리한다.
 var MANIFEST_V = "?v=3";
@@ -22,6 +22,7 @@ var PRECACHE = [
   "/products/",
   "/archive/",
   "/about/",
+  "/install/",
   "/assets/site.css",
   "/favicon.ico" + ICON_V,
   "/icon-32.png" + ICON_V,

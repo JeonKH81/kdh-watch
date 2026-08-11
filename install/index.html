@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="아이폰과 안드로이드 홈 화면에 앱처럼 설치하는 방법. 앱스토어 없이 30초면 끝나고, 새 브리핑 알림도 받을 수 있습니다.">
+<title>앱 설치 — AI &amp; Digital Healthcare Watch</title>
+<link rel="canonical" href="https://docgpt.ai.kr/install/">
+
+<!-- PWA (홈화면 설치·오프라인) -->
+<link rel="manifest" href="/manifest.json?v=3">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="/favicon.ico?v=2" sizes="any">
+<link rel="icon" href="/icon-32.png?v=2" type="image/png" sizes="32x32">
+<link rel="icon" href="/icon-192.png?v=2" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="DocGPT">
+
+<!-- Open Graph (페이스북 공유용) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI &amp; Digital Healthcare Watch">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://docgpt.ai.kr/install/">
+<meta property="og:title" content="홈 화면에 앱으로 설치하기 — 의료 AI·디지털헬스케어 브리핑">
+<meta property="og:description" content="앱스토어 없이 30초. 아이폰·안드로이드 모두 됩니다. 설치하면 새 브리핑과 논문 리뷰 알림을 받을 수 있습니다.">
+<meta property="og:image" content="https://docgpt.ai.kr/og-image.jpg">
+<meta property="og:image:secure_url" content="https://docgpt.ai.kr/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="홈 화면에 앱으로 설치하기">
+<meta name="twitter:description" content="앱스토어 없이 30초. 아이폰·안드로이드 모두 됩니다.">
+<meta name="twitter:image" content="https://docgpt.ai.kr/og-image.jpg">
+
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  /* ── 앱 내부 브라우저 경고 ─────────────────────────────
+   * 페이스북·카카오톡에서 링크를 누르면 그 앱 안의 브라우저가 열린다.
+   * 거기서는 홈 화면 추가가 아예 불가능하므로, 가장 먼저 이 사실을 알린다. */
+  .inapp-warn {
+    display: none;
+    background: #fff8e6;
+    border: 1px solid #f0d48a;
+    border-radius: 18px;
+    padding: 22px 24px;
+    margin-bottom: 32px;
+  }
+  .inapp-warn.show { display: block; }
+  .inapp-warn h2 {
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.374px;
+    margin: 0 0 8px;
+    color: #7a5800;
+  }
+  .inapp-warn p {
+    margin: 0 0 14px;
+    font-size: 15.5px;
+    line-height: 1.55;
+    letter-spacing: -0.224px;
+    color: #6b4e00;
+  }
+  .inapp-warn p:last-child { margin-bottom: 0; }
+  .inapp-warn strong { font-weight: 600; }
+
+  /* 주소 복사 — 앱 내부 브라우저에서 빠져나가는 가장 확실한 방법 */
+  .url-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .url-box {
+    flex: 1 1 200px;
+    min-width: 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 15px;
+    background: var(--canvas);
+    border: 1px solid #e3d3a4;
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: var(--ink);
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .btn-copy {
+    flex: 0 0 auto;
+    font: inherit;
+    font-size: 15px;
+    background: #7a5800;
+    color: #ffffff;
+    border: 1px solid #7a5800;
+    border-radius: 9999px;
+    padding: 10px 18px;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+  .btn-copy:active { transform: scale(0.96); }
+
+  /* ── 단계 목록 ───────────────────────────────────── */
+  .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  .steps > li {
+    position: relative;
+    counter-increment: step;
+    padding: 0 0 26px 52px;
+  }
+  .steps > li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-variant-numeric: tabular-nums;
+  }
+  /* 마지막 단계 아래로는 세로선을 잇지 않는다 */
+  .steps > li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 15.5px;
+    top: 38px;
+    bottom: 10px;
+    width: 1px;
+    background: var(--hairline);
+  }
+  .steps h3 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.374px;
+    margin: 4px 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .steps p {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-80, #333);
+    max-width: 62ch;
+  }
+  .steps .hint {
+    display: block;
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--ink-muted-48, #7a7a7a);
+  }
+
+  /* 본문 안에서 버튼 모양을 그대로 보여주는 작은 아이콘 */
+  .ui-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--hairline);
+    background: var(--canvas);
+    vertical-align: middle;
+  }
+  .ui-icon svg { width: 17px; height: 17px; stroke: var(--primary); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+  .ui-icon svg.dots { fill: var(--primary); stroke: none; }
+
+  /* 이 기기에 해당하는 방법 표시 */
+  .this-device {
+    display: none;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: -0.08px;
+    background: var(--primary);
+    color: #ffffff;
+    border-radius: 9999px;
+    padding: 4px 11px;
+    vertical-align: middle;
+    margin-left: 10px;
+  }
+  .this-device.show { display: inline-block; }
+
+  .note-card {
+    background: var(--parchment);
+    border-radius: 18px;
+    padding: 22px 24px;
+    margin-top: 8px;
+  }
+  .tile-parchment .note-card { background: var(--canvas); }
+  .note-card p {
+    margin: 0 0 10px;
+    font-size: 15px;
+    line-height: 1.55;
+    letter-spacing: -0.224px;
+  }
+  .note-card p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 640px) {
+    .steps > li { padding-left: 46px; }
+    .steps > li::before { width: 28px; height: 28px; font-size: 14px; }
+    .steps > li:not(:last-child)::after { left: 13.5px; top: 34px; }
+    .inapp-warn, .note-card { padding: 18px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="gnav">
+  <div class="gnav-inner">
+    <div class="brand">
+      <a class="wordmark" href="/">AI &amp; Digital Healthcare Watch</a>
+    </div>
+    <nav>
+      <span class="menu-wrap">
+        <a href="/" aria-haspopup="true" aria-expanded="false">브리핑</a>
+        <span class="dropdown" role="menu">
+          <a href="/#news">동향</a>
+          <a href="/#llm">LLM 브리핑</a>
+          <a href="/#highlights">이달의 핵심</a>
+          <a href="/#keyword">이달의 키워드</a>
+          <a href="/#timeline">타임라인</a>
+          <a href="/#academia">학회 일정</a>
+        </span>
+      </span>
+      <a href="/papers/">논문</a>
+      <a href="/products/">제품</a>
+      <a href="/archive/">지난호</a>
+      <a href="/about/">문의</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="page-head-inner">
+    <h1>홈 화면에 앱으로 설치하기</h1>
+    <p class="page-sub">앱스토어에 갈 필요 없이 30초면 끝납니다. 아이폰·안드로이드 모두 됩니다.</p>
+  </div>
+</div>
+
+<!-- ═══ 앱 내부 브라우저 경고 + 아이폰 방법 (white) ═══ -->
+<section class="tile tile-white" id="ios">
+  <div class="tile-inner">
+
+    <!-- 페이스북·카카오톡 안에서 열었을 때만 JS가 켠다 -->
+    <div class="inapp-warn" id="inapp-warn">
+      <h2>먼저 브라우저에서 다시 열어주세요</h2>
+      <p id="inapp-why">지금은 <strong>다른 앱 안의 브라우저</strong>로 보고 계십니다. 이 화면에서는 홈 화면에 추가하는 기능이 없습니다.</p>
+      <p id="inapp-how">화면 구석의 메뉴 버튼을 눌러 <strong>브라우저로 열기</strong>를 선택하시거나, 아래 주소를 복사해 브라우저 주소창에 붙여넣으세요.</p>
+      <div class="url-row">
+        <div class="url-box" id="url-box">https://docgpt.ai.kr/install/</div>
+        <button type="button" class="btn-copy" id="btn-copy">주소 복사</button>
+      </div>
+    </div>
+
+    <div class="sec-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><line x1="10.5" y1="18.5" x2="13.5" y2="18.5"/></svg></div>
+    <h2 class="sec-head">아이폰 · 아이패드<span class="this-device" id="badge-ios">지금 이 기기</span></h2>
+    <p class="sec-sub">사파리(Safari)에서만 설치할 수 있습니다. 크롬이나 네이버 앱에서는 이 기능이 나오지 않습니다.</p>
+
+    <ol class="steps">
+      <li>
+        <h3>사파리로 이 사이트를 엽니다</h3>
+        <p>주소창에 <strong>docgpt.ai.kr</strong> 을 입력합니다.
+          <span class="hint">아이폰에서는 사파리만 홈 화면 추가를 지원합니다. 애플이 정한 제한이라 다른 브라우저로는 되지 않습니다.</span></p>
+      </li>
+      <li>
+        <h3>공유 버튼을 누릅니다
+          <span class="ui-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"/><polyline points="8 7 12 3 16 7"/><path d="M7.5 10.5H6A1.5 1.5 0 0 0 4.5 12v7.5A1.5 1.5 0 0 0 6 21h12a1.5 1.5 0 0 0 1.5-1.5V12a1.5 1.5 0 0 0-1.5-1.5h-1.5"/></svg></span>
+        </h3>
+        <p>화면 <strong>아래쪽 가운데</strong>에 있는, 위로 향한 화살표가 담긴 사각형 아이콘입니다.
+          <span class="hint">아이패드나 예전 iOS에서는 화면 위쪽에 있습니다.</span></p>
+      </li>
+      <li>
+        <h3>“홈 화면에 추가”를 고릅니다</h3>
+        <p>메뉴를 아래로 조금 내리면 나옵니다. 고른 뒤 오른쪽 위 <strong>추가</strong>를 누르면 끝입니다.
+          <span class="hint">홈 화면에 <strong>DocGPT</strong> 아이콘이 생깁니다.</span></p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═══ 안드로이드 (parchment) ═══ -->
+<section class="tile tile-parchment" id="android">
+  <div class="tile-inner">
+    <div class="sec-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5a8 8 0 0 1 16 0z"/><line x1="7" y1="4.5" x2="8.5" y2="7"/><line x1="17" y1="4.5" x2="15.5" y2="7"/><rect x="4" y="11.5" width="16" height="8" rx="2"/></svg></div>
+    <h2 class="sec-head">안드로이드<span class="this-device" id="badge-android">지금 이 기기</span></h2>
+    <p class="sec-sub">크롬(Chrome) 또는 삼성 인터넷에서 설치할 수 있습니다.</p>
+
+    <ol class="steps">
+      <li>
+        <h3>크롬으로 이 사이트를 엽니다</h3>
+        <p>주소창에 <strong>docgpt.ai.kr</strong> 을 입력합니다.
+          <span class="hint">삼성 인터넷도 같은 방식으로 됩니다.</span></p>
+      </li>
+      <li>
+        <h3>오른쪽 위 메뉴를 누릅니다
+          <span class="ui-icon"><svg class="dots" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg></span>
+        </h3>
+        <p>점 세 개가 세로로 놓인 버튼입니다.
+          <span class="hint">삼성 인터넷은 화면 아래쪽의 줄 세 개 버튼입니다.</span></p>
+      </li>
+      <li>
+        <h3>“앱 설치” 또는 “홈 화면에 추가”를 고릅니다</h3>
+        <p>둘 중 보이는 쪽을 고르고 <strong>설치</strong>를 누르면 끝입니다.
+          <span class="hint">화면 아래에 설치 안내가 저절로 떠오르기도 합니다. 그때는 그것을 눌러도 됩니다.</span></p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═══ 알림 켜기 (white) ═══ -->
+<section class="tile tile-white" id="push">
+  <div class="tile-inner">
+    <div class="sec-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8.5a6 6 0 1 0-12 0c0 6-2.5 7.5-2.5 7.5h17S18 14.5 18 8.5"/><path d="M13.7 19.5a2 2 0 0 1-3.4 0"/></svg></div>
+    <h2 class="sec-head">새 소식 알림 켜기</h2>
+    <p class="sec-sub">설치를 마쳤다면, 새 브리핑과 논문 리뷰가 올라올 때 알림을 받을 수 있습니다.</p>
+
+    <ol class="steps">
+      <li>
+        <h3>홈 화면의 DocGPT 아이콘으로 앱을 엽니다</h3>
+        <p>브라우저가 아니라 <strong>방금 설치한 아이콘</strong>으로 열어야 합니다.</p>
+      </li>
+      <li>
+        <h3>브리핑 화면 맨 아래 “알림 받기”를 누릅니다</h3>
+        <p>기기가 묻는 알림 권한을 <strong>허용</strong>하면 켜집니다. 끄고 싶으면 같은 버튼을 다시 누르면 됩니다.</p>
+      </li>
+    </ol>
+
+    <div class="note-card">
+      <p><strong>아이폰은 설치해야만 알림이 됩니다.</strong> 사파리로 그냥 보는 상태에서는 알림 버튼이 나타나지 않습니다. 홈 화면에 추가한 뒤 그 아이콘으로 열어야 합니다.</p>
+      <p>알림은 새 브리핑이 올라올 때만 보냅니다. 대체로 <strong>주 1회</strong>이고, 광고나 다른 용도로 쓰지 않습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 설치가 안 될 때 (parchment) ═══ -->
+<section class="tile tile-parchment" id="trouble">
+  <div class="tile-inner">
+    <div class="sec-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 0 1 4.8.8c0 1.7-2.4 2-2.4 3.5"/><line x1="12" y1="16.8" x2="12" y2="16.9"/></svg></div>
+    <h2 class="sec-head">잘 안 될 때</h2>
+
+    <div class="note-card">
+      <p><strong>“홈 화면에 추가”가 안 보입니다.</strong> 사파리가 아니라 다른 앱 안에서 열려 있을 가능성이 큽니다. 특히 페이스북·카카오톡에서 링크를 누르면 그 앱의 자체 브라우저가 열립니다. 주소를 복사해 사파리나 크롬에 붙여넣어 보세요.</p>
+      <p><strong>설치했는데 앱 이름이 예전 그대로입니다.</strong> 홈 화면 아이콘을 지우고 다시 추가해 주세요. 아이폰은 추가한 시점의 이름을 그대로 붙잡아 둡니다.</p>
+      <p><strong>컴퓨터에서도 되나요.</strong> 됩니다. 크롬이나 엣지 주소창 오른쪽 끝의 설치 아이콘을 누르면 창 하나짜리 앱으로 열립니다.</p>
+      <p><strong>그래도 안 되면</strong> <a href="/about/">문의</a>로 알려주세요. 쓰시는 기기와 브라우저를 함께 적어주시면 도움이 됩니다.</p>
+    </div>
+
+    <p style="margin-top:28px"><a class="btn-pill" href="/">브리핑 보러 가기</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="tile-inner">
+    <p>최종 업데이트: 2026-08-11 · © 2026 AI &amp; Digital Healthcare Watch</p>
+  </div>
+</footer>
+
+<!-- 하단 탭바: 모바일에서만 보인다 -->
+<nav class="tabbar" aria-label="주요 메뉴">
+  <a href="/">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h13a1 1 0 0 1 1 1v12a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2z"/><line x1="7.5" y1="9" x2="14.5" y2="9"/><line x1="7.5" y1="12.5" x2="14.5" y2="12.5"/><line x1="7.5" y1="16" x2="11.5" y2="16"/></svg>
+    <span>브리핑</span>
+  </a>
+  <a href="/papers/">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5v-13A2.5 2.5 0 0 1 6.5 3z"/><line x1="9" y1="7.5" x2="16" y2="7.5"/></svg>
+    <span>논문</span>
+  </a>
+  <a href="/products/">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8.5v7a1.5 1.5 0 0 1-.8 1.3l-7 3.6a1.5 1.5 0 0 1-1.4 0l-7-3.6A1.5 1.5 0 0 1 3 15.5v-7"/><path d="M3.4 7.6l7.9-3.9a1.5 1.5 0 0 1 1.4 0l7.9 3.9-8.6 4.3z"/><line x1="12" y1="11.9" x2="12" y2="20.6"/></svg>
+    <span>제품</span>
+  </a>
+  <a href="/archive/">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.5V19a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 19V8.5"/><rect x="2.5" y="3.5" width="19" height="5" rx="1"/><line x1="10" y1="12.5" x2="14" y2="12.5"/></svg>
+    <span>지난호</span>
+  </a>
+  <a href="/about/">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8A8.5 8.5 0 0 1 12.5 20a8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7A8.4 8.4 0 0 1 4 11.5 8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg>
+    <span>문의</span>
+  </a>
+</nav>
+
+<!-- PWA: 서비스워커 등록 -->
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("/sw.js").catch(function () {});
+    });
+  }
+</script>
+
+<!-- 브리핑 드롭다운: 터치·키보드 대응 -->
+<script>
+(function () {
+  var wrap = document.querySelector(".gnav nav .menu-wrap");
+  if (!wrap) return;
+  var trigger = wrap.querySelector("a");
+  var canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  function setOpen(on) {
+    wrap.classList.toggle("open", on);
+    trigger.setAttribute("aria-expanded", on ? "true" : "false");
+  }
+
+  trigger.addEventListener("click", function (e) {
+    if (canHover) return;
+    if (!wrap.classList.contains("open")) {
+      e.preventDefault();
+      setOpen(true);
+    }
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!wrap.contains(e.target)) setOpen(false);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") setOpen(false);
+  });
+  wrap.addEventListener("focusout", function () {
+    setTimeout(function () {
+      if (!wrap.contains(document.activeElement)) setOpen(false);
+    }, 0);
+  });
+})();
+</script>
+
+<!-- 기기·브라우저를 알아보고 맞는 안내를 앞세운다 -->
+<script>
+(function () {
+  var ua = navigator.userAgent || "";
+
+  // iPadOS는 사파리에서 자신을 맥이라고 말한다. 터치 지원 여부로 가려낸다.
+  var isIOS = /iPad|iPhone|iPod/.test(ua) ||
+              (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/i.test(ua);
+
+  // 다른 앱이 품고 있는 브라우저들. 여기서는 홈 화면 추가가 아예 없다.
+  var inApp =
+    /FBAN|FBAV|FB_IAB|FBIOS/i.test(ua) ||       // 페이스북
+    /Instagram/i.test(ua) ||
+    /KAKAOTALK/i.test(ua) ||
+    /\bLine\//i.test(ua) ||
+    /NAVER\(inapp/i.test(ua) ||
+    /DaumApps|Daum\//i.test(ua) ||
+    /Threads|Snapchat|Twitter/i.test(ua);
+
+  // 아이폰 크롬·엣지·파이어폭스도 설치가 안 된다(사파리 전용).
+  var isIOSNonSafari = isIOS && /CriOS|FxiOS|EdgiOS|OPiOS|Whale/i.test(ua);
+
+  var badge = document.getElementById(isIOS ? "badge-ios" : (isAndroid ? "badge-android" : ""));
+  if (badge) badge.classList.add("show");
+
+  // 이 기기에 해당하는 안내를 위로 올린다.
+  if (isAndroid) {
+    var android = document.getElementById("android");
+    var ios = document.getElementById("ios");
+    if (android && ios && android.parentNode) {
+      // 경고 상자는 아이폰 절에 들어 있으므로 함께 옮기지 않고 안드로이드 절 앞에 붙인다.
+      var warn = document.getElementById("inapp-warn");
+      if (warn) android.querySelector(".tile-inner").insertBefore(warn, android.querySelector(".tile-inner").firstChild);
+      ios.parentNode.insertBefore(android, ios);
+    }
+  }
+
+  var warnBox = document.getElementById("inapp-warn");
+  if (!warnBox) return;
+
+  var why = document.getElementById("inapp-why");
+  var how = document.getElementById("inapp-how");
+
+  if (inApp) {
+    warnBox.classList.add("show");
+    if (isIOS) {
+      how.innerHTML = '오른쪽 아래(또는 위) <strong>… 버튼</strong>을 눌러 <strong>Safari로 열기</strong>를 고르세요. 그 항목이 없으면 아래 주소를 복사해 사파리 주소창에 붙여넣으면 됩니다.';
+    } else if (isAndroid) {
+      how.innerHTML = '오른쪽 위 <strong>⋮ 버튼</strong>을 눌러 <strong>다른 브라우저로 열기</strong>(또는 Chrome으로 열기)를 고르세요. 그 항목이 없으면 아래 주소를 복사해 크롬 주소창에 붙여넣으면 됩니다.';
+    }
+  } else if (isIOSNonSafari) {
+    // 아이폰에서 크롬 등으로 연 경우 — 앱 내부 브라우저는 아니지만 설치는 안 된다.
+    warnBox.classList.add("show");
+    why.innerHTML = '아이폰에서는 <strong>사파리에서만</strong> 홈 화면에 추가할 수 있습니다. 지금 쓰시는 브라우저에는 그 기능이 없습니다.';
+    how.innerHTML = '아래 주소를 복사해 <strong>사파리</strong> 주소창에 붙여넣어 주세요.';
+  }
+
+  // 주소 복사
+  var btn = document.getElementById("btn-copy");
+  var box = document.getElementById("url-box");
+  if (!btn || !box) return;
+
+  btn.addEventListener("click", function () {
+    var text = box.textContent.trim();
+    function done() {
+      btn.textContent = "복사했습니다";
+      setTimeout(function () { btn.textContent = "주소 복사"; }, 2000);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(fallback);
+    } else {
+      fallback();
+    }
+    function fallback() {
+      // 클립보드 권한이 없는 내부 브라우저를 위한 대비책
+      var t = document.createElement("textarea");
+      t.value = text;
+      t.setAttribute("readonly", "");
+      t.style.position = "fixed";
+      t.style.opacity = "0";
+      document.body.appendChild(t);
+      t.select();
+      try { document.execCommand("copy"); done(); }
+      catch (e) { btn.textContent = "직접 복사해 주세요"; }
+      document.body.removeChild(t);
+    }
+  });
+})();
+</script>
+
+<!-- Cloudflare Web Analytics -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "751d2cc1d2b743a38a53713a2aeda3c4"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>
