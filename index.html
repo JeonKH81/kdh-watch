@@ -46,7 +46,16 @@
       <span class="updated">Updated 2026-08-03</span>
     </div>
     <nav>
-      <a class="current" href="/">브리핑</a>
+      <span class="menu-wrap">
+        <a class="current" href="/" aria-haspopup="true" aria-expanded="false">브리핑</a>
+        <span class="dropdown" role="menu">
+          <a href="/#keyword">이번 호의 키워드</a>
+          <a href="/#highlights">이번 호 핵심</a>
+          <a href="/#timeline">타임라인</a>
+          <a href="/#news">동향</a>
+          <a href="/#academia">학회 일정</a>
+        </span>
+      </span>
       <a href="/papers/">논문</a>
       <a href="/products/">제품</a>
       <a href="/archive/">지난호</a>
@@ -55,16 +64,7 @@
   </div>
 </header>
 
-<!-- 브리핑 안의 이동 — 홈에서만 노출. 상단 검정 내비 바로 아래에 붙는다. -->
-<nav class="subnav" aria-label="브리핑 섹션">
-  <div class="subnav-inner">
-    <a href="#keyword">키워드</a>
-    <a href="#highlights">핵심</a>
-    <a href="#timeline">타임라인</a>
-    <a href="#news">동향</a>
-    <a href="#academia">학회</a>
-  </div>
-</nav>
+
 
 <!-- ═══ Hero (white) ═══ -->
 <section class="hero tile-white" id="top">
@@ -700,37 +700,7 @@
   </div>
 </section>
 
-<!-- ═══ 논문 리뷰 티저 (dark) ═══ -->
-<section class="tile tile-dark" id="papers">
-  <div class="tile-inner">
-    <div class="sec-badge reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="16" y2="7"/><line x1="9" y1="11" x2="16" y2="11"/></svg></div>
-    <h2 class="sec-head reveal">논문 리뷰</h2>
-    <p class="sec-sub reveal">신간 논문을 매주 골라 읽고 쌓아갑니다. 이번 주 4편 — 검진 AI의 안전성과 실배치, 의사결정지원의 임상 결과, 웨어러블 예측모델. 아래는 그중 3편.</p>
-    <div class="paper-teasers">
-      <div class="pt-card reveal">
-        <div class="pt-tag">영상진단 AI · 유방검진</div>
-        <h3><a href="papers/#masai-ai-mammography-interval-cancer">Interval cancer, sensitivity, and specificity comparing AI-supported mammography screening with standard double reading without AI in the MASAI study</a></h3>
-        <div class="pt-journal">Lancet 2026</div>
-        <p>AI 보조 검진은 중간암을 늘리지 않았고 민감도는 73.8%→80.5%로 올랐다.</p>
-      </div>
-      <div class="pt-card reveal">
-        <div class="pt-tag">임상의사결정지원 · 뇌졸중</div>
-        <h3><a href="papers/#golden-bridge-2-stroke-cdss">Effect of a clinical decision support system on stroke care quality and outcomes in patients with acute ischaemic stroke (GOLDEN BRIDGE II)</a></h3>
-        <div class="pt-journal">BMJ 2026</div>
-        <p>병원 77곳 무작위 배정 — 3개월 새 혈관사건이 2.9% 대 3.9%로 줄었다.</p>
-      </div>
-      <div class="pt-card reveal">
-        <div class="pt-tag">웨어러블 · 예측모델</div>
-        <h3><a href="papers/#wearable-circadian-depression-prediction">Week-ahead prediction of depressive episodes using wearable-derived circadian biomarkers</a></h3>
-        <div class="pt-journal">Journal of Affective Disorders 2026</div>
-        <p>국내 다기관 연구 — 위험 상위 20%가 우울삽화 일의 63.5%를 포착했다.</p>
-      </div>
-    </div>
-    <div class="cta-row reveal" style="justify-content: flex-start;">
-      <a class="btn-pill" href="papers/">리뷰 전체 보기</a>
-    </div>
-  </div>
-</section>
+
 
 
 
@@ -1054,6 +1024,43 @@
     });
   }).catch(function () {
     setLabel("알림을 사용할 수 없습니다");
+  });
+})();
+</script>
+
+
+<!-- 브리핑 드롭다운: 터치·키보드 대응 -->
+<script>
+(function () {
+  var wrap = document.querySelector(".gnav nav .menu-wrap");
+  if (!wrap) return;
+  var trigger = wrap.querySelector("a");
+  var canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  function setOpen(on) {
+    wrap.classList.toggle("open", on);
+    trigger.setAttribute("aria-expanded", on ? "true" : "false");
+  }
+
+  // 터치 기기에서는 첫 탭이 메뉴를 열고, 다시 탭하면 브리핑으로 이동한다.
+  trigger.addEventListener("click", function (e) {
+    if (canHover) return;
+    if (!wrap.classList.contains("open")) {
+      e.preventDefault();
+      setOpen(true);
+    }
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!wrap.contains(e.target)) setOpen(false);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") setOpen(false);
+  });
+  wrap.addEventListener("focusout", function () {
+    setTimeout(function () {
+      if (!wrap.contains(document.activeElement)) setOpen(false);
+    }, 0);
   });
 })();
 </script>

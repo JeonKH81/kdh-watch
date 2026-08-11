@@ -45,7 +45,16 @@
       <a class="wordmark" href="/">AI &amp; Digital Healthcare Watch</a>
     </div>
     <nav>
-      <a href="/">브리핑</a>
+      <span class="menu-wrap">
+        <a href="/" aria-haspopup="true" aria-expanded="false">브리핑</a>
+        <span class="dropdown" role="menu">
+          <a href="/#keyword">이번 호의 키워드</a>
+          <a href="/#highlights">이번 호 핵심</a>
+          <a href="/#timeline">타임라인</a>
+          <a href="/#news">동향</a>
+          <a href="/#academia">학회 일정</a>
+        </span>
+      </span>
       <a href="/papers/">논문</a>
       <a href="/products/">제품</a>
       <a href="/archive/">지난호</a>
@@ -111,6 +120,43 @@
       navigator.serviceWorker.register("/sw.js").catch(function () {});
     });
   }
+</script>
+
+
+<!-- 브리핑 드롭다운: 터치·키보드 대응 -->
+<script>
+(function () {
+  var wrap = document.querySelector(".gnav nav .menu-wrap");
+  if (!wrap) return;
+  var trigger = wrap.querySelector("a");
+  var canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  function setOpen(on) {
+    wrap.classList.toggle("open", on);
+    trigger.setAttribute("aria-expanded", on ? "true" : "false");
+  }
+
+  // 터치 기기에서는 첫 탭이 메뉴를 열고, 다시 탭하면 브리핑으로 이동한다.
+  trigger.addEventListener("click", function (e) {
+    if (canHover) return;
+    if (!wrap.classList.contains("open")) {
+      e.preventDefault();
+      setOpen(true);
+    }
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!wrap.contains(e.target)) setOpen(false);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") setOpen(false);
+  });
+  wrap.addEventListener("focusout", function () {
+    setTimeout(function () {
+      if (!wrap.contains(document.activeElement)) setOpen(false);
+    }, 0);
+  });
+})();
 </script>
 
 <!-- Cloudflare Web Analytics -->

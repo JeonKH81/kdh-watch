@@ -1246,3 +1246,67 @@
 @media (max-width: 640px) {
   .page-head { padding: 52px 18px 32px; }
 }
+
+/* ═══ 브리핑 드롭다운 ═══
+ * hover만으로 만들면 터치 기기에서 열 수단이 없어진다.
+ *   - 마우스: hover (@media (hover: hover) 안에서만)
+ *   - 터치:   탭하면 열림 (JS가 .open 토글)
+ *   - 키보드: focus-within
+ */
+.gnav nav .menu-wrap { position: relative; display: flex; }
+.gnav nav .menu-wrap > a { display: inline-flex; align-items: center; gap: 5px; }
+.gnav nav .menu-wrap > a::after {
+  content: "";
+  width: 5px; height: 5px;
+  border-right: 1.6px solid currentColor;
+  border-bottom: 1.6px solid currentColor;
+  transform: rotate(45deg) translate(-1px, -1px);
+  opacity: 0.75;
+  transition: transform 0.2s;
+}
+.dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 190px;
+  background: rgba(28, 28, 30, 0.92);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s;
+}
+.dropdown a {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.224px;
+  color: rgba(255, 255, 255, 0.86);
+  padding: 9px 13px;
+  border-radius: 9px;
+  white-space: nowrap;
+}
+.dropdown a:hover { background: rgba(255, 255, 255, 0.14); color: #ffffff; text-decoration: none; }
+.dropdown .dd-sep { height: 1px; background: rgba(255, 255, 255, 0.12); margin: 5px 4px; }
+
+.menu-wrap.open > .dropdown,
+.menu-wrap:focus-within > .dropdown {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+.menu-wrap.open > a::after { transform: rotate(-135deg) translate(-2px, -2px); }
+
+@media (hover: hover) and (pointer: fine) {
+  .menu-wrap:hover > .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+  .menu-wrap:hover > a::after { transform: rotate(-135deg) translate(-2px, -2px); }
+}
+
+@media (max-width: 640px) {
+  .dropdown { min-width: 170px; }
+  .dropdown a { font-size: 13.5px; padding: 8px 12px; }
+}
