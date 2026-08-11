@@ -1310,3 +1310,29 @@
   .dropdown { min-width: 170px; }
   .dropdown a { font-size: 13.5px; padding: 8px 12px; }
 }
+
+/* ═══ 갱신 주기 배지 ═══
+ * 섹션마다 자연스러운 갱신 속도가 달라(뉴스는 매주, 키워드·핵심은 매월)
+ * 제목 옆에 주기를 표시한다. 독자가 언제 다시 오면 되는지 알 수 있다. */
+.cadence {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 12px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  padding: 5px 10px;
+  border-radius: 9999px;
+  background: rgba(0, 102, 204, 0.1);
+  color: var(--primary);
+  white-space: nowrap;
+  transform: translateY(-4px);
+}
+.tile-dark .cadence, .tile-dark-2 .cadence {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--primary-on-dark);
+}
+@media (max-width: 640px) {
+  .cadence { font-size: 11.5px; padding: 4px 9px; margin-left: 8px; }
+}
