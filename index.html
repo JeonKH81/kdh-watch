@@ -110,6 +110,16 @@
   </div>
 </section>
 
+<!-- 설치 권유: 아직 홈 화면에 추가하지 않은 방문자에게만 스크립트가 켠다 -->
+<aside class="install-hint" id="install-hint" hidden>
+  <div class="install-hint-inner">
+    <span class="install-hint-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M12 8v6"/><polyline points="9.6 11.6 12 14 14.4 11.6"/></svg></span>
+    <p><strong>홈 화면에 앱으로 추가</strong>해 두면 새 브리핑이 올라올 때 알림을 받습니다. 앱스토어 없이 30초면 됩니다.</p>
+    <a class="btn-pill" href="/install/">설치 방법</a>
+    <button type="button" class="install-hint-close" id="install-hint-close" aria-label="이 안내 닫기">&times;</button>
+  </div>
+</aside>
+
 <!-- ═══ 동향 (white) ═══ -->
 <section class="tile tile-white" id="news">
   <div class="tile-inner">
@@ -1210,6 +1220,30 @@
     setTimeout(function () {
       if (!wrap.contains(document.activeElement)) setOpen(false);
     }, 0);
+  });
+})();
+</script>
+
+<!-- 설치 권유 띠: 이미 설치했거나 한 번 닫은 사람에게는 보이지 않는다 -->
+<script>
+(function () {
+  var hint = document.getElementById("install-hint");
+  if (!hint) return;
+
+  var installed = window.matchMedia("(display-mode: standalone)").matches ||
+                  navigator.standalone === true;
+
+  var dismissed = false;
+  try { dismissed = localStorage.getItem("kdh-install-hint") === "off"; } catch (e) {}
+
+  if (installed || dismissed) return;
+  hint.hidden = false;
+
+  var close = document.getElementById("install-hint-close");
+  if (!close) return;
+  close.addEventListener("click", function () {
+    hint.hidden = true;
+    try { localStorage.setItem("kdh-install-hint", "off"); } catch (e) {}
   });
 })();
 </script>
