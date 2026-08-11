@@ -1,5 +1,5 @@
 {
-  "name": "K-Digital & AI Health Watch",
+  "name": "AI & Digital Healthcare Watch",
   "short_name": "KDH Watch",
   "description": "국내 디지털헬스·의료 AI 규제, 허가, 급여, 기업·학회 동향과 논문 리뷰 브리핑",
   "lang": "ko",
@@ -54,8 +54,19 @@
       ]
     },
     {
-      "name": "지난 호",
-      "short_name": "지난 호",
+      "name": "제품",
+      "short_name": "제품",
+      "url": "/products/",
+      "icons": [
+        {
+          "src": "/icon-192.png?v=2",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "지난호",
+      "short_name": "지난호",
       "url": "/archive/",
       "icons": [
         {

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="의료 AI·디지털헬스 신간 논문 리뷰 — 매주 업데이트">
-<title>논문 리뷰 — K-Digital & AI Health Watch</title>
+<title>논문 리뷰 — AI & Digital Healthcare Watch</title>
 <link rel="canonical" href="https://docgpt.ai.kr/papers/">
 
 <!-- PWA (홈화면 설치·오프라인) -->
@@ -20,7 +20,7 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="K-Digital &amp; AI Health Watch">
+<meta property="og:site_name" content="AI &amp; Digital Healthcare Watch">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://docgpt.ai.kr/papers/">
 <meta property="og:title" content="논문 리뷰 — 의료 AI·디지털헬스 신간 읽기">
@@ -275,16 +275,44 @@
     .gnav nav a { padding: 7px 11px; font-size: 13.5px; flex: 0 0 auto; }
     .wrap { padding-left: 18px; padding-right: 18px; }
   }
+
+  /* ═══ 연구유형 필터 ═══ */
+  .p-filter { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; }
+  .p-filter .chip {
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-80);
+    background: var(--parchment);
+    border: 1px solid transparent;
+    border-radius: 9999px;
+    padding: 7px 14px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .p-filter .chip:hover { border-color: var(--hairline); }
+  .p-filter .chip.on { background: var(--primary); color: #ffffff; border-color: var(--primary); }
+  .p-empty {
+    font-size: 15px;
+    color: var(--ink-muted-48);
+    letter-spacing: -0.224px;
+    margin: 26px 0 0;
+  }
+
 </style>
 </head>
 <body>
 
 <header class="gnav">
   <div class="gnav-inner">
-    <a class="wordmark" href="../">K-Digital &amp; AI Health Watch</a>
+    <a class="wordmark" href="/">AI &amp; Digital Healthcare Watch</a>
     <nav>
-      <a href="../">브리핑</a>
-      <a href="../archive/">지난 호</a>
+      <a href="/">브리핑</a>
+      <a class="current" href="/papers/">논문</a>
+      <a href="/products/">제품</a>
+      <a href="/archive/">지난호</a>
+      <a href="/about/">문의</a>
     </nav>
   </div>
 </header>
@@ -297,6 +325,17 @@
   <div class="policy">
     <strong>선정 기준</strong> — PubMed와 Consensus에서 새로 나온 논문 중 임상 적용 가능성과 파급력을 기준으로 <strong>매주</strong> 2~3편을 고릅니다. 호(號)로 나누지 않고 최신 리뷰가 위에 쌓이는 방식이며, 각 리뷰는 초록·본문 기반 요약과 원문 DOI를 함께 제공합니다.
   </div>
+  <div class="p-filter" id="paper-filter" role="group" aria-label="연구유형 필터">
+    <button type="button" class="chip on" data-filter="all">전체</button>
+    <button type="button" class="chip" data-filter="rct">RCT</button>
+    <button type="button" class="chip" data-filter="meta">메타분석</button>
+    <button type="button" class="chip" data-filter="prospective">전향연구</button>
+    <button type="button" class="chip" data-filter="retrospective">후향연구</button>
+    <button type="button" class="chip" data-filter="validation">검증·예측모델</button>
+    <button type="button" class="chip" data-filter="benchmark">벤치마크</button>
+    <button type="button" class="chip" data-filter="review">리뷰·가이드라인</button>
+  </div>
+  <p class="p-empty" id="paper-empty" hidden>이 유형의 리뷰는 아직 없습니다.</p>
 </div>
 
 <div class="wrap reviews" style="padding-top: 0;">
@@ -304,7 +343,7 @@
   <!-- 새 리뷰는 이 위치(맨 위)에 추가합니다 -->
 
 
-  <article class="review" id="masai-ai-mammography-interval-cancer">
+  <article class="review" id="masai-ai-mammography-interval-cancer" data-type="rct">
     <div class="r-tags">
       <span class="r-tag">영상진단 AI · 유방검진</span>
       <span class="r-tag field">무작위대조 비열등성 시험</span>
@@ -322,7 +361,7 @@
     </div>
     <div class="r-link"><a href="https://doi.org/10.1016/S0140-6736(25)02464-X" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
   </article>
-  <article class="review" id="google-mammo-deployment">
+  <article class="review" id="google-mammo-deployment" data-type="validation">
     <div class="r-tags">
       <span class="r-tag">영상 AI · 실배치</span>
       <span class="r-tag field">다기관 전향·후향 연구</span>
@@ -340,7 +379,7 @@
     </div>
     <div class="r-link"><a href="https://doi.org/10.1038/s43018-026-01127-0" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
   </article>
-  <article class="review" id="golden-bridge-2-stroke-cdss">
+  <article class="review" id="golden-bridge-2-stroke-cdss" data-type="rct">
     <div class="r-tags">
       <span class="r-tag">임상의사결정지원 · 뇌졸중</span>
       <span class="r-tag field">군집 무작위 임상시험</span>
@@ -358,7 +397,7 @@
     </div>
     <div class="r-link"><a href="https://doi.org/10.1136/bmj-2025-085810" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
   </article>
-  <article class="review" id="wearable-circadian-depression-prediction">
+  <article class="review" id="wearable-circadian-depression-prediction" data-type="validation">
     <div class="r-tags">
       <span class="r-tag">웨어러블 · 예측모델</span>
       <span class="r-tag field">다기관 코호트 · 딥러닝</span>
@@ -377,7 +416,7 @@
     <div class="r-link"><a href="https://doi.org/10.1016/j.jad.2026.122076" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
   </article>
 
-  <article class="review" id="llm-clinical-evidence-review">
+  <article class="review" id="llm-clinical-evidence-review" data-type="review">
     <div class="r-tags">
       <span class="r-tag">LLM · 근거지형</span>
       <span class="r-tag field">체계적 문헌고찰</span>
@@ -396,7 +435,7 @@
     <div class="r-link"><a href="https://doi.org/10.1038/s41591-026-04229-5" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
   </article>
 
-  <article class="review" id="prime-llm-clinical-reasoning">
+  <article class="review" id="prime-llm-clinical-reasoning" data-type="benchmark">
     <div class="r-tags">
       <span class="r-tag">LLM · 성능평가</span>
       <span class="r-tag field">벤치마크</span>
@@ -415,7 +454,7 @@
     <div class="r-link"><a href="https://doi.org/10.1001/jamanetworkopen.2026.4003" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
   </article>
 
-  <article class="review" id="human-llm-collaboration-meta">
+  <article class="review" id="human-llm-collaboration-meta" data-type="meta">
     <div class="r-tags">
       <span class="r-tag">LLM · 인간-AI 협업</span>
       <span class="r-tag field">메타분석</span>
@@ -439,7 +478,7 @@
 <footer>
   <div>
     <p>논문 정보는 PubMed에서 검색·확인했으며, 각 리뷰는 원문 초록을 기반으로 작성한 요약입니다. 정확한 내용은 DOI 링크의 원문을 확인하시기 바랍니다.</p>
-    <p>최종 업데이트: 2026-08-10 · © 2026 K-Digital &amp; AI Health Watch</p>
+    <p>최종 업데이트: 2026-08-10 · © 2026 AI &amp; Digital Healthcare Watch</p>
   </div>
 </footer>
 
@@ -457,6 +496,38 @@
       navigator.serviceWorker.register("/sw.js").catch(function () {});
     });
   }
+</script>
+
+
+<script>
+  // 연구유형 필터. 리뷰에 data-type이 없으면 '전체'에서만 보인다.
+  (function () {
+    var filter = document.getElementById("paper-filter");
+    if (!filter) return;
+    var reviews = [].slice.call(document.querySelectorAll(".review"));
+    var empty = document.getElementById("paper-empty");
+    var count = document.getElementById("review-count");
+
+    filter.addEventListener("click", function (e) {
+      var btn = e.target.closest(".chip");
+      if (!btn) return;
+      var want = btn.getAttribute("data-filter");
+
+      [].forEach.call(filter.querySelectorAll(".chip"), function (c) {
+        c.classList.toggle("on", c === btn);
+      });
+
+      var shown = 0;
+      reviews.forEach(function (r) {
+        var hit = want === "all" || r.getAttribute("data-type") === want;
+        r.hidden = !hit;
+        if (hit) shown++;
+      });
+      if (empty) empty.hidden = shown !== 0;
+      // 누적 편수는 항상 전체 기준을 유지한다.
+      if (count) count.textContent = reviews.length;
+    });
+  })();
 </script>
 
 <!-- Cloudflare Web Analytics -->

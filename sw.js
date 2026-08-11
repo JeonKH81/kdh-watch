@@ -1,4 +1,4 @@
-/* K-Digital & AI Health Watch — service worker
+/* AI & Digital Healthcare Watch — service worker
  *
  * 갱신이 잦은 사이트라 "옛날 내용이 보이는 사고"를 막는 것이 이 파일의 최우선 목표다.
  *   - HTML(페이지 이동): 네트워크 우선. 새 리뷰·새 호가 즉시 보인다. 오프라인일 때만 캐시.
@@ -10,14 +10,17 @@
  * 옛 아이콘이 계속 보인다. HTML·manifest의 ?v= 값과 아래 ICON_V를 함께 올릴 것.
  */
 
-var CACHE = "kdh-v5";
+var CACHE = "kdh-v6";
 var ICON_V = "?v=2";
 
 // 오프라인 최소 동작에 필요한 것만. HTML은 방문하면서 자연히 쌓인다.
 var PRECACHE = [
   "/",
   "/papers/",
+  "/products/",
   "/archive/",
+  "/about/",
+  "/assets/site.css",
   "/favicon.ico" + ICON_V,
   "/icon-32.png" + ICON_V,
   "/icon-192.png" + ICON_V,
@@ -133,7 +136,7 @@ self.addEventListener("fetch", function (event) {
 self.addEventListener("push", function (event) {
   event.waitUntil(
     (async function () {
-      var title = "K-Digital & AI Health Watch";
+      var title = "AI & Digital Healthcare Watch";
       var body = "새 소식이 올라왔습니다.";
       var url = "/";
 

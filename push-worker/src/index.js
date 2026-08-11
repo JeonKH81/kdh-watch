@@ -1,5 +1,5 @@
 /**
- * K-Digital & AI Health Watch — 푸시 알림 Worker
+ * AI & Digital Healthcare Watch — 푸시 알림 Worker
  *
  * 설계 결정: 페이로드 없는(payload-less) 푸시를 보낸다.
  *   웹푸시에서 본문을 실어 보내려면 구독자마다 aes128gcm 암호화가 필요하다.
