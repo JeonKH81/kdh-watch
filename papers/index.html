@@ -34,7 +34,7 @@
 <meta name="twitter:title" content="논문 리뷰 — 의료 AI·디지털헬스 신간 읽기">
 <meta name="twitter:description" content="PubMed·Consensus에서 매주 2~3편을 골라 요지·핵심 결과·임상적 의미를 짧게 정리합니다.">
 <meta name="twitter:image" content="https://docgpt.ai.kr/og-image.jpg">
-<link rel="stylesheet" href="/assets/site.css?v=2">
+<link rel="stylesheet" href="/assets/site.css?v=3">
 <style>
   :root {
     --primary: #0066cc;
@@ -296,7 +296,7 @@
 
   <!-- 새 리뷰는 이 위치(맨 위)에 추가합니다 -->
 
-  <article class="review" id="cadly2-ai-colonoscopy-lynch" data-type="rct">
+  <article class="review" id="cadly2-ai-colonoscopy-lynch" data-type="rct" data-added="2026-08-18">
     <div class="r-tags">
       <span class="r-tag">내시경 AI · 암 감시</span>
       <span class="r-tag field">다기관 무작위 우월성 시험</span>
@@ -315,7 +315,7 @@
     <div class="r-link"><a href="https://doi.org/10.1016/S2468-1253(26)00163-9" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
   </article>
 
-  <article class="review" id="dtx-panic-disorder-rct-korea" data-type="rct">
+  <article class="review" id="dtx-panic-disorder-rct-korea" data-type="rct" data-added="2026-08-18">
     <div class="r-tags">
       <span class="r-tag">디지털치료기기 · 국내 연구</span>
       <span class="r-tag field">공개표지 무작위대조시험</span>
@@ -334,7 +334,7 @@
     <div class="r-link"><a href="https://doi.org/10.1016/j.invent.2026.100977" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
   </article>
 
-  <article class="review" id="vital-hf-remote-digital-titration" data-type="rct">
+  <article class="review" id="vital-hf-remote-digital-titration" data-type="rct" data-added="2026-08-18">
     <div class="r-tags">
       <span class="r-tag">원격의료 · 약물 최적화</span>
       <span class="r-tag field">다기관 무작위대조시험</span>
@@ -652,6 +652,33 @@
     setTimeout(function () {
       if (!wrap.contains(document.activeElement)) setOpen(false);
     }, 0);
+  });
+})();
+</script>
+
+<!-- NEW 배지: 이번 업데이트에서 새로 들어온 항목에만 붙인다 -->
+<script>
+(function () {
+  var items = document.querySelectorAll("[data-added]");
+  if (!items.length) return;
+
+  // 페이지에서 가장 최근 data-added 값을 찾는다. 그 값만 표시하므로
+  // 다음 업데이트가 올라오면 지난 표시는 저절로 사라진다.
+  var latest = "";
+  Array.prototype.forEach.call(items, function (el) {
+    var d = el.getAttribute("data-added");
+    if (d > latest) latest = d;
+  });
+
+  Array.prototype.forEach.call(items, function (el) {
+    if (el.getAttribute("data-added") !== latest) return;
+    // 날짜 칸이 있으면 그 아래, 논문 리뷰는 태그 줄에 넣는다.
+    var host = el.querySelector(".date") || el.querySelector(".r-tags");
+    if (!host) return;
+    var b = document.createElement("span");
+    b.className = "badge-new";
+    b.textContent = "NEW";
+    host.appendChild(b);
   });
 })();
 </script>

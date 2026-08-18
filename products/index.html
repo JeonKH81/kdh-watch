@@ -35,7 +35,7 @@
 <meta name="twitter:description" content="식약처 허가를 받고 실제 의료현장에 도입된 국내 의료 AI 제품과 디지털치료기기를 정리합니다.">
 <meta name="twitter:image" content="https://docgpt.ai.kr/og-image.jpg">
 
-<link rel="stylesheet" href="/assets/site.css?v=2">
+<link rel="stylesheet" href="/assets/site.css?v=3">
 </head>
 <body>
 
@@ -79,7 +79,7 @@
 
     <div class="intl-list reveal">
 
-      <div class="intl-item">
+      <div class="intl-item" data-added="2026-08-18">
         <div class="date">2026-08-14</div>
         <div class="txt">
           <span class="org">제이엘케이</span><a href="https://www.newspim.com/news/view/20260814000838" target="_blank" rel="noopener">JLK-ICH·JLK-UIA, 과기정통부 우수 R&amp;D 혁신제품 지정</a> — 비조영 뇌 CT에서 뇌출혈을 검출하는 JLK-ICH와 뇌동맥류를 검출하는 JLK-UIA가 상반기 혁신제품에 포함됐다(수여식 8월 13일, 13개 기업). 혁신제품은 3년간 공공기관이 <strong>수의계약으로 구매</strong>할 수 있고 구매 담당자에게 면책이 적용된다. 허가·급여와는 별개로 공공의료기관 납품이라는 진입로가 하나 더 열린 셈이다.<span class="src"><a href="https://www.hellot.net/news/article.html?no=114374" target="_blank" rel="noopener">헬로티</a></span>
@@ -345,6 +345,33 @@
     setTimeout(function () {
       if (!wrap.contains(document.activeElement)) setOpen(false);
     }, 0);
+  });
+})();
+</script>
+
+<!-- NEW 배지: 이번 업데이트에서 새로 들어온 항목에만 붙인다 -->
+<script>
+(function () {
+  var items = document.querySelectorAll("[data-added]");
+  if (!items.length) return;
+
+  // 페이지에서 가장 최근 data-added 값을 찾는다. 그 값만 표시하므로
+  // 다음 업데이트가 올라오면 지난 표시는 저절로 사라진다.
+  var latest = "";
+  Array.prototype.forEach.call(items, function (el) {
+    var d = el.getAttribute("data-added");
+    if (d > latest) latest = d;
+  });
+
+  Array.prototype.forEach.call(items, function (el) {
+    if (el.getAttribute("data-added") !== latest) return;
+    // 날짜 칸이 있으면 그 아래, 논문 리뷰는 태그 줄에 넣는다.
+    var host = el.querySelector(".date") || el.querySelector(".r-tags");
+    if (!host) return;
+    var b = document.createElement("span");
+    b.className = "badge-new";
+    b.textContent = "NEW";
+    host.appendChild(b);
   });
 })();
 </script>
