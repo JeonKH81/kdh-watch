@@ -275,7 +275,7 @@
   <div class="sec-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="16" y2="7"/><line x1="9" y1="11" x2="16" y2="11"/></svg></div>
   <h1>논문 리뷰<span class="cadence">매주</span></h1>
   <p class="sub">의료 AI·디지털헬스 신간 논문을 골라 읽습니다. 요지·핵심 결과·임상적 의미를 짧게 정리합니다.</p>
-  <p class="count-line"><strong id="review-count">13</strong>편 누적 · 최근 업데이트 2026-08-18</p>
+  <p class="count-line"><strong id="review-count">13</strong>편 누적 · 최근 업데이트 2026-08-25</p>
   <div class="policy">
     <strong>선정 기준</strong> — PubMed와 Consensus에서 새로 나온 논문 중 임상 적용 가능성과 파급력을 기준으로 <strong>매주 화요일</strong> 2~3편을 고릅니다. 호(號)로 나누지 않고 최신 리뷰가 위에 쌓이는 방식이며, 각 리뷰는 초록·본문 기반 요약과 원문 DOI를 함께 제공합니다.
   </div>
@@ -295,6 +295,63 @@
 <div class="wrap reviews" style="padding-top: 0;">
 
   <!-- 새 리뷰는 이 위치(맨 위)에 추가합니다 -->
+
+  <article class="review" id="kenya-llm-cdss-cluster-rct" data-type="rct" data-added="2026-08-25">
+    <div class="r-tags">
+      <span class="r-tag">생성형 AI · 임상의사결정지원</span>
+      <span class="r-tag field">실용적 군집 무작위 시험</span>
+      <span class="r-tag field">2026-06-26</span>
+    </div>
+    <h2>Generative AI-enabled clinical decision support system in primary care: a pragmatic, cluster-randomized trial</h2>
+    <p class="r-meta">Agweyu A, Mwaniki P, Menon V, Korom R, …, Liu X, Mateen BA. <em>Nature Medicine</em> 2026;32(8):3032–3039 · 케냐의학연구소–웰컴트러스트 연구프로그램·버밍엄대학교·Penda Health·PATH · 케냐 1차의료기관 16곳 실용적 군집 무작위 시험, 환자 9,691명 등록·일차 결과 분석 9,347명, 임상관 103명</p>
+    <p class="r-kr">LLM 진료 보조는 안전했지만 14일 치료 실패를 유의하게 줄이지는 못했다 — 생성형 AI 의사결정지원의 첫 대규모 무작위 검정</p>
+    <p class="body">지금까지 대형언어모델(LLM)의 임상 능력은 대부분 시험문항·가상증례·후향 기록을 대상으로 한 벤치마크로 평가돼 왔습니다. 실제 외래에서 의료진이 LLM을 곁에 두고 진료할 때 <strong>환자에게 돌아가는 결과가 달라지는가</strong>는 사실상 검정된 적이 없었습니다. 이 시험은 케냐의 민간 1차의료 네트워크(Penda Health) 16개 시설을 대상으로, 임상관(clinical officer)을 전자의무기록만 쓰는 군과 <strong>전자의무기록 + LLM 보조</strong>를 쓰는 군에 군집 무작위 배정했습니다. 일차 결과는 등록 후 14일 이내 발생한 치료 실패 사건의 복합 지표로, 전문가 패널이 눈가림 상태에서 판정했습니다.</p>
+    <p class="body">2025년 4월 22일부터 7월 16일까지 환자 <strong>9,691명</strong>이 등록됐고 임상관 103명(중재군 52명, 대조군 51명)이 참여했습니다. 일차 결과가 분석된 인원은 두 군 합계 <strong>9,347명</strong>으로 등록 인원보다 344명 적으며, 초록만으로는 그 사유가 명시되지 않습니다. 치료 실패는 <strong>중재군 102/4,693명(2.2%), 대조군 94/4,654명(2.0%)</strong>으로, <strong>보정 교차비 0.77(95% CI 0.55–1.08, P=0.13)</strong> — 통계적으로 유의한 차이가 없었습니다. 안전성 측면에서는 중재와 관련된 것으로 판정된 중대 이상반응이 없었고, 독립 검토에서도 안전성 신호는 확인되지 않았습니다. 저자들은 이득이 존재하더라도 그 크기는 크지 않을 것(probably modest)이라고 결론지었습니다.</p>
+    <p class="body">임상의 입장에서 이 결과는 두 가지로 읽힙니다. 첫째, <strong>점 추정치(OR 0.77)는 이득 방향이고 신뢰구간 상한이 1.08에 머무른다</strong>는 점에서 "효과 없음"보다 "이 표본으로는 판별되지 않음"에 가깝습니다. 일차 결과 발생률이 2% 수준으로 낮아 검정력이 제한됐을 가능성이 큽니다(원문이 명시한 해석은 여기까지이며, 검정력에 대한 이 이상의 추론은 리뷰어의 해석입니다). 둘째, 그럼에도 <strong>"안전했다"는 결과 자체가 이 분야에서는 새로운 정보</strong>입니다. 지금까지 LLM 임상 적용을 막아온 가장 큰 우려가 환각과 그로 인한 위해였기 때문입니다. 다만 이 시험의 무대는 자원이 제한된 케냐 1차의료이고 사용자는 의사가 아닌 임상관입니다. 기저 진료 수준이 다른 국내 상급종합병원이나 개원가로 결과를 그대로 옮기는 것은 무리이며, 오히려 <strong>국내에서 생성형 AI 진료보조를 도입한다면 어떤 결과 지표로, 어떤 진료 세팅에서 검정할 것인지</strong>를 설계 단계에서 정해야 한다는 점을 일깨웁니다.</p>
+    <div class="r-takeaway">
+      <span class="t-label">TAKEAWAY</span>
+      <p>케냐 1차의료 16개 시설에 9,691명을 등록한 군집 무작위 시험(일차 결과 분석 9,347명)에서 LLM 진료보조는 14일 치료 실패를 유의하게 줄이지 못했으나(2.2% 대 2.0%, 보정 OR 0.77, 95% CI 0.55–1.08) 안전성 신호도 없었다 — 생성형 AI 임상 적용은 이제 벤치마크가 아니라 무작위 시험의 검정 대상이 됐다.</p>
+    </div>
+    <div class="r-link"><a href="https://doi.org/10.1038/s41591-026-04503-6" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+  </article>
+
+  <article class="review" id="cv-ai-rct-nice-tier-review" data-type="meta" data-added="2026-08-25">
+    <div class="r-tags">
+      <span class="r-tag">의료 AI 근거지형 · 순환기</span>
+      <span class="r-tag field">체계적 문헌고찰·메타분석</span>
+      <span class="r-tag field">2026-05-06</span>
+    </div>
+    <h2>Impact of artificial intelligence on cardiovascular workflow, engagement, and outcomes: a systematic review</h2>
+    <p class="r-meta">Lin YE, Yang SM, Huang CJ, Tsai YW, Cheng HM, Lee WC, Wang SJ. <em>npj Digital Medicine</em> 2026;9(1):536 · 타이베이 재향군인총병원(Taipei Veterans General Hospital) AI Impact Research Center·국립양명교통대학교 · 무작위 대조시험 32편에 대한 체계적 문헌고찰(27편 메타분석), 검색 종료 2026-01-16</p>
+    <p class="r-kr">심혈관 AI의 무작위 근거를 NICE 3단계로 정리하니 업무효율·환자참여·사망률 모두에서 이득이 확인됐다</p>
+    <p class="body">의료 AI 논문은 넘치지만 "그래서 환자 결과가 좋아지는가"에 답하는 무작위 근거는 흩어져 있습니다. 이 리뷰는 <strong>규칙기반 시스템을 배제하고 기계학습·딥러닝 기반 중재를 전향적으로 적용한 무작위 대조시험만</strong> 골라, 종말점을 NICE 근거 등급 체계에 따라 세 층으로 분류했습니다 — Tier A 업무 효율, Tier B 환자 참여·건강증진, Tier C 임상 결과. PubMed·Embase·CINAHL과 시험등록부를 2026년 1월 16일까지 검색했고, 비뚤림은 RoB 2.0으로 평가했습니다. 근거를 "성능"이 아니라 <strong>"어느 층위의 이득인가"로 재배열한 것</strong>이 이 논문의 설계상 기여입니다.</p>
+    <p class="body">최종 32편의 무작위 대조시험(그중 27편 메타분석)에서 세 층 모두 이득이 관찰됐습니다. <strong>Tier A</strong>: 업무 소요시간이 줄었고(SMD −0.71; 95% CI −1.04 ~ −0.39), 이는 진단 시간 <strong>30–120초 단축</strong>과 재원기간을 보고한 시험에서 <strong>1.0–4.2일 감소</strong>에 해당했습니다. <strong>Tier B</strong>: 행동 넛지가 복약순응도를 높였습니다(RR 1.59; 95% CI 1.01–2.50; NNT 12). <strong>Tier C</strong>: 의사결정지원 형태로 구현된 경우 <strong>전체 사망률이 감소했습니다(RR 0.84; 95% CI 0.75–0.94; I²=8%; NNT 32)</strong>. 저자들이 명시한 한계는 <strong>눈가림의 제약과 sham-AI 대조군의 부재</strong>입니다.</p>
+    <p class="body">Tier C의 사망률 감소는 눈에 띄는 숫자지만 해석에는 절제가 필요합니다. 이질성이 낮다는 것(I²=8%)은 결과가 일관됐다는 뜻이지 비뚤림이 없다는 뜻이 아니며, <strong>AI 자체가 아니라 "AI가 촉발한 진료 프로세스 변경"이 효과의 주체</strong>일 수 있습니다. 실제로 저자들도 이득이 "실행 가능한 의사결정지원과 결합됐을 때" 나타난다고 조건을 붙였습니다. sham-AI 대조군이 없다는 지적은 국내 임상시험 설계에도 그대로 적용됩니다 — 알고리즘을 보여주는 것만으로 술자의 주의가 달라진다면 그 효과는 알고리즘의 성능이 아니라 개입의 존재에서 나옵니다. 국내에서 심전도·관상동맥 영상 AI가 잇달아 허가·도입되는 지금, <strong>수가 논의의 근거로 요구되는 것은 정확도 지표가 아니라 이 Tier A–C 중 어느 층의 결과인지</strong>라는 프레임은 그대로 활용할 만합니다.</p>
+    <div class="r-takeaway">
+      <span class="t-label">TAKEAWAY</span>
+      <p>심혈관 AI 무작위 시험 32편을 NICE 3단계로 정리하니 업무시간 단축(SMD −0.71), 복약순응도 개선(RR 1.59), 그리고 의사결정지원 구현 시 전체 사망률 감소(RR 0.84, NNT 32)까지 확인됐다 — 다만 눈가림 제약과 sham-AI 대조군 부재가 공통된 약점이다.</p>
+    </div>
+    <div class="r-link"><a href="https://doi.org/10.1038/s41746-026-02690-7" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+  </article>
+
+  <article class="review" id="dtx-hesitancy-korea-insomnia" data-type="prospective" data-added="2026-08-25">
+    <div class="r-tags">
+      <span class="r-tag">디지털치료기기 · 국내 연구</span>
+      <span class="r-tag field">횡단 설문 · 구조방정식</span>
+      <span class="r-tag field">2026-08-05</span>
+    </div>
+    <h2>Understanding hesitancy and decision postponement toward digital therapeutics for Insomnia: Roles of objective ambivalence and digital health literacy</h2>
+    <p class="r-meta">Choi S, Zo H. <em>International Journal of Medical Informatics</em> 2026;220:106647 · KAIST 기술경영전문대학원·한국전자통신연구원(ETRI) · 온라인 패널 성인 500명 대상 횡단 설문(이해도 검증 통과 367명 분석), PLS-SEM</p>
+    <p class="r-kr">불면증 디지털치료기기에 대한 한국인의 주저는 거부보다 "미루기"와 더 강하게 연관돼 있었다</p>
+    <p class="body">국내는 불면증 디지털치료기기(솜즈·슬립큐)를 세계에서 손꼽히게 이른 시기에 허가한 나라지만, 실제 처방과 사용은 기대에 못 미칩니다. 지금까지의 설명은 대체로 수가와 접근성이었습니다. 이 연구는 다른 각도에서 출발합니다 — 환자 쪽의 <strong>"주저(hesitancy)"를 거부와 구분되는 독립적 상태</strong>로 개념화하고, 백신 주저 연구와 태도 양가성 이론을 빌려와 그것이 어디서 오는지를 검정했습니다. 핵심 가설은 <strong>객관적 양가성</strong>(강한 긍정 평가와 강한 부정 평가가 동시에 존재하는 상태)이 주저와 연관되고, 그 주저가 낮은 사용 의도뿐 아니라 <strong>결정을 미루려는 의도</strong>와도 연관된다는 것입니다.</p>
+    <p class="body">온라인 패널로 모집한 한국 성인 500명에게 처방형 불면증 DTx에 대한 표준화된 설명을 제시한 뒤, 이해도 확인 문항 두 개를 모두 맞힌 <strong>367명</strong>을 분석했습니다(PLS-SEM). 객관적 양가성은 DTx 주저와 <strong>양의 관련(β=0.279, p&lt;0.001)</strong>을 보였고, 주저는 <strong>사용 의도와 음의 관련(β=−0.218, p&lt;0.001)</strong>인 동시에 <strong>연기 의도와는 더 강한 양의 관련(β=0.427, p&lt;0.001)</strong>을 나타냈습니다. 즉 주저 점수가 높은 응답자에서 나타난 것은 "안 쓰겠다"보다 <strong>"나중에 결정하겠다"</strong> 쪽이었습니다(모두 횡단 자료의 관련성이며 인과가 아닙니다). 디지털 헬스 리터러시(DHL)가 높을수록 주저가 사용 의도를 깎아내리는 정도와 연기로 이어지는 정도가 모두 약해졌고, 반대로 손익 계산 성향(calculation orientation)이 높을수록 주저–사용의도의 음의 관련은 더 강해졌습니다.</p>
+    <p class="body">진료실에서 겪는 장면과 잘 들어맞는 결과입니다. 불면증 DTx를 권했을 때 환자가 대놓고 거절하는 일은 드물고 대개 "생각해 보겠다"로 끝나는데, 이 연구는 그 반응이 소극적 거절이 아니라 <strong>측정 가능한 별개의 심리 상태</strong>임을 보여줍니다. 실무적 함의는 분명합니다 — 효능 근거를 더 쌓는 것만으로는 이 지점을 넘지 못하며, <strong>양가성을 줄이는 설명(무엇이 좋아지고 무엇은 안 되는지, 약물과의 관계, 중단 기준)</strong>과 리터러시를 고려한 안내가 처방 절차 안에 들어가야 합니다. 다만 이 연구는 실제 처방 경험자가 아니라 설명문을 읽은 일반 성인의 <strong>사전 채택 단계 의도</strong>를 본 횡단 설문이므로 인과를 말할 수 없고, 실제 처방·사용률로 이어지는지는 별도 검증이 필요합니다.</p>
+    <div class="r-takeaway">
+      <span class="t-label">TAKEAWAY</span>
+      <p>한국 성인 367명 횡단 설문에서 불면증 DTx에 대한 양가성은 주저와 양의 관련(β=0.279)을 보였고, 주저는 사용 의도 감소(β=−0.218)보다 <em>결정 연기 의도</em>(β=0.427)와 더 강하게 관련됐다 — 인과는 검정되지 않았지만, 국내 DTx 확산을 볼 때 "거부"만이 아니라 "미루기"를 함께 측정해야 함을 시사한다.</p>
+    </div>
+    <div class="r-link"><a href="https://doi.org/10.1016/j.ijmedinf.2026.106647" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+  </article>
 
   <article class="review" id="cadly2-ai-colonoscopy-lynch" data-type="rct" data-added="2026-08-18">
     <div class="r-tags">
@@ -546,7 +603,7 @@
   <div>
     <p>논문 정보는 PubMed에서 검색·확인했으며, 각 리뷰는 원문 초록을 기반으로 작성한 요약입니다. 정확한 내용은 DOI 링크의 원문을 확인하시기 바랍니다.</p>
     <p>홈 화면에 앱처럼 설치할 수 있습니다 — <a href="/install/">설치 방법 보기</a></p>
-    <p>최종 업데이트: 2026-08-18 · © 2026 AI &amp; Digital Healthcare Watch</p>
+    <p>최종 업데이트: 2026-08-25 · © 2026 AI &amp; Digital Healthcare Watch</p>
   </div>
 </footer>
 
