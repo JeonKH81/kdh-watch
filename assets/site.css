@@ -11,7 +11,7 @@
     --body-on-dark: #ffffff;
     --body-muted: #cccccc;
     --ink-muted-80: #333333;
-    --ink-muted-48: #7a7a7a;
+    --ink-muted-48: #707070;   /* 흰 4.95:1 · 파치먼트 4.55:1 (구 #7a7a7a는 3.94~4.29로 미달) */
     --divider-soft: #f0f0f0;
     --hairline: #e0e0e0;
     --canvas: #ffffff;
@@ -106,7 +106,7 @@
     background: rgba(255, 255, 255, 0.16);
     text-decoration: none;
   }
-  .gnav nav a:active { transform: scale(0.95); }
+  .gnav nav a:active { transform: scale(0.96); }
   .gnav nav a.current {
     background: var(--primary);
     color: #ffffff;
@@ -130,7 +130,7 @@
    * 지난주 표시는 스크립트가 손대지 않아도 저절로 사라진다. */
   .badge-new {
     display: inline-block;
-    font-size: 10.5px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.06em;
     line-height: 1;
@@ -147,6 +147,55 @@
   /* 어두운 타일 위에서는 흰 글씨가 파랑에 묻히므로 밝은 파랑 + 검정 */
   .tile-dark .badge-new,
   .tile-dark-2 .badge-new { background: var(--primary-on-dark); color: #000000; }
+
+  /* ═══ 가로 스크롤 단서 ═══
+   * 320px에서 섹션 띠는 링크 2개를, 타임라인은 항목 6개 중 4개를 화면 밖에 둔다.
+   * macOS·iOS는 스크롤바가 평소 보이지 않으므로 오른쪽 끝을 흐리게 해서
+   * "더 있다"를 알린다. 끝까지 밀면 스크립트가 .at-end를 붙여 단서를 지운다. */
+  .subnav-inner,
+  .timeline-scroll {
+    -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 36px), transparent 100%);
+    mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 36px), transparent 100%);
+  }
+  .subnav-inner.at-end,
+  .timeline-scroll.at-end {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  /* 마스크를 못 쓰는 브라우저를 위해 오른쪽 경계선을 하나 남긴다 */
+  @supports not (mask-image: linear-gradient(to right, #000, transparent)) {
+    .subnav-inner, .timeline-scroll { border-right: 1px solid var(--hairline); }
+  }
+
+  /* ═══ 어두운 타일에서의 보조 텍스트 ═══
+   * --ink-muted-48 은 "지금 표면 위의 보조 텍스트"라는 역할이고, 값은 흰·파치먼트
+   * 기준으로 정해져 있다. 어두운 타일에서 그대로 쓰면 2.9:1 까지 떨어졌다
+   * (핵심 카드 출처, 차트 설명, 제품 카탈로그의 회사명·메타 등 여러 곳).
+   * 컴포넌트마다 색을 덮어쓰는 대신 타일 안에서 토큰을 다시 정의한다 —
+   * 앞으로 추가되는 컴포넌트도 자동으로 맞는 값을 받는다. */
+  .tile-dark,
+  .tile-dark-2 { --ink-muted-48: #999999; }   /* 어두운 타일 위 5.03~5.23:1 */
+
+  /* ═══ 본문 바로가기 ═══
+   * 고정 상단바 + 섹션 띠를 지나야 본문에 닿으므로, 키보드 첫 탭에서 건너뛴다. */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 300;
+    background: var(--primary);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 18px;
+    border-radius: 0 0 10px 0;
+  }
+  .skip-link:focus-visible {
+    left: 0;
+    text-decoration: none;
+    outline: 2px solid var(--primary-focus);
+    outline-offset: 2px;
+  }
 
   /* ═══ 설치 권유 띠 ═══
    * 아직 홈 화면에 추가하지 않은 방문자에게만 보인다. 닫으면 다시 뜨지 않는다.
@@ -169,7 +218,7 @@
   .install-hint-icon { flex: 0 0 auto; width: 24px; height: 24px; }
   .install-hint-icon svg {
     width: 24px; height: 24px;
-    stroke: var(--primary); stroke-width: 1.7;
+    stroke: var(--primary); stroke-width: 1.8;
     stroke-linecap: round; stroke-linejoin: round; fill: none;
   }
   .install-hint p {
@@ -255,7 +304,7 @@
     font-family: var(--font-display);
     font-size: clamp(19px, 3vw, 26px);
     font-weight: 400;
-    line-height: 1.3;
+    line-height: 1.45;
     letter-spacing: 0;
     color: var(--ink-muted-48);
     max-width: 640px;
@@ -276,7 +325,7 @@
     transition: transform 0.15s ease;
   }
   .btn-pill:hover { text-decoration: none; background: var(--primary-focus); border-color: var(--primary-focus); }
-  .btn-pill:active { transform: scale(0.95); }
+  .btn-pill:active { transform: scale(0.96); }
   .btn-ghost {
     display: inline-block;
     background: transparent;
@@ -289,7 +338,7 @@
     transition: transform 0.15s ease;
   }
   .btn-ghost:hover { text-decoration: none; background: var(--primary); color: #ffffff; }
-  .btn-ghost:active { transform: scale(0.95); }
+  .btn-ghost:active { transform: scale(0.96); }
 
   /* ═══ ECG line ═══ */
   .ecg-wrap { max-width: 900px; margin: 26px auto 0; overflow: hidden; }
@@ -532,7 +581,7 @@
     font-size: 11.5px;
     fill: var(--body-muted);
   }
-  .bar-base { stroke: rgba(255, 255, 255, 0.18); stroke-width: 1; }
+  .bar-base { stroke: rgba(255, 255, 255, 0.18); stroke-width: 1.8; }
   html.js .bar {
     transform-box: fill-box;
     transform-origin: bottom;
@@ -671,7 +720,7 @@
     vertical-align: 2px;
     white-space: nowrap;
   }
-  .conf-item h4 .abbr.gen { color: var(--ink-muted-48); background: rgba(0, 0, 0, 0.05); }
+  .conf-item h4 .abbr.gen { color: #5f5f5f; background: rgba(0, 0, 0, 0.05); }   /* 배지 배경 위 5.27:1 (구 4.08) */
   .conf-desc {
     margin: 0 0 9px;
     font-size: 14.5px;
@@ -907,7 +956,7 @@
     transition: transform 0.15s ease, border-color 0.2s, background 0.2s;
   }
   .filter-chip:hover { border-color: var(--ink-muted-48); }
-  .filter-chip:active { transform: scale(0.95); }
+  .filter-chip:active { transform: scale(0.96); }
   .filter-chip[aria-pressed="true"] {
     border: 2px solid var(--primary-focus);
     padding: 9px 17px;
@@ -1022,8 +1071,17 @@
     margin: -30px 0 34px;
     max-width: 78ch;
   }
-  .product-note strong { color: var(--body-muted); font-weight: 600; }
-  .product-note a { color: var(--primary-on-dark); }
+  /* 이 컴포넌트는 원래 어두운 제품 타일용이었는데 밝은 타일(#llm)에서도 쓰인다.
+   * 기본값을 밝은 표면 기준으로 두고, 어두운 타일에서만 되돌린다.
+   * (구: strong이 #cccccc라 파치먼트 위에서 1.47:1 — 사실상 보이지 않았다) */
+  .product-note strong { color: var(--ink); font-weight: 600; }
+  .product-note a { color: var(--primary); }
+  .tile-dark .product-note,
+  .tile-dark-2 .product-note { color: var(--body-muted); }
+  .tile-dark .product-note strong,
+  .tile-dark-2 .product-note strong { color: #ffffff; }
+  .tile-dark .product-note a,
+  .tile-dark-2 .product-note a { color: var(--primary-on-dark); }
 
   /* ═══ 논문 리뷰 티저 ═══ */
   .paper-teasers {
@@ -1243,7 +1301,7 @@
       border-color: var(--primary);
     }
   }
-  .btn-notify:active:not(:disabled) { transform: scale(0.97); }
+  .btn-notify:active:not(:disabled) { transform: scale(0.96); }
   .btn-notify:disabled { opacity: 0.5; cursor: default; }
   .btn-notify.is-on {
     background: transparent;
@@ -1252,7 +1310,7 @@
   }
   .btn-notify svg {
     width: 17px; height: 17px; fill: none;
-    stroke: currentColor; stroke-width: 1.9;
+    stroke: currentColor; stroke-width: 1.8;
     stroke-linecap: round; stroke-linejoin: round;
   }
   .notify-status {
@@ -1311,7 +1369,7 @@
     color: var(--ink);
     text-decoration: none;
   }
-  .subnav a:active { transform: scale(0.95); }
+  .subnav a:active { transform: scale(0.96); }
   /* 지금 보고 있는 섹션 표시 (스크롤 감지 스크립트가 .current를 붙인다) */
   .subnav a.current {
     background: var(--primary);
@@ -1430,13 +1488,13 @@
   padding: 5px 10px;
   border-radius: 9999px;
   background: rgba(0, 102, 204, 0.1);
-  color: var(--primary);
+  color: #005bb8;            /* 배지 배경 위 5.27:1 (구 var(--primary)는 4.45) */
   white-space: nowrap;
   transform: translateY(-4px);
 }
 .tile-dark .cadence, .tile-dark-2 .cadence {
   background: rgba(255, 255, 255, 0.14);
-  color: var(--primary-on-dark);
+  color: #7cc0ff;            /* 어두운 타일 위 4.94:1 (구 #2997ff는 3.17) */
 }
 @media (max-width: 640px) {
   .cadence { font-size: 11.5px; padding: 4px 9px; margin-left: 8px; }
@@ -1510,7 +1568,7 @@
     height: 22px;
     fill: none;
     stroke: currentColor;
-    stroke-width: 1.7;
+    stroke-width: 1.8;
     stroke-linecap: round;
     stroke-linejoin: round;
   }
