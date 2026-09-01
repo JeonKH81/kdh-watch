@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="의료 AI·디지털헬스 신간 논문 리뷰 — 매주 업데이트">
-<title>논문 리뷰 — AI & Digital Healthcare Watch</title>
+<title>논문 리뷰 — AI &amp; Digital Healthcare Watch</title>
 <link rel="canonical" href="https://docgpt.ai.kr/papers/">
 
 <!-- PWA (홈화면 설치·오프라인) -->
@@ -275,7 +275,7 @@
   <div class="sec-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="16" y2="7"/><line x1="9" y1="11" x2="16" y2="11"/></svg></div>
   <h1>논문 리뷰<span class="cadence">매주</span></h1>
   <p class="sub">의료 AI·디지털헬스 신간 논문을 골라 읽습니다. 요지·핵심 결과·임상적 의미를 짧게 정리합니다.</p>
-  <p class="count-line"><strong id="review-count">13</strong>편 누적 · 최근 업데이트 2026-08-25</p>
+  <p class="count-line"><strong id="review-count">19</strong>편 누적 · 최근 업데이트 2026-09-01</p>
   <div class="policy">
     <strong>선정 기준</strong> — PubMed와 Consensus에서 새로 나온 논문 중 임상 적용 가능성과 파급력을 기준으로 <strong>매주 화요일</strong> 2~3편을 고릅니다. 호(號)로 나누지 않고 최신 리뷰가 위에 쌓이는 방식이며, 각 리뷰는 초록·본문 기반 요약과 원문 DOI를 함께 제공합니다.
   </div>
@@ -295,6 +295,63 @@
 <div class="wrap reviews" style="padding-top: 0;">
 
   <!-- 새 리뷰는 이 위치(맨 위)에 추가합니다 -->
+
+  <article class="review" id="retina4ird-cdss-rct" data-type="rct" data-added="2026-09-01">
+    <div class="r-tags">
+      <span class="r-tag">영상 AI · 유전질환 진단보조</span>
+      <span class="r-tag field">다기관 무작위 대조시험</span>
+      <span class="r-tag field">2026-07-24</span>
+    </div>
+    <h2>AI-based clinician decision support system for diagnosis of inherited retinal diseases: a multicenter, randomized trial</h2>
+    <p class="r-meta">Jia H, Qian B, Qu Y, Wang J, &hellip;, Sheng B, Wong TY, Sun X (교신저자 3인, 총 37인). <em>Nature Medicine</em> 2026 (온라인 우선 공개 2026-07-24) · 상하이교통대 상하이제일인민병원·난징항공항천대·베이징 칭화창궁병원 등 · 중국·<strong>대한민국</strong>·폴란드 환자 1,843명(3,376안)으로 개발·검증한 뒤, 유전성 망막질환 의심자 300명을 1:1 무작위 배정한 대조시험(분석 295명, NCT06839170)</p>
+    <p class="r-kr">안저사진과 OCT만으로 원인 유전자를 좁혀 주는 AI를 안과 전문의 곁에 두었더니, 유전자 검사 전 예측 정확도가 67%에서 89%로 올랐다</p>
+    <p class="body">유전성 망막질환(inherited retinal disease, IRD)은 원인 유전자가 수백 개에 달해, 확진까지 정밀 표현형 검사·다학제 판독·차세대염기서열분석(NGS)을 차례로 거쳐야 합니다. 시간과 비용이 크고 전문가가 있는 곳에서만 가능하다는 것이 오랜 병목이었습니다. 연구진은 안저 컬러사진과 빛간섭단층촬영(OCT)을 함께 넣어 <strong>17개 유전자 범주</strong>를 예측하는 임상의사결정지원 시스템 <strong>Retina4IRD</strong>를 만들었습니다. 모델은 안과 영상 기반 파운데이션 모델 RETFound로 사전학습한 Vision Transformer이며, 중국·한국·폴란드에서 유전자 확진된 환자 1,843명(3,376안)의 다기관 데이터로 학습·검증했습니다. 핵심 질문은 벤치마크 성능이 아니라 <strong>"전문의가 이 도구를 쓰면 실제 판단이 좋아지는가"</strong>였고, 그래서 별도의 무작위 대조시험을 붙였습니다.</p>
+    <p class="body">먼저 모델 자체 성능은 상위 5개 후보 안에 정답 유전자가 들어가는 <strong>top-5 정확도 0.904(95% CI 0.896–0.912, 내부검증)</strong>, <strong>0.856(95% CI 0.850–0.863, 외부검증)</strong>이었습니다. 이어 IRD가 의심되는 300명을 <strong>전문의 단독군</strong>과 <strong>전문의 + Retina4IRD 보조군</strong>에 1:1 무작위 배정했고, NGS 결과가 확보된 295명(중앙값 33세, 여성 114명 38.6%)을 분석했습니다. 일차 결과인 top-5 유전자 정확도는 <strong>보조군 88.5% 대 단독군 67.3%(P&lt;0.001)</strong>로 일차 목표를 충족했습니다. 이차 결과도 모두 보조군이 앞섰습니다 — <strong>top-1 37.8% 대 22.4%</strong>, <strong>top-4 81.8% 대 53.1%</strong>. 사후분석에서는 후속 진료 결정의 적절성을 점수화한 복합 지표가 <strong>37.7점 대 28.5점(P&lt;0.001)</strong>으로 보조군에서 유의하게 높았습니다.</p>
+    <p class="body">주목할 점은 이 연구가 AI를 <strong>유전자 검사의 대체재가 아니라 그 앞단의 분류기</strong>로 자리매김했다는 것입니다. 확진은 여전히 NGS가 하고, AI는 어느 유전자를 먼저 볼지 좁혀 검사 설계와 상담을 앞당깁니다 — 진단 경로에 AI를 끼워 넣는 방식으로는 현실적입니다. 다만 한계도 분명합니다. 예측 범위가 17개 유전자 범주로 한정돼 그 밖의 희귀 원인은 구조적으로 놓치고, top-1 정확도는 보조군에서도 <strong>37.8%</strong>에 그쳐 "AI가 짚은 첫 후보"를 그대로 믿을 단계는 아닙니다. 사후분석인 진료 결정 점수는 가설검정이 아니라 탐색적 근거로 읽어야 합니다. 국내 맥락에서는 <strong>학습·검증 데이터에 한국 환자가 포함됐다</strong>는 점이 실질적입니다(원문은 국가별 성능을 따로 제시하지 않으므로, 한국 데이터에서의 성능을 별도로 단정할 수는 없습니다 — 이 구분은 리뷰어의 지적입니다). 희귀질환 진단 인프라가 소수 3차병원에 몰려 있는 우리 현실에서, 안저·OCT만으로 1차 선별이 가능해지는 방향은 검토할 가치가 있습니다.</p>
+    <div class="r-takeaway">
+      <span class="t-label">TAKEAWAY</span>
+      <p>안저사진·OCT로 17개 유전자 범주를 예측하는 AI를 전문의에게 붙였더니 유전자 검사 전 top-5 정확도가 67.3%에서 88.5%로 올랐다(무작위 배정 295명 분석, P&lt;0.001) — AI를 확진 도구가 아니라 검사 앞단의 후보 압축 도구로 쓴 설계가 핵심이다.</p>
+    </div>
+    <div class="r-link"><a href="https://doi.org/10.1038/s41591-026-04545-w" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+  </article>
+
+  <article class="review" id="mpffr-ai-angiography-ffr-korea" data-type="validation" data-added="2026-09-01">
+    <div class="r-tags">
+      <span class="r-tag">중재시술 AI · 국내 연구</span>
+      <span class="r-tag field">전향 다기관 진단정확도 검증</span>
+      <span class="r-tag field">2026-08-20</span>
+    </div>
+    <h2>Artificial Intelligence-Driven Angiographic Quantification of Fractional Flow Reserve: Proof-of-Concept Validation Study</h2>
+    <p class="r-meta">Lee SH, Gim DH, Hwang D, Kim HK, &hellip;, Yoon HJ, Koo BK, Lee JM (교신저자). <em>Journal of the American Heart Association</em> 2026;e049331 (온라인 우선 공개 2026-08-20) · 전남대병원·삼성서울병원·서울대병원·조선대병원·인제대 일산백병원·계명대 동산병원(저자 소속) · <strong>국내 5개 대학병원</strong>에서 전향 등록한 452명 599혈관, 침습 FFR을 기준으로 한 진단정확도 검증 + 2년 예후 추적(Multicenter QFR Registry, NCT03791788)</p>
+    <p class="r-kr">압력철선 없이 조영영상만으로 FFR을 자동 계산하는 국산 AI가 QFR과 대등한 정확도를 보였고, 2년 예후까지 갈라냈다</p>
+    <p class="body">관상동맥 협착이 실제로 혈류를 제한하는지 판단하는 표준은 압력철선을 넣어 재는 분획혈류예비력(FFR)입니다. 침습적이고 시간과 약제(아데노신)가 필요해, 조영영상만으로 FFR을 추정하는 <strong>영상 기반 FFR</strong>이 대안으로 자리 잡아 왔습니다. 대표 격인 QFR은 정확도가 검증돼 있지만 <strong>혈관 윤곽 지정과 3차원 재구성에 사람 손이 많이 들어간다</strong>는 부담이 남습니다. 이 연구는 그 단계들 — 프레임 선택, 윤곽 검출, 두 조영각도 간 대응점 정합, 3차원 재구성, 혈역학 모델링 — 을 <strong>전 과정 자동화</strong>한 AI 기반 영상 FFR(medipixel FFR, MPFFR)을 QFR과 정면 비교했습니다. 국내 5개 대학병원에서 임상적 적응증으로 침습 FFR을 시행한 452명 599혈관을 전향 등록했고, 기준은 <strong>FFR ≤0.80</strong>이었습니다.</p>
+    <p class="body">자동화의 실효는 시간에서 드러났습니다. MPFFR의 평균 분석시간은 <strong>12.5±1.7초</strong>였고, 사람이 손을 대야 했던 경우는 <strong>599혈관 중 32건(5.3%)</strong>에 그쳤습니다. 진단 성능은 QFR과 대등했습니다 — 침습 FFR과의 상관은 <strong>MPFFR R=0.885 대 QFR R=0.860</strong>으로 오히려 MPFFR이 근소하게 높았고(두 상관계수 비교 P=0.011), <strong>FFR ≤0.80 판별 AUC는 0.949 대 0.953</strong>으로 차이가 없었습니다(P=0.631). 예후는 중앙값 2년(사분위수 범위 1.6–2.6년) 추적했습니다. <strong>MPFFR ≤0.80</strong>인 환자는 그렇지 않은 환자보다 2년 표적혈관실패(심장사·표적혈관 심근경색·표적혈관 재관류의 복합)가 <strong>4.5% 대 0.8%</strong>로 높았고, <strong>보정 위험비 5.94(95% CI 1.27–27.91, P=0.024)</strong>였습니다. 표적혈관실패 예측 C-index도 <strong>0.770 대 0.753</strong>으로 QFR과 비슷했습니다(P=0.469).</p>
+    <p class="body">국내 독자에게 이 논문의 의미는 두 겹입니다. 첫째, <strong>국산 심혈관 AI의 국내 다기관 전향 검증 결과가 국제 저널에 보고됐다</strong>는 사실 자체입니다. 국산 의료 AI의 약한 고리가 늘 "허가는 받았는데 다기관 전향 근거가 얇다"였다는 점을 생각하면, 5개 대학병원·599혈관·2년 추적이라는 설계는 근거 수준을 한 칸 올린 것입니다. 둘째, 12.5초라는 분석시간과 5.3%의 수동 보정률은 <strong>도관실 워크플로에 실제로 얹을 수 있는가</strong>라는 도입 판단에 직접 쓰이는 숫자입니다. 다만 제목이 밝히듯 이 연구는 <strong>개념증명(proof-of-concept) 검증</strong>입니다. 예후 분석의 신뢰구간이 1.27–27.91로 대단히 넓은데, 이는 사건 수가 적다는 뜻이며 위험비의 크기를 그대로 받아들여서는 안 된다는 신호입니다(신뢰구간 폭에 대한 이 해석은 리뷰어의 것입니다). 무엇보다 <strong>MPFFR을 보고 시술 여부를 정하는 것이 침습 FFR로 정하는 것과 대등한가</strong>는 이 설계로는 답할 수 없습니다 — 그 답은 치료 전략을 무작위 배정하는 시험에서만 나옵니다.</p>
+    <div class="r-takeaway">
+      <span class="t-label">TAKEAWAY</span>
+      <p>국내 5개 대학병원 599혈관에서 전 과정 자동화된 AI 영상 FFR(MPFFR)이 평균 12.5초·수동보정 5.3%로 QFR과 대등한 판별력(AUC 0.949 대 0.953)을 보였고 2년 표적혈관실패도 갈라냈다 — 다만 개념증명 단계이며 치료 전략을 무작위 배정한 검정은 아직 없다.</p>
+    </div>
+    <div class="r-link"><a href="https://doi.org/10.1161/JAHA.125.049331" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+  </article>
+
+  <article class="review" id="dr-ai-head-to-head-tanzania" data-type="validation" data-added="2026-09-01">
+    <div class="r-tags">
+      <span class="r-tag">선별검사 AI · 제품 비교·조달</span>
+      <span class="r-tag field">상용 제품 정면 비교 진단정확도</span>
+      <span class="r-tag field">2026-08-01</span>
+    </div>
+    <h2>Head-to-Head Comparative Evaluation of Four Commercially Available Artificial Intelligence Systems for Detecting Referable Diabetic Retinopathy in a Tanzanian Population</h2>
+    <p class="r-meta">Cleland CR, Bascaran C, Makupa WU, Shilio B, Tufail A, &hellip;, Macleod D, Burton MJ. <em>Diabetes Care</em> 2026;49(8):1451–1457 · 런던위생열대의학대학원 국제안보건센터·킬리만자로기독교의료센터(탄자니아)·무어필즈 안병원 · 탄자니아 당뇨망막병증 선별사업의 안저영상 689명분에 상용 AI 4종을 동일 데이터로 비교</p>
+    <p class="r-kr">상용 당뇨망막병증 AI 4종을 이름을 밝히고 같은 데이터에 돌려 봤다 — 민감도는 83.9~93.7%로 갈렸고, 특이도는 넷 다 70%대에 머물렀다</p>
+    <p class="body">의료 AI 논문은 대부분 <strong>자기 모델 하나의 성능</strong>을 보고합니다. 그래서 병원이나 보건당국이 "그래서 어느 제품을 사야 하는가"를 물으면 답할 근거가 없습니다. 특히 상용 제품을 <strong>이름을 밝혀</strong> 같은 데이터에서 비교한 연구는 드뭅니다 — 기업 동의가 필요하고, 결과가 나쁘게 나온 쪽이 반발할 수 있기 때문입니다. 이 연구는 그 벽을 넘었습니다. 연구진은 스코핑 리뷰와 전문가 자문으로 저자원 환경에 적합한 상용 시스템을 추린 뒤, 참여에 동의한 <strong>4종(Medios AI/Remidio, MONA, Ophtai, SELENA+)</strong>을 탄자니아 당뇨망막병증 선별사업에서 수집한 동일한 안저영상 데이터셋에 적용했습니다. 일차 결과는 <strong>의뢰가 필요한 당뇨망막병증(referable DR)</strong> 검출의 민감도·특이도였습니다.</p>
+    <p class="body">분석 대상 689명 중 <strong>379명(55.0%)</strong>이 referable DR, <strong>93명(13.5%)</strong>이 증식성 당뇨망막병증이었습니다 — 선별 집단치고는 유병률이 매우 높은 데이터셋입니다. referable DR 민감도는 제품별로 <strong>83.9%에서 93.7%</strong>까지 벌어졌고, <strong>특이도는 70.3%~79.0%</strong>로 넷 모두 민감도보다 낮았습니다. 반면 <strong>증식성 당뇨망막병증에 대한 민감도는 4종 모두 98%를 넘었습니다</strong> — 시력을 당장 위협하는 중증 병변은 어느 제품이든 거의 놓치지 않았다는 뜻입니다. 조달 관점의 정보도 함께 수집했습니다. <strong>4종 모두 CE 마크를 획득한 의료기기</strong>였고, 이 중 <strong>Medios AI/Remidio 한 종만 기본 사양에서 오프라인 작동</strong>이 가능했습니다. 저자들은 어느 하나를 우월하다고 선언하는 대신, <strong>최소 성능 기준에 대한 합의</strong>와 규제 승인·오프라인 작동 같은 구현 요인을 함께 따져야 한다고 결론지었습니다.</p>
+    <p class="body">이 논문의 값어치는 숫자보다 <strong>형식</strong>에 있습니다. 제품명을 밝힌 정면 비교는 그동안 학계가 회피해 온 형태이고, 바로 그래서 조달 담당자에게 실제로 쓰입니다. 국내에도 식약처 허가를 받은 안저·영상판독 AI가 여럿이지만, 같은 데이터셋에서 이름을 걸고 비교한 공개 연구는 사실상 없습니다. 상급종합병원과 보건소가 제품을 고를 때 기댈 것이 각 사가 제출한 자체 성능표뿐이라는 뜻입니다 — <strong>국내에서도 이런 형식의 비교 연구가 필요하다</strong>는 것이 이 논문을 고른 이유입니다. 다만 해석에는 두 가지 유의가 필요합니다. 첫째, 이 데이터셋의 referable DR 유병률 55.0%는 일반 선별 인구보다 훨씬 높아, <strong>여기서 얻은 민감도·특이도를 국내 검진 세팅의 양성예측도로 그대로 옮길 수 없습니다</strong>(유병률 의존성에 관한 이 지적은 리뷰어의 해석이며, 원문은 성능 자체를 저자원 환경 기준으로 제시합니다). 둘째, 참여에 동의한 기업의 제품만 평가됐으므로 시장 전체를 대표하지 않습니다.</p>
+    <div class="r-takeaway">
+      <span class="t-label">TAKEAWAY</span>
+      <p>상용 당뇨망막병증 AI 4종을 이름을 밝혀 동일 데이터(689명, referable DR 55.0%)에 돌리니 민감도 83.9~93.7%·특이도 70.3~79.0%로 갈렸고 증식성 병변 민감도만 모두 98% 이상이었다 — 국내에도 제품명을 건 정면 비교 연구가 필요하다.</p>
+    </div>
+    <div class="r-link"><a href="https://doi.org/10.2337/dc26-0572" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+  </article>
 
   <article class="review" id="kenya-llm-cdss-cluster-rct" data-type="rct" data-added="2026-08-25">
     <div class="r-tags">
@@ -603,7 +660,7 @@
   <div>
     <p>논문 정보는 PubMed에서 검색·확인했으며, 각 리뷰는 원문 초록을 기반으로 작성한 요약입니다. 정확한 내용은 DOI 링크의 원문을 확인하시기 바랍니다.</p>
     <p>홈 화면에 앱처럼 설치할 수 있습니다 — <a href="/install/">설치 방법 보기</a></p>
-    <p>최종 업데이트: 2026-08-25 · © 2026 AI &amp; Digital Healthcare Watch</p>
+    <p>최종 업데이트: 2026-09-01 · © 2026 AI &amp; Digital Healthcare Watch</p>
   </div>
 </footer>
 
