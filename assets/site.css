@@ -263,7 +263,7 @@
   /* ═══ Hero ═══ */
   .hero {
     text-align: center;
-    padding: 110px 22px 90px;
+    padding: 88px 22px 70px;
     position: relative;
     overflow: hidden;
   }
@@ -308,7 +308,7 @@
     letter-spacing: 0;
     color: var(--ink-muted-48);
     max-width: 640px;
-    margin: 0 auto 34px;
+    margin: 0 auto 30px;
     text-wrap: balance;
   }
   .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
@@ -340,8 +340,72 @@
   .btn-ghost:hover { text-decoration: none; background: var(--primary); color: #ffffff; }
   .btn-ghost:active { transform: scale(0.96); }
 
+  /* ═══ 이번 주 (히어로 안 · 매주 교체되는 유일한 초점) ═══ */
+  .this-week {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 22px 26px 24px;
+    border: 1px solid var(--hairline);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.84);
+    -webkit-backdrop-filter: saturate(160%) blur(16px);
+    backdrop-filter: saturate(160%) blur(16px);
+    text-align: left;
+  }
+  .tw-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.08px;
+    color: var(--primary);
+    margin: 0 0 10px;
+    font-variant-numeric: tabular-nums;
+  }
+  .tw-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--primary);
+    flex: none;
+    animation: tw-pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes tw-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.8); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tw-dot { animation: none; }
+  }
+  .tw-head {
+    font-family: var(--font-display);
+    font-size: clamp(21px, 2.9vw, 28px);
+    font-weight: 700;
+    line-height: 1.26;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  .tw-head a { color: var(--ink); }
+  .tw-head a:hover { color: var(--primary); text-decoration: none; }
+  .tw-more {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.62;
+    color: var(--ink-muted-48);
+  }
+  .tw-more a { color: var(--ink-muted-48); }
+  .tw-more a:hover { color: var(--primary); }
+  .tw-more .sep { margin: 0 9px; color: var(--hairline); }
+  @media (max-width: 640px) {
+    .this-week { padding: 18px 18px 20px; border-radius: 16px; }
+    .tw-more { font-size: 14px; }
+    .tw-more .sep { margin: 0 6px; }
+  }
+
   /* ═══ ECG line ═══ */
-  .ecg-wrap { max-width: 900px; margin: 26px auto 0; overflow: hidden; }
+  .ecg-wrap { max-width: 900px; margin: 24px auto 0; overflow: hidden; }
   .ecg { width: 100%; height: 64px; display: block; }
   .ecg-path {
     stroke: var(--primary);
@@ -365,7 +429,7 @@
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 22px;
     max-width: 780px;
-    margin: 72px auto 0;
+    margin: 52px auto 0;
   }
   .stat .num {
     font-family: var(--font-display);
@@ -1225,7 +1289,7 @@
 
   @media (max-width: 640px) {
     .tile { padding: 64px 22px; }
-    .hero { padding: 72px 22px 56px; }
+    .hero { padding: 58px 22px 46px; }
     .entry { grid-template-columns: 1fr; gap: 6px; }
     .entry .date { padding-top: 0; }
     /* 모바일: 브랜드 아래에 메뉴를 가로 스크롤 띠로 */
