@@ -275,7 +275,7 @@
   <div class="sec-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="16" y2="7"/><line x1="9" y1="11" x2="16" y2="11"/></svg></div>
   <h1>논문 리뷰<span class="cadence">매주</span></h1>
   <p class="sub">의료 AI·디지털헬스 신간 논문을 골라 읽습니다. 요지·핵심 결과·임상적 의미를 짧게 정리합니다.</p>
-  <p class="count-line"><strong id="review-count">19</strong>편 누적 · 최근 업데이트 2026-09-01</p>
+  <p class="count-line"><strong id="review-count">19</strong>편 누적 · 최근 업데이트 2026-09-08</p>
   <div class="policy">
     <strong>선정 기준</strong> — PubMed와 Consensus에서 새로 나온 논문 중 임상 적용 가능성과 파급력을 기준으로 <strong>매주 화요일</strong> 2~3편을 고릅니다. 호(號)로 나누지 않고 최신 리뷰가 위에 쌓이는 방식이며, 각 리뷰는 초록·본문 기반 요약과 원문 DOI를 함께 제공합니다.
   </div>
@@ -295,6 +295,63 @@
 <div class="wrap reviews" style="padding-top: 0;">
 
   <!-- 새 리뷰는 이 위치(맨 위)에 추가합니다 -->
+
+  <article class="review" id="ai-ecg-attr-cm-jama" data-type="validation" data-added="2026-09-08">
+    <div class="r-tags">
+      <span class="r-tag">심전도 AI · 심부전 감별진단</span>
+      <span class="r-tag field">다기관 진단정확도 검증</span>
+      <span class="r-tag field">2026-08-28</span>
+    </div>
+    <h2>Electrocardiogram-Based Deep Learning to Prioritize Testing for Transthyretin Amyloid Cardiomyopathy</h2>
+    <p class="r-meta">Croon PM, Batinica B, Dhingra LS, Choi RB, Oikonomou EK, Shankar SV, Sangha V, &hellip;, Maurer MS, Ruberg FL, Fontana M, Khera R(교신저자). <em>JAMA</em> 2026 (온라인 우선 공개 2026-08-28) · 예일의대 CarDS Lab(미국)·에라스무스 MC(네덜란드)·컬럼비아대·UCL 국립아밀로이드증센터(영국) 등 · 개발 11,291명(심전도 28,174건, ATTR-CM 293명), 내부검증 44,123명, 다국가 외부 코호트 5개 + 선별 코호트 3개(코호트당 99~3,902명)</p>
+    <p class="r-kr">트랜스티레틴 심아밀로이드증을 찾아내는 데 종이 심전도 사진 한 장이면 되는가 — 예일 연구팀의 대답은 "확진은 못 하지만 누구를 검사할지는 고를 수 있다"</p>
+    <p class="body">트랜스티레틴 심아밀로이드증(ATTR-CM)은 치료제가 나온 뒤로 <strong>"찾으면 치료할 수 있는 심부전"</strong>이 되었지만, 진단은 여전히 늦습니다. 좌심실 비대·저전압·전도장애처럼 흔한 소견 뒤에 숨어 있는 데다, 확진 경로인 심근 방사성핵종 영상(PYP/DPD 스캔)이나 조직검사는 의심해야만 굴러가기 때문입니다. 연구진은 <strong>인쇄·스캔된 12유도 심전도 이미지</strong>는 물론 원신호로도 작동하는, ATTR-CM 추가 평가 대상을 골라내는 <strong>병원 내부에 그대로 설치할 수 있는(locally deployable)</strong> AI 모델을 개발했습니다. Yale New Haven Health의 2015년 8월~2023년 6월 심전도로 학습하고 2023년 7월~2025년 7월 구간으로 시간적 검증을 한 뒤, 다국가 외부 코호트 5개와 선별 코호트 3개에서 성능을 확인했습니다.</p>
+    <p class="body">내부검증(44,123명, 평균 68.5세, 여성 49.7%)에서 <strong>AUROC 0.84(95% CI 0.79–0.89)</strong>, 사전 지정 임계값에서 <strong>민감도 0.72 · 특이도 0.86</strong>이었습니다. 중요한 것은 "닮은 것들"을 넣은 스트레스 테스트입니다 — 아밀로이드증이 아닌 좌심실비대나 중증 대동맥판협착 환자를 섞었을 때 <strong>AUROC 0.81(0.75–0.86)</strong>, 이미 핵의학 영상에 의뢰된 환자군에서 <strong>0.78(0.73–0.84)</strong>로, 단순히 "두꺼운 심장"을 읽는 것이 아님을 보였습니다. 외부 코호트 5개에서는 <strong>AUROC 0.78~0.89</strong>, 선별 코호트에서는 SCAN-MP(고령 흑인·히스패닉 심부전 환자 645명) 0.76(0.68–0.83), CACTUS(수근관 수술 기왕력자) 두 코호트에서 0.79(0.65–0.93)·0.91(0.82–0.97)이었습니다. 탐색적으로 AI 심전도 뒤에 AI 심초음파를 이어 붙이자 <strong>양성예측도가 0.24에서 0.66으로</strong> 올랐고, 대신 <strong>민감도는 0.84에서 0.68로</strong> 떨어졌습니다 — 선별의 값을 정직하게 보여주는 맞바꿈입니다.</p>
+    <p class="body">임상적으로 이 연구의 미덕은 <strong>야심을 줄인 데</strong> 있습니다. 저자들이 내건 목표는 진단이 아니라 "심초음파와 확진 영상으로 보낼 사람을 앞단에서 고르는 것"이고, 논문도 사용 목적과 보정(calibration)은 전향적 평가가 필요하다고 못 박았습니다. 실제로 민감도 0.72는 셋 중 하나 가까이를 놓친다는 뜻이라, 임상적 의심이 강한 환자를 이 도구가 음성으로 분류했다고 검사를 접어서는 안 됩니다. 심전도 <strong>이미지</strong>를 입력으로 삼은 설계는 국내 현실과 특히 잘 맞습니다 — 원신호 추출용 장비 연동이나 벤더별 포맷 협상 없이 PACS·EMR에 이미 쌓여 있는 심전도 그림만으로 돌릴 수 있다는 뜻이기 때문입니다. 다만 검증 코호트에 아시아 인구가 포함됐다는 근거는 논문에 제시되지 않았으므로, 국내 도입 전에는 <strong>한국인 코호트에서의 재보정이 선행되어야 한다</strong>고 보는 것이 안전합니다(이 판단은 원문의 주장이 아니라 리뷰어의 해석입니다).</p>
+    <div class="r-takeaway">
+      <span class="t-label">TAKEAWAY</span>
+      <p>인쇄된 심전도 사진만으로 ATTR-CM 후보를 걸러내는 AI가 다국가 8개 코호트에서 AUROC 0.76~0.91을 보였다 — 확진이 아니라 "누구를 심초음파·핵의학 영상으로 보낼지"를 앞단에서 정하는 도구로 읽어야 한다.</p>
+    </div>
+    <div class="r-link"><a href="https://doi.org/10.1001/jama.2026.16785" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+  </article>
+
+  <article class="review" id="shaked-llm-cdss-emergency-decide-ai" data-type="prospective" data-added="2026-09-08">
+    <div class="r-tags">
+      <span class="r-tag">LLM 임상적용 · 응급의학</span>
+      <span class="r-tag field">전향적 평가(DECIDE-AI 1단계)</span>
+      <span class="r-tag field">2026-08-19</span>
+    </div>
+    <h2>Prospective evaluation of a large language model clinical decision support system in the emergency department</h2>
+    <p class="r-meta">Leibovitch L, Ahituv A, Gorenshtein A, Aran D, Sorka M, Miron K, Shelly S(교신저자). <em>Nature Medicine</em> 2026 (온라인 우선 공개 2026-08-19) · 람밤 의료원(이스라엘 하이파)·테크니온 공대 · 3차 병원 응급실 두 구역을 4주간 병행 운영하며 환자 1,138명을 분석한 전향적 평가(DECIDE-AI 1단계, NCT06902675)</p>
+    <p class="r-kr">LLM 진료보조의 발목을 잡은 것은 정확도가 아니라 의사들이 그것을 점점 쓰지 않게 됐다는 사실이었다</p>
+    <p class="body">LLM 기반 임상의사결정지원(CDSS)의 벤치마크 성적은 이미 넘칠 만큼 쌓였지만, 실제 진료 현장에 놓았을 때 무슨 일이 벌어지는지를 전향적으로 관찰한 연구는 드뭅니다. 연구진은 여러 LLM을 결합해 만든 CDSS <strong>SHAKED</strong>를 3차병원 응급실에 배치하고, <strong>DECIDE-AI 1단계</strong>(초기 임상 도입 단계의 평가를 위한 국제 보고 기준) 설계로 4주를 관찰했습니다. 응급실을 두 구역으로 나눠 한쪽은 SHAKED를 쓰고 다른 한쪽은 평소대로 근무하게 한 뒤, 환자 1,138명의 경과와 의료진의 사용 행태를 함께 기록했습니다. 물어본 것은 "AI가 맞히는가"가 아니라 <strong>"의사들이 쓰는가, 그리고 진료 흐름이 실제로 바뀌는가"</strong>였습니다.</p>
+    <p class="body">안전성과 출력 품질은 좋았습니다 — 이상반응은 관찰되지 않았고, 표본 추출한 출력 100건 중 <strong>99건</strong>이 전문가 검토에서 임상적으로 적절하다는 평가를 받았습니다. 문제는 사용률이었습니다. 임상 채택률은 4주에 걸쳐 <strong>68%에서 30%로</strong> 떨어졌고, 근무 시간이 한 시간 길어질수록 사용 확률이 낮아졌습니다(<strong>OR 0.72/근무시간, 95% CI 0.62–0.83</strong>) — 바쁠수록 안 쓴다는 뜻입니다. 반대로 영상의학과 협진 상황에서는 선호도가 뚜렷했습니다(<strong>OR 2.98, 95% CI 1.58–5.63</strong>). 결과 지표는 움직이지 않았습니다. 응급실 체류시간은 <strong>양쪽 모두 4.9시간(P=0.99)</strong>으로 같았고, 치료의향 분석에서 협진 소요시간이 <strong>9.4분</strong> 짧아지는 경향이 있었으나 통계적으로 유의하지 않았습니다(<strong>P=0.077</strong>).</p>
+    <p class="body">저자들의 결론이 인상적입니다 — 임상 AI의 병목은 알고리즘 정확도가 아니라 <strong>임상의의 지속적 관여(sustained engagement)</strong>일 수 있으며, 이 결과는 무작위 시험 설계에 참고할 자료이지 <strong>지금 단계에서 임상 배치를 정당화하지는 않는다</strong>고 스스로 못 박았습니다. 4주·단일기관·비무작위 설계이므로 인과를 말할 수 없고, 채택률 하락에는 신기함이 가시는 효과와 업무 부담이 뒤섞여 있어 어느 쪽이 주된 이유인지도 이 자료로는 갈라내기 어렵습니다. 그럼에도 국내에 주는 함의는 분명합니다. 병원마다 LLM 도입 실증이 늘고 있지만 성과 지표는 대개 정확도·만족도에 머물러 있습니다. <strong>"도입 후 몇 주가 지났을 때 실제 사용률이 얼마인가"</strong>를 처음부터 지표에 넣지 않으면, 잘 만든 도구가 조용히 방치되는 것을 아무도 알아채지 못합니다.</p>
+    <div class="r-takeaway">
+      <span class="t-label">TAKEAWAY</span>
+      <p>응급실에 넣은 LLM 진료보조는 출력 100건 중 99건이 적절했지만 사용률은 4주 만에 68%에서 30%로 떨어졌고 체류시간은 4.9시간으로 변화가 없었다 — 임상 AI의 성패는 정확도보다 "계속 쓰게 만드는가"에 달려 있다.</p>
+    </div>
+    <div class="r-link"><a href="https://doi.org/10.1038/s41591-026-04601-5" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+  </article>
+
+  <article class="review" id="conversational-ai-agent-mental-health-rct" data-type="rct" data-added="2026-09-08">
+    <div class="r-tags">
+      <span class="r-tag">대화형 AI · 정신건강</span>
+      <span class="r-tag field">3군 무작위 대조시험</span>
+      <span class="r-tag field">2026-04-01</span>
+    </div>
+    <h2>Efficacy of a Conversational AI Agent for Psychiatric Symptoms and Digital Therapeutic Alliance: A Randomized Clinical Trial</h2>
+    <p class="r-meta">Shoshani A(제1저자), Gurfinkel B, Kor A, Ben-Haim Y, Kanarek O, Segev R, Shafir O, Arbel R. <em>JAMA Network Open</em> 2026;9(4):e266713 · 라이히만대 바루흐 이브체르 심리학부(이스라엘)·히브리대·예일대 · 심리적 고통을 호소한 대학생 995명을 대화형 AI·대면 집단치료·대기자 대조군에 1:1:1 무작위 배정한 12주 시험(3개월 추적, ISRCTN61075527)</p>
+    <p class="r-kr">대화형 AI가 대면 집단치료보다 불안을 더 낮췄다 — 그리고 그 차이를 설명한 것은 알고리즘이 아니라 "치료적 동맹"이었다</p>
+    <p class="body">챗봇형 정신건강 개입은 접근성이라는 명분이 뚜렷하지만, 근거의 대부분은 소규모이거나 비교 대상이 무처치·자가학습 자료였습니다. 이 시험은 그 비교를 한 칸 올렸습니다 — <strong>사람이 진행하는 대면 집단치료</strong>를 능동 대조군으로 두었기 때문입니다. 2025년 4월 1일부터 10월 27일까지 심리적 고통을 보고한 대학생을 대화형 AI 플랫폼(336명)·대면 집단치료(331명)·대기자 대조군(328명)에 1:1:1로 배정해 12주간 개입하고, 총 995명(평균 23.1세, 여성 50.7%)을 치료의향 원칙으로 분석했습니다. 일차 결과는 불안(GAD-7)·우울(PHQ-9)·외상후스트레스(PCL-5)·웰빙(WHO-5)·삶의 만족도였고, 두 번째 질문은 <strong>"디지털 치료적 동맹(digital therapeutic alliance)"</strong>, 즉 사용자가 AI와 맺었다고 느끼는 관계가 효과를 매개하는가였습니다.</p>
+    <p class="body">불안에서 AI군이 가장 앞섰습니다 — 대면 집단치료 대비 <strong>평균차 −2.17점(95% CI −2.67 ~ −1.67)</strong>, 대기자 대조군 대비 <strong>−2.15점(−2.65 ~ −1.65)</strong>. 우울은 <strong>대조군 대비 −1.99점(−2.63 ~ −1.35)</strong>로 유의했고, <strong>집단치료 대비 우울 차이는 초록에 제시되지 않았습니다</strong>. 외상후스트레스는 <strong>세 군 간 차이가 없었습니다.</strong> 웰빙(WHO-5)에서는 AI군이 집단치료보다 <strong>5.72점(2.71–8.73)</strong>, 대조군보다 <strong>9.16점(6.14–12.18)</strong> 더 개선됐습니다. 구조방정식 모형에서 지각된 치료적 동맹은 참여도와(<strong>β=0.31, 0.16–0.43; P&lt;.001</strong>), 증상 호전과(<strong>β=−0.58, −0.69 ~ −0.46; P&lt;.001</strong>) 유의하게 연결돼 있었습니다.</p>
+    <p class="body">해석은 조심스러워야 합니다. 대상이 <strong>대학생</strong>이고 진단 기준이 아니라 자가보고 고통으로 등록됐으므로, 이 결과를 정신과 외래 환자에게 그대로 옮길 수 없습니다. GAD-7에서 2점 차이는 통상 알려진 최소 임상적 중요차이(4점 안팎)에 못 미쳐 <strong>통계적 유의성과 임상적 의미가 같지 않고</strong>(원문 초록은 최소 임상적 중요차이를 언급하지 않으며, 이 비교는 리뷰어의 판단입니다), 개입 특성상 참가자 눈가림이 불가능해 기대 효과가 섞였을 수 있습니다. 무엇보다 대면 집단치료가 열등하게 나온 것을 "AI가 사람보다 낫다"로 읽으면 안 됩니다 — 집단치료는 시간·장소가 고정된 반면 AI는 언제든 접근할 수 있어, 측정된 것은 상당 부분 <strong>개입 형식(접근성)의 차이</strong>일 수 있습니다(이 지적은 원문의 결론이 아니라 리뷰어의 해석입니다). 국내에서도 불면·우울·공황 영역의 디지털치료기기 허가가 이어지고 있는데, 이 연구가 던지는 실무적 질문은 성능이 아니라 설계입니다 — <strong>"사용자가 관계를 느끼게 만드는 요소"를 제품에 얼마나 의도적으로 설계해 넣었는가</strong>가 참여도와 결과를 가른다는 뜻이기 때문입니다.</p>
+    <div class="r-takeaway">
+      <span class="t-label">TAKEAWAY</span>
+      <p>대학생 995명 3군 무작위 시험에서 대화형 AI는 대면 집단치료보다 불안을 2.17점 더 낮췄고 그 효과는 "치료적 동맹" 지각과 강하게 연결돼 있었다 — 다만 대상이 대학생이고 효과 크기가 최소 임상적 중요차이에 못 미쳐, 임상 진료의 대체가 아니라 접근성 보완재로 읽는 것이 맞다.</p>
+    </div>
+    <div class="r-link"><a href="https://doi.org/10.1001/jamanetworkopen.2026.6713" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+  </article>
 
   <article class="review" id="retina4ird-cdss-rct" data-type="rct" data-added="2026-09-01">
     <div class="r-tags">
@@ -660,7 +717,7 @@
   <div>
     <p>논문 정보는 PubMed에서 검색·확인했으며, 각 리뷰는 원문 초록을 기반으로 작성한 요약입니다. 정확한 내용은 DOI 링크의 원문을 확인하시기 바랍니다.</p>
     <p>홈 화면에 앱처럼 설치할 수 있습니다 — <a href="/install/">설치 방법 보기</a></p>
-    <p>최종 업데이트: 2026-09-01 · © 2026 AI &amp; Digital Healthcare Watch</p>
+    <p>최종 업데이트: 2026-09-08 · © 2026 AI &amp; Digital Healthcare Watch</p>
   </div>
 </footer>
 
