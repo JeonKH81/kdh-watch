@@ -275,7 +275,7 @@
   <div class="sec-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="16" y2="7"/><line x1="9" y1="11" x2="16" y2="11"/></svg></div>
   <h1>논문 리뷰<span class="cadence">매주</span></h1>
   <p class="sub">의료 AI·디지털헬스 신간 논문을 골라 읽습니다. 요지·핵심 결과·임상적 의미를 짧게 정리합니다.</p>
-  <p class="count-line"><strong id="review-count">19</strong>편 누적 · 최근 업데이트 2026-09-08</p>
+  <p class="count-line"><strong id="review-count">19</strong>편 누적 · 최근 업데이트 2026-09-15</p>
   <div class="policy">
     <strong>선정 기준</strong> — PubMed와 Consensus에서 새로 나온 논문 중 임상 적용 가능성과 파급력을 기준으로 <strong>매주 화요일</strong> 2~3편을 고릅니다. 호(號)로 나누지 않고 최신 리뷰가 위에 쌓이는 방식이며, 각 리뷰는 초록·본문 기반 요약과 원문 DOI를 함께 제공합니다.
   </div>
@@ -295,6 +295,63 @@
 <div class="wrap reviews" style="padding-top: 0;">
 
   <!-- 새 리뷰는 이 위치(맨 위)에 추가합니다 -->
+
+  <article class="review" id="snuh-reader-llm-interaction-thoracic" data-type="retrospective" data-added="2026-09-15">
+    <div class="r-tags">
+      <span class="r-tag">LLM · 인간-AI 협업 · 국내 연구</span>
+      <span class="r-tag field">후향적 판독자 연구</span>
+      <span class="r-tag field">2026-08</span>
+    </div>
+    <h2>Determinants of Reader-LLM Interaction in Thoracic Radiology: Impact of Model Confidence and Reader Expertise</h2>
+    <p class="r-meta">Song J, Jeong WG, Han DH, Ko H, Yoon SH, Kim H, Naruetook P, Leong WL, Kim S, Moon HE, An JY, Koo SJ, Lee M, Hwang EJ, Lee T. <em>Radiology</em> 2026;320(2):e253397 · 서울대학교병원 영상의학과·국립암센터·서울성모병원 · 대한흉부영상의학회 Weekly Case 흉부영상 100증례를 판독자 10명이 판독한 후향적 판독자 연구(판독자-증례 1,000쌍)</p>
+    <p class="r-kr">판독의가 LLM의 조언을 잘 쓰느냐는 모델의 확신도·판독의의 숙련도와 연관됐고, 설명이 좋을수록 틀린 답을 받아들이는 경향도 커졌다</p>
+    <p class="body">LLM은 이제 진단 후보와 함께 "왜 그렇게 보는지" 설명까지 내놓습니다. 그런데 협업의 성패는 모델이 맞히느냐만으로 정해지지 않습니다. 사람이 <strong>맞는 조언은 받아들이고 틀린 조언은 걸러내야</strong> 하기 때문입니다. 서울대병원 연구진은 대한흉부영상의학회 Weekly Case 플랫폼(2018년 1월~2020년 12월)에서 흉부 단순촬영·CT·MRI·PET 100증례를 골라, 판독자 10명에게 먼저 도움 없이 판독하게 했습니다(1차). 2차 판독에서는 판독자-증례 단위로 무작위 배정해 <strong>정확도가 높은 GPT-5</strong>(정답률 76%, 500쌍 중 379쌍) 또는 <strong>정확도가 낮은 GPT-4o</strong>(27%, 500쌍 중 133쌍)가 순위를 매긴 진단 후보와 근거를 제시했습니다. 주평가변수는 <strong>"적절한 상호작용"</strong>, 즉 맞는 제안을 받아들이거나 틀린 제안을 거부한 비율입니다.</p>
+    <p class="body">다변량 일반화추정방정식으로 분석하자 두 요인이 독립적으로 적절한 상호작용과 연관됐습니다. <strong>모델 확신도</strong>(정답에 매긴 점수, <strong>OR 3.82, 95% CI 1.58–9.25</strong>)와 <strong>판독자 숙련도</strong>(<strong>OR 2.06, 1.38–3.07</strong>)입니다. 다만 전문가일수록 모델 확신도에 덜 흔들렸습니다(교호작용 OR 0.79, 0.67–0.94). 가장 눈여겨볼 대목은 <strong>설명(rationale)의 질</strong>입니다. 설명이 좋을수록 맞는 제안을 거부하는 일은 줄었지만(OR 0.79, 0.67–0.93), <strong>틀린 제안을 받아들이는 일은 늘었습니다(OR 1.71, 1.47–1.99)</strong>. 반대로 판독자 숙련도(OR 0.54, 0.41–0.70)와 1차 판독 때의 판독자 확신도(OR 0.80, 0.67–0.94)는 틀린 제안을 받아들이지 않게 막아 주는 방향이었습니다.</p>
+    <p class="body">"설명 가능한 AI가 신뢰를 높인다"는 통념의 이면을 수치로 보여준 연구입니다. 설명은 좋은 조언을 쓰게도 하지만 <strong>나쁜 조언도 설득력 있게 포장합니다</strong>. 경험이 적은 판독자일수록 이런 과신(overreliance)에 취약했다는 점은 전공의 교육이나 야간 판독처럼 숙련도가 낮은 상황에서 LLM을 붙일 때 더 조심해야 한다는 뜻으로 읽힙니다(이 적용 맥락은 원문이 아니라 리뷰어의 해석입니다). 한계도 있습니다. 판독자는 10명, 증례는 학회 Weekly Case 플랫폼의 100건이고, 두 모델의 정답률이 76%와 27%로 크게 달라 실제 진료에서 단일 모델을 쓰는 상황과는 거리가 있습니다. 학회 증례 플랫폼의 사례는 일상 판독 목록보다 교육적 가치가 큰 증례 위주일 가능성도 있습니다(리뷰어의 추정). 모델 확신도가 적절한 상호작용과 연관됐다는 결과에 비추어, 도입할 때 <strong>모델의 확신도를 판독의에게 드러내는 방식</strong>을 함께 고민할 만합니다(원문이 아닌 리뷰어의 제안입니다).</p>
+    <div class="r-takeaway">
+      <span class="t-label">TAKEAWAY</span>
+      <p>LLM의 설명이 좋을수록 판독의가 맞는 조언을 덜 거부했지만 틀린 조언을 받아들일 가능성도 커졌다(OR 1.71) — 의료 LLM의 설명은 신뢰를 높이는 장치이자 과신을 부르는 장치다.</p>
+    </div>
+    <div class="r-link"><a href="https://doi.org/10.1148/radiol.253397" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+  </article>
+
+  <article class="review" id="lion-liver-ct-ai-single-arm-trial" data-type="validation" data-added="2026-09-15">
+    <div class="r-tags">
+      <span class="r-tag">영상진단 AI · 간암 · 실진료 배치</span>
+      <span class="r-tag field">다기관 검증 + 단일군 임상시험</span>
+      <span class="r-tag field">2026-08-19</span>
+    </div>
+    <h2>Large-scale AI-guided liver malignancy diagnosis: multicenter study and a single-arm trial</h2>
+    <p class="r-meta">Zhang X, Li C, Han X, Yin X, Zhang C, Zhou J, Cao K, Liu Q, &hellip;, Ourselin S, Zuluaga MA, Yan K, Zhang Q, Hou Y, Liang T, Zhang L, Shi Y. <em>Nature Medicine</em> 2026 (온라인 우선 공개 2026-08-19) · 중국의과대학 성경병원·알리바바 DAMO 아카데미·저장대 제1부속병원·킹스칼리지런던(영국)·EURECOM(프랑스) 등 · 개발 6,443명, 후향적 다기관·실사용 검증 22,251명, 실진료 단일군 시험 10,333명(NCT07153783)</p>
+    <p class="r-kr">조영증강 CT에서 간 악성종양을 읽는 AI를 판독자 한 명으로 더 앉혔더니, 1만 명 중 판독에서 빠졌던 병변 51개가 새로 드러났다</p>
+    <p class="body">간 악성종양은 대개 조영증강 CT로 평가하지만, 판독량이 많은 실제 진료에서는 놓치거나 늦게 진단하는 일이 여전히 생깁니다. 연구진은 <strong>LiON(Liver DiagnOsis Network)</strong>을 개발했습니다. 여러 조영 시기의 영상을 유연하게 처리하고 임상 정보까지 함께 반영하도록 만든 AI로, 기존 판독 흐름에 끼워 넣을 수 있게 설계했습니다. 6,443명으로 학습한 뒤 다기관·실사용 코호트 22,251명에서 후향적으로 검증했고, 이어 실제 진료 환자 10,333명을 대상으로 <strong>기존 판독 흐름에 "추가 AI 판독자"로 넣는 단일군 시험</strong>을 진행했습니다. 연구 질문은 "성능이 좋은가"를 넘어 <strong>"안전망 역할을 실제로 하는가"</strong>였습니다.</p>
+    <p class="body">후향적 검증에서 악성 진단 <strong>AUC는 0.975(95% CI 0.971–0.979)</strong>였고, 판독이 까다로운 지방간 환자에서 0.971(0.952–0.985), 간경변 환자에서 <strong>0.924(0.901–0.946)</strong>를 유지했습니다. 단일군 시험의 주평가변수는 "악성 진단 AUC의 95% 신뢰구간 하한이 0.900을 넘는가"였고, <strong>AUC 0.952(0.942–0.961)</strong>로 이를 충족했습니다. 임상적으로 더 의미 있는 것은 이차 결과입니다. AI와 판독의가 함께 보는 과정에서 <strong>기존 판독에서 빠졌던 병변 51개(그중 악성 15개)</strong>가 새로 확인됐고, 이것이 <strong>판독문 수정 37건, 다학제 진료 회부 22건</strong>, 그리고 일부 환자의 치료 방침 변경으로 이어졌습니다.</p>
+    <p class="body">이 연구는 AUC 보고에서 멈추지 않고 <strong>판독문이 실제로 몇 건 바뀌었는지</strong>까지 셌다는 점에서 눈여겨볼 만합니다. 하지만 설계의 한계도 저자들이 스스로 밝혔습니다. 대조군이 없는 단일군 시험이어서 환자 결과에 미치는 효과는 이 자료로 판단할 수 없고, 저자들도 여러 의료체계에서 임상 결과를 평가할 전향적 비교연구가 필요하다고 결론지었습니다. 1만 명 중 새로 찾은 악성 병변 15개는 대략 700명에 한 명꼴이어서, 그 대가인 추가 검사와 위양성 부담이 얼마인지 함께 따져야 합니다(이 비율 환산과 비용 관점은 리뷰어의 해석입니다). 간경변군 AUC가 0.924로 전체보다 낮았다는 점은, 만성 간질환자를 영상으로 추적하는 일이 많은 국내 환경에서 <strong>도입 전에 간경변 추적 환자군을 따로 검증해야 할 이유</strong>로 보입니다(국내 적용 맥락은 리뷰어의 해석입니다).</p>
+    <div class="r-takeaway">
+      <span class="t-label">TAKEAWAY</span>
+      <p>간 CT AI를 실진료 1만여 명에게 추가 판독자로 적용하자 AUC 0.952를 유지하며 놓쳤던 병변 51개(악성 15개)를 찾아 판독문 37건을 바꿨다 — 다만 대조군 없는 시험이라 환자 결과 개선은 아직 증명되지 않았다.</p>
+    </div>
+    <div class="r-link"><a href="https://doi.org/10.1038/s41591-026-04589-y" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+  </article>
+
+  <article class="review" id="adhere-ascvd-digital-outreach-smart" data-type="rct" data-added="2026-09-15">
+    <div class="r-tags">
+      <span class="r-tag">디지털 중재 · 복약순응도</span>
+      <span class="r-tag field">실용적 SMART 무작위배정 시험</span>
+      <span class="r-tag field">2026-08-29</span>
+    </div>
+    <h2>Digital Outreach to Improve Statin Refills in Patients With Low Statin Adherence: The ADHERE-ASCVD Randomized Clinical Trial</h2>
+    <p class="r-meta">Bhatt AS, Liu VX, Sun B, Apostol-Largeteau M, Marafino BJ, Amiri M, Tran DL, Ambrosy AP, &hellip;, Solomon SD, Vaduganathan M, Go AS, Ku IA, Manthripragada G, Yee K, Lee K, Khan M. <em>JAMA</em> 2026 (온라인 우선 공개 2026-08-29) · 카이저 퍼머넌트 북부 캘리포니아(미국)·브리검여성병원·코펜하겐대학병원 · 의료체계 내장형 실용적 PROBE 시험, 2단계 SMART 설계, 20,604명(NCT07522645)</p>
+    <p class="r-kr">스타틴 처방을 받고도 약을 타 가지 않는 환자에게 문자·포털 메시지를 보내자 약 재수령이 늘었고, 반응이 없던 환자에게 한 번 더 보낸 연락도 효과가 있었다 — 연락 수단을 바꾼다고 더 나아지지는 않았다</p>
+    <p class="body">스타틴을 처방해도 환자가 약을 타 가지 않으면 소용이 없습니다. 복약 불이행은 막을 수 있는 심혈관 사건의 주요 원인이지만, 의료기관이 흔히 보내는 안내 연락은 대부분 한 번 보내고 끝나는 고정된 방식이고 무작위배정 근거도 부족합니다. 카이저 퍼머넌트 북부 캘리포니아(회원 460만 명 이상) 연구진은 죽상경화성 심혈관질환(ASCVD)이 있거나 고위험이면서 최근 스타틴을 제때 타 가지 않은 성인을 대상으로, 진료체계 안에 그대로 녹여 넣은 시험을 설계했습니다. 1단계에서 <strong>보안 환자포털 메시지·문자(SMS)·일반 이메일·통상 연락</strong>에 1:1:1:1로 배정하고, 14일 안에 반응하지 않은 환자는 2단계에서 <strong>같은 수단 반복·다른 수단으로 전환·통상 연락</strong>에 다시 무작위 배정했습니다(SMART 설계). 주평가변수는 각 배정 후 14일 이내 스타틴 재수령(refill)률입니다.</p>
+    <p class="body">대상자는 20,604명(평균 54.8세, 여성 40.9%, 확립된 ASCVD 15.3%)이었습니다. 1단계 디지털 연락은 14일 재수령률을 <strong>14.4% 대 12.0%</strong>로 높였습니다(보정 위험차 <strong>2.3%p, 95% CI 1.3–3.4</strong>; 보정 RR 1.20, 1.10–1.30). 처음에 반응하지 않은 환자에게 한 번 더 연락하자 재수령률이 다시 <strong>13.0% 대 10.4%</strong>로 올랐습니다(보정 위험차 2.5%p, 1.3–3.7; RR 1.25, 1.11–1.39). 그런데 <strong>연락 수단을 바꾸는 것은 같은 수단을 반복하는 것보다 낫지 않았습니다</strong>(13.2% 대 12.5%, RR 1.06, 0.94–1.17) — 반복이 전환보다 우월했다는 뜻이 아니라 둘 사이에 차이가 확인되지 않았다는 뜻입니다. 28일까지의 누적 재수령률은 디지털 연락을 받은 쪽이 24.9%, 통상 연락이 21.2%였습니다(보정 HR 1.21, 1.13–1.30). 사전에 정한 하위군에서도 결과는 일관됐습니다.</p>
+    <p class="body">이 시험은 AI가 아니라 <strong>의료체계가 보내는 메시지 한 통</strong>을 다룬 연구지만, 디지털헬스 중재를 어떻게 검증해야 하는지를 잘 보여줍니다. 기존 진료 흐름 안에서 2만 명을 빠르게 무작위 배정했고, "누구에게 무엇을 몇 번 보낼지"라는 적응형 질문에 SMART 설계로 답했습니다. 효과의 크기는 겸손하게 봐야 합니다. 절대 증가폭 2.3%p는 대략 43명에게 연락해야 1명이 더 약을 타 간다는 뜻이고(리뷰어의 환산), 평가변수는 14일 재수령이지 LDL 콜레스테롤이나 심혈관 사건이 아닙니다. 장기 순응도가 유지되는지도 이 시험으로는 알 수 없습니다. 다만 자동화된 메시지라 한 통당 추가 부담이 작다는 점을 감안하면 인구 단위로는 의미 있는 전략일 수 있습니다(비용은 원문이 측정하지 않았으며, 이 판단은 리뷰어의 해석입니다). 국내에서는 환자포털이 널리 쓰이지 않아 문자나 메신저 알림이 현실적인 수단일 텐데, <strong>"수단을 바꿔도 이득이 없었다"</strong>는 결과는 채널 선택보다 <strong>무응답자에게 빠뜨리지 않고 다시 연락하는 구조</strong>에 먼저 공을 들이는 편이 합리적이라는 방향으로 읽힙니다(국내 적용은 리뷰어의 해석입니다).</p>
+    <div class="r-takeaway">
+      <span class="t-label">TAKEAWAY</span>
+      <p>스타틴을 타 가지 않은 2만여 명에게 디지털 연락을 보내자 14일 재수령률이 12.0%에서 14.4%로 올랐고, 무응답자에게 한 번 더 보낸 연락도 효과가 있었지만 수단을 바꾼다고 추가 이득은 없었다 — 효과는 작지만 의료체계 안에서 바로 돌릴 수 있는 개선이다.</p>
+    </div>
+    <div class="r-link"><a href="https://doi.org/10.1001/jama.2026.16372" target="_blank" rel="noopener">원문 보기 (DOI)</a></div>
+  </article>
 
   <article class="review" id="ai-ecg-attr-cm-jama" data-type="validation" data-added="2026-09-08">
     <div class="r-tags">
@@ -717,7 +774,7 @@
   <div>
     <p>논문 정보는 PubMed에서 검색·확인했으며, 각 리뷰는 원문 초록을 기반으로 작성한 요약입니다. 정확한 내용은 DOI 링크의 원문을 확인하시기 바랍니다.</p>
     <p>홈 화면에 앱처럼 설치할 수 있습니다 — <a href="/install/">설치 방법 보기</a></p>
-    <p>최종 업데이트: 2026-09-08 · © 2026 AI &amp; Digital Healthcare Watch</p>
+    <p>최종 업데이트: 2026-09-15 · © 2026 AI &amp; Digital Healthcare Watch</p>
   </div>
 </footer>
 
